@@ -5,16 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>זה קל!</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- קישור לספריית Marked.js דרך CDN -->
+    <!-- גופן מודרני מגוגל -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- ספריית Marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- ספריית Font Awesome לאייקונים -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <h1>זה קל!</h1>
-    </header>
-    <main id="content">
-        <!-- התוכן ייטען כאן דינמית -->
-    </main>
+    <div class="container">
+        <!-- ניווט צדדי -->
+        <aside id="sidebar">
+            <h2>קבוצות</h2>
+            <ul id="group-list">
+                <!-- רשימת הקבוצות תיטען דינמית -->
+            </ul>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="חיפוש...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </aside>
+        <!-- תוכן מרכזי -->
+        <main id="content">
+            <header>
+                <h1>זה קל!</h1>
+                <p>רשימת מונחי מחשבים וטכנולוגיה עם תרגום והסבר בעברית</p>
+            </header>
+            <section id="terms">
+                <!-- התוכן ייטען כאן דינמית -->
+            </section>
+        </main>
+    </div>
     <footer>
         <p>&copy; 2024 זה קל!</p>
     </footer>
