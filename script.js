@@ -94,22 +94,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const { jsPDF } = window.jspdf;
         const activeSection = document.querySelector('.content-section.active table'); // מצא את הטבלה הפעילה
         const rows = activeSection.querySelectorAll('tr');
+        
+        const headers = [];
+        const data = [];
+
+        // הוספת הכותרות
+        rows[0].querySelectorAll('th').forEach(th => {
+            headers.push(th.innerText);
+        });
+
+        // הוספת תוכן השורות
+        rows.forEach((row, index) => {
+            if (index === 0) return; // דילוג על כותרות השורות
+            const rowData = [];
+            row.querySelectorAll('td').forEach(td => {
+                rowData.push(td.innerText);
+            });
+            data.push(rowData);
+        });
+
         const pdf = new jsPDF('p', 'pt', 'a4');
         
-        // כותרת ה-PDF
-        pdf.setFontSize(18);
+        // הוספת טבלה ל-PDF עם jsPDF autoTable
         pdf.text(`מונחים - ${currentTab}`, 40, 40);
-        
-        // הוספת התוכן של הטבלה ל-PDF
-        let y = 80;
-        rows.forEach((row, rowIndex) => {
-            const cols = row.querySelectorAll('td, th');
-            cols.forEach((col, colIndex) => {
-                const text = col.innerText || '';
-                pdf.setFontSize(rowIndex === 0 ? 14 : 12); // גודל פונט לכותרות מול תוכן
-                pdf.text(text, 40 + colIndex * 150, y); // הצבה במקום המתאים ב-PDF
-            });
-            y += 20; // רווח בין השורות
+        pdf.autoTable({
+            head: [headers],
+            body: data,
+            startY: 60,
+            margin: { top: 10, bottom: 10, left: 10, right: 10 },
         });
 
         // שמירת ה-PDF
