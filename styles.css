@@ -1,13 +1,11 @@
-/* styles.css */
+/* styles.css - unchanged */
 
-/* Reset בסיסי */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* גוף הדף */
 body {
     font-family: 'Rubik', sans-serif;
     background-color: #f0f4f7;
@@ -17,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* כותרת עליונה */
 header {
     background-color: #4CAF50;
     color: white;
@@ -37,7 +34,6 @@ header p {
     font-weight: 400;
 }
 
-/* כפתורי ניווט בין הקבוצות */
 nav {
     display: flex;
     justify-content: center;
@@ -65,14 +61,12 @@ nav .tab-button.active {
     color: #fff;
 }
 
-/* תוכן מרכזי */
 main {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* תוכן הקבוצות */
 .content-section {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -82,7 +76,6 @@ main {
     display: block;
 }
 
-/* אפקט מעבר חלק */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -92,7 +85,6 @@ main {
     }
 }
 
-/* כותרות קבוצות */
 h2 {
     margin-top: 40px;
     margin-bottom: 10px;
@@ -101,7 +93,6 @@ h2 {
     padding-bottom: 5px;
 }
 
-/* טבלאות */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -131,7 +122,6 @@ table tr:hover {
     transform: scale(1.02);
 }
 
-/* כותרת תחתונה */
 footer {
     background-color: #4CAF50;
     color: white;

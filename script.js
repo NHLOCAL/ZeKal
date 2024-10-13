@@ -1,13 +1,12 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = {
-        group1: document.getElementById('group1'),
-        group2: document.getElementById('group2'),
-    };
+    const tabButtonsContainer = document.getElementById('tab-buttons');
+    const contentSectionsContainer = document.getElementById('content-sections');
+    let currentTab = null;
 
     // פוקנציה לטעינת קובץ Markdown
-    function loadMarkdown(group, section) {
+    function loadMarkdown() {
         fetch('words.md')
             .then(response => {
                 if (!response.ok) {
@@ -16,37 +15,80 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.text();
             })
             .then(markdown => {
-                // חילוץ החלק המתאים של הקבוצה מהקובץ
-                const regex = new RegExp(`# ${group}:([\\s\\S]*?)(#|$)`);
-                const match = markdown.match(regex);
-                const groupMarkdown = match ? match[1].trim() : 'קבוצה לא נמצאה';
-                
-                // המרה ל-HTML באמצעות Marked.js
-                const htmlContent = marked.parse(groupMarkdown);
-                section.innerHTML = htmlContent;
+                const groups = extractGroups(markdown);
+                renderTabs(groups);
+                renderContent(groups);
+                setActiveTab(Object.keys(groups)[0]); // הפעלת הטאב הראשון כברירת מחדל
             })
             .catch(error => {
                 console.error('שגיאה בטעינת התוכן:', error);
-                section.innerHTML = '<p>נוצרה שגיאה בטעינת התוכן. אנא נסה שוב מאוחר יותר.</p>';
+                tabButtonsContainer.innerHTML = '<p>נוצרה שגיאה בטעינת התוכן. אנא נסה שוב מאוחר יותר.</p>';
             });
     }
 
-    // טעינת התוכן עבור קבוצה 1 ו-2
-    loadMarkdown('קבוצה 1', sections.group1);
-    loadMarkdown('קבוצה 2', sections.group2);
+    // פוקנציה לחילוץ קבוצות מהקובץ Markdown
+    function extractGroups(markdown) {
+        const groups = {};
+        const regex = /# (.*?)\n([\s\S]*?)(?=# |$)/g;
+        let match;
 
-    // טיפול בלחיצה על כפתור לשינוי קבוצה
-    const tabButtons = document.querySelectorAll('.tab-button');
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // הסרת ה-Active מכל הכפתורים והוספת Active לכפתור הנוכחי
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
+        while ((match = regex.exec(markdown)) !== null) {
+            const groupName = match[1].trim();
+            const groupContent = match[2].trim();
+            groups[groupName] = groupContent;
+        }
+        return groups;
+    }
 
-            // הסתרת כל התכנים והצגת התוכן הנבחר
-            const target = this.getAttribute('data-target');
-            Object.values(sections).forEach(section => section.classList.remove('active'));
-            sections[target].classList.add('active');
+    // פוקנציה ליצירת הכפתורים דינמית
+    function renderTabs(groups) {
+        tabButtonsContainer.innerHTML = '';
+        Object.keys(groups).forEach(groupName => {
+            const button = document.createElement('button');
+            button.classList.add('tab-button');
+            button.innerText = groupName;
+            button.addEventListener('click', () => {
+                setActiveTab(groupName);
+            });
+            tabButtonsContainer.appendChild(button);
         });
-    });
+    }
+
+    // פוקנציה ליצירת התוכן דינמית
+    function renderContent(groups) {
+        contentSectionsContainer.innerHTML = '';
+        Object.entries(groups).forEach(([groupName, groupContent]) => {
+            const section = document.createElement('section');
+            section.id = groupName;
+            section.classList.add('content-section');
+            section.innerHTML = marked.parse(groupContent);
+            contentSectionsContainer.appendChild(section);
+        });
+    }
+
+    // פוקנציה לשינוי הטאב הפעיל
+    function setActiveTab(groupName) {
+        if (currentTab === groupName) return;
+
+        currentTab = groupName;
+
+        // עדכון כפתורי הניווט
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+            if (button.innerText === groupName) {
+                button.classList.add('active');
+            }
+        });
+
+        // עדכון התוכן המוצג
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+            if (section.id === groupName) {
+                section.classList.add('active');
+            }
+        });
+    }
+
+    // טעינת התוכן
+    loadMarkdown();
 });
