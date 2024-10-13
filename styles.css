@@ -1,85 +1,82 @@
-/* Reset */
+/* styles.css */
+
+/* Reset בסיסי */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* גוף הדף */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
+    direction: rtl;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
+/* כותרת עליונה */
 header {
-    background: #4CAF50;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     padding: 20px 0;
     text-align: center;
-}
-
-header h1 {
-    margin-bottom: 10px;
-    font-size: 2.5em;
-}
-
-header p {
-    font-size: 1.2em;
-}
-
-#search {
-    margin-top: 15px;
-    padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    border: none;
-    border-radius: 5px;
-}
-
-main {
-    padding: 20px 0;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
     margin-bottom: 20px;
 }
 
+/* כותרת האתר */
+header h1 {
+    font-size: 2.5em;
+}
+
+/* תוכן מרכזי */
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* כותרות קבוצות */
+main h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 5px;
+}
+
+/* טבלאות */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
 table th, table td {
-    padding: 12px;
     border: 1px solid #ddd;
-    text-align: left;
+    padding: 12px;
+    text-align: right;
 }
 
 table th {
-    background-color: #f2f2f2;
+    background-color: #4CAF50;
+    color: white;
 }
 
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* כותרת תחתונה */
 footer {
-    background: #333;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-    
-    #search {
-        width: 100%;
-    }
+    margin-top: 40px;
 }

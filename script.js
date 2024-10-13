@@ -1,37 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const content = document.getElementById('content');
-    const searchInput = document.getElementById('search');
+// script.js
 
-    // פונקציה לטעינת words.md
+document.addEventListener('DOMContentLoaded', () => {
     fetch('words.md')
-        .then(response => response.text())
-        .then(text => {
-            const htmlContent = marked(text);
-            content.innerHTML = htmlContent;
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('לא ניתן לטעון את הקובץ words.md');
+            }
+            return response.text();
+        })
+        .then(markdown => {
+            // עיבוד Markdown ל-HTML
+            const htmlContent = marked.parse(markdown);
+            document.getElementById('content').innerHTML = htmlContent;
         })
         .catch(error => {
-            content.innerHTML = '<p>אירעה שגיאה בטעינת התוכן.</p>';
-            console.error('Error loading words.md:', error);
+            console.error('שגיאה בטעינת התוכן:', error);
+            document.getElementById('content').innerHTML = '<p>נוצרה שגיאה בטעינת התוכן. אנא נסה שוב מאוחר יותר.</p>';
         });
-
-    // פונקציה לחיפוש מונחים
-    searchInput.addEventListener('input', () => {
-        const filter = searchInput.value.toLowerCase();
-        const rows = content.querySelectorAll('table tbody tr');
-        
-        rows.forEach(row => {
-            const cells = row.querySelectorAll('td');
-            let match = false;
-            cells.forEach(cell => {
-                if (cell.textContent.toLowerCase().includes(filter)) {
-                    match = true;
-                }
-            });
-            if (match) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
 });
