@@ -5,40 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>זה קל!</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- גופן מודרני מגוגל -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- ספריית Marked.js -->
+    <!-- קישור לגופן גוגל -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- קישור לספריית Marked.js דרך CDN -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- ספריית Font Awesome לאייקונים -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <!-- ניווט צדדי -->
-        <aside id="sidebar">
-            <h2>קבוצות</h2>
-            <ul id="group-list">
-                <!-- רשימת הקבוצות תיטען דינמית -->
-            </ul>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="חיפוש...">
-                <button id="search-button"><i class="fas fa-search"></i></button>
-            </div>
-        </aside>
-        <!-- תוכן מרכזי -->
-        <main id="content">
-            <header>
-                <h1>זה קל!</h1>
-                <p>רשימת מונחי מחשבים וטכנולוגיה עם תרגום והסבר בעברית</p>
-            </header>
-            <section id="terms">
-                <!-- התוכן ייטען כאן דינמית -->
-            </section>
-        </main>
-    </div>
+    <header>
+        <h1>זה קל!</h1>
+        <p>מילון טכנולוגי מקיף עם תרגום והסברים בעברית</p>
+    </header>
+
+    <nav>
+        <!-- כפתורי ניווט בין קבוצות -->
+        <button class="tab-button" data-target="group1">קבוצה 1: מונחים בסיסיים</button>
+        <button class="tab-button" data-target="group2">קבוצה 2: מונחים בינוניים</button>
+    </nav>
+
+    <main>
+        <section id="group1" class="content-section active">
+            <!-- תוכן קבוצה 1 ייטען כאן -->
+        </section>
+        <section id="group2" class="content-section">
+            <!-- תוכן קבוצה 2 ייטען כאן -->
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2024 זה קל!</p>
+        <p>&copy; 2024 זה קל! | כל הזכויות שמורות</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
