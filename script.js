@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentSectionsContainer = document.getElementById('content-sections');
     let currentTab = null;
 
-    // פוקנציה לטעינת קובץ Markdown
+    // פונקציה לטעינת קובץ Markdown
     function loadMarkdown() {
         fetch('words.md')
             .then(response => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // פוקנציה לחילוץ קבוצות מהקובץ Markdown
+    // פונקציה לחילוץ קבוצות מהקובץ Markdown
     function extractGroups(markdown) {
         const groups = {};
         const regex = /# (.*?)\n([\s\S]*?)(?=# |$)/g;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return groups;
     }
 
-    // פוקנציה ליצירת הכפתורים דינמית
+    // פונקציה ליצירת הכפתורים דינמית
     function renderTabs(groups) {
         tabButtonsContainer.innerHTML = '';
         Object.keys(groups).forEach(groupName => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // פוקנציה ליצירת התוכן דינמית
+    // פונקציה ליצירת התוכן דינמית
     function renderContent(groups) {
         contentSectionsContainer.innerHTML = '';
         Object.entries(groups).forEach(([groupName, groupContent]) => {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // פוקנציה לשינוי הטאב הפעיל
+    // פונקציה לשינוי הטאב הפעיל
     function setActiveTab(groupName) {
         if (currentTab === groupName) return;
 
@@ -88,6 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // פונקציה ליצירת PDF מהתוכן הנבחר
+    function generatePDF() {
+        const activeSection = document.querySelector('.content-section.active');
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        pdf.html(activeSection, {
+            callback: function (doc) {
+                doc.save(`${currentTab}.pdf`);
+            },
+            x: 10,
+            y: 10
+        });
+    }
+
+    // האזנה לכפתור ההורדה
+    document.getElementById('download-pdf').addEventListener('click', generatePDF);
 
     // טעינת התוכן
     loadMarkdown();
