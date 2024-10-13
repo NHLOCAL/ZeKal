@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // פונקציה ליצירת PDF מהתוכן הנבחר
     function generatePDF() {
+        const { jsPDF } = window.jspdf; // ייבוא jsPDF מהמודול של הספרייה
         const activeSection = document.querySelector('.content-section.active');
         const pdf = new jsPDF('p', 'pt', 'a4');
         pdf.html(activeSection, {
