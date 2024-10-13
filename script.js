@@ -91,16 +91,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // פונקציה ליצירת PDF מהתוכן הנבחר
     function generatePDF() {
-        const { jsPDF } = window.jspdf; // ייבוא jsPDF מהמודול של הספרייה
-        const activeSection = document.querySelector('.content-section.active');
+        const { jsPDF } = window.jspdf;
+        const activeSection = document.querySelector('.content-section.active table'); // מצא את הטבלה הפעילה
+        const rows = activeSection.querySelectorAll('tr');
         const pdf = new jsPDF('p', 'pt', 'a4');
-        pdf.html(activeSection, {
-            callback: function (doc) {
-                doc.save(`${currentTab}.pdf`);
-            },
-            x: 10,
-            y: 10
+        
+        // כותרת ה-PDF
+        pdf.setFontSize(18);
+        pdf.text(`מונחים - ${currentTab}`, 40, 40);
+        
+        // הוספת התוכן של הטבלה ל-PDF
+        let y = 80;
+        rows.forEach((row, rowIndex) => {
+            const cols = row.querySelectorAll('td, th');
+            cols.forEach((col, colIndex) => {
+                const text = col.innerText || '';
+                pdf.setFontSize(rowIndex === 0 ? 14 : 12); // גודל פונט לכותרות מול תוכן
+                pdf.text(text, 40 + colIndex * 150, y); // הצבה במקום המתאים ב-PDF
+            });
+            y += 20; // רווח בין השורות
         });
+
+        // שמירת ה-PDF
+        pdf.save(`${currentTab}.pdf`);
     }
 
     // האזנה לכפתור ההורדה
