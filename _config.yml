@@ -1,0 +1,6 @@
+# _config.yml
+
+title ZeKal
+description אתר ללימוד מונחים באנגלית בתחום הטכנולוגיה
+theme minima
+markdown kramdown
