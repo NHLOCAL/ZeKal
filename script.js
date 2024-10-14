@@ -89,14 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // פונקציה ליצירת PDF מהתוכן הנבחר באמצעות pdfmake
+    // פונקציה ליצירת PDF מהתוכן הנבחר
     function generatePDF() {
+        const { jsPDF } = window.jspdf;
         const activeSection = document.querySelector('.content-section.active table'); // מצא את הטבלה הפעילה
-        if (!activeSection) {
-            alert('אין טבלה פעילה להורדה.');
-            return;
-        }
-
         const rows = activeSection.querySelectorAll('tr');
         
         const headers = [];
@@ -117,34 +113,19 @@ document.addEventListener('DOMContentLoaded', () => {
             data.push(rowData);
         });
 
-        const docDefinition = {
-            content: [
-                { text: `מונחים - ${currentTab}`, style: 'header', alignment: 'right' },
-                {
-                    table: {
-                        headerRows: 1,
-                        widths: ['*', '*', '*'],
-                        body: [
-                            headers,
-                            ...data
-                        ]
-                    },
-                    layout: 'lightHorizontalLines'
-                }
-            ],
-            defaultStyle: {
-                font: 'NotoSansHebrew', // ודא שהגופן נוסף ל־pdfmake
-                alignment: 'right'
-            },
-            styles: {
-                header: {
-                    fontSize: 18,
-                    bold: true
-                }
-            }
-        };
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        
+        // הוספת טבלה ל-PDF עם jsPDF autoTable
+        pdf.text(`מונחים - ${currentTab}`, 40, 40);
+        pdf.autoTable({
+            head: [headers],
+            body: data,
+            startY: 60,
+            margin: { top: 10, bottom: 10, left: 10, right: 10 },
+        });
 
-        pdfMake.createPdf(docDefinition).download(`${currentTab}.pdf`);
+        // שמירת ה-PDF
+        pdf.save(`${currentTab}.pdf`);
     }
 
     // האזנה לכפתור ההורדה
