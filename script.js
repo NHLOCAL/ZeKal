@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // פונקציה ליצירת PDF מהתוכן הנבחר
     function generatePDF() {
         const { jsPDF } = window.jspdf;
         const activeSection = document.querySelector('.content-section.active table'); // מצא את הטבלה הפעילה
@@ -97,12 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const headers = [];
         const data = [];
-
+    
         // הוספת הכותרות
         rows[0].querySelectorAll('th').forEach(th => {
             headers.push(th.innerText);
         });
-
+    
         // הוספת תוכן השורות
         rows.forEach((row, index) => {
             if (index === 0) return; // דילוג על כותרות השורות
@@ -112,21 +111,63 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             data.push(rowData);
         });
-
-        const pdf = new jsPDF('p', 'pt', 'a4');
-        
-        // הוספת טבלה ל-PDF עם jsPDF autoTable
-        pdf.text(`מונחים - ${currentTab}`, 40, 40);
-        pdf.autoTable({
-            head: [headers],
-            body: data,
-            startY: 60,
-            margin: { top: 10, bottom: 10, left: 10, right: 10 },
+    
+        const pdf = new jsPDF({
+            orientation: 'p',
+            unit: 'pt',
+            format: 'a4',
+            // הגדרת כיווניות RTL
+            lang: 'he',
         });
-
+    
+        // הגדרת הגופן Rubik
+        pdf.addFileToVFS('Rubik-Regular.ttf', RubikNormal); // RubikNormal מוגדר בקובץ הגופן שייבאנו
+        pdf.addFont('Rubik-Regular.ttf', 'Rubik', 'normal');
+        pdf.setFont('Rubik'); // שימוש בגופן Rubik
+        pdf.setFontSize(12);
+    
+        // הוספת טקסט עם כיווניות RTL
+        pdf.text(`מונחים - ${currentTab}`, pdf.internal.pageSize.getWidth() - 40, 40, {
+            align: 'right',
+        });
+    
+        // היפוך סדר העמודות כדי להתאים ל-RTL
+        const reversedHeaders = headers.slice().reverse();
+        const reversedData = data.map(row => row.slice().reverse());
+    
+        // הוספת טבלה ל-PDF עם jsPDF autoTable
+        pdf.autoTable({
+            head: [reversedHeaders],
+            body: reversedData,
+            startY: 60,
+            styles: {
+                font: 'Rubik',
+                fontStyle: 'normal',
+                textColor: [0, 0, 0],
+            },
+            headStyles: {
+                fillColor: [76, 175, 80], // צבע ירוק לכותרות
+                textColor: [255, 255, 255],
+                halign: 'right',
+            },
+            bodyStyles: {
+                halign: 'right',
+            },
+            columnStyles: {
+                // הגדרת רוחב עמודות אם נדרש
+            },
+            didDrawCell: function (data) {
+                // פונקציה ליישור טקסט מימין לשמאל
+                data.cell.text = data.cell.text.map(function (t) {
+                    return t.split('').reverse().join('');
+                });
+            },
+        });
+    
         // שמירת ה-PDF
         pdf.save(`${currentTab}.pdf`);
     }
+    
 
     // האזנה לכפתור ההורדה
     document.getElementById('download-pdf').addEventListener('click', generatePDF);
