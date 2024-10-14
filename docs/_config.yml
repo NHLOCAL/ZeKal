@@ -1,7 +1,8 @@
-title: אתר מונחים טכנולוגיים
-description: הסברים ותרגומים למונחים בתחום המחשבים והטכנולוגיה בעברית.
+title: זה קל!
+description: קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות
+
 baseurl: "" # השאר ריק אם האתר בשורש הדומיין
-url: "https://username.github.io/my-tech-glossary" # שנה לכתובת הריפוזיטורי שלך
+url: "https://nhlocal.github.io/ZeKal" # שנה לכתובת הריפוזיטורי שלך
 theme: minima
 
 # הגדרות נוספות
