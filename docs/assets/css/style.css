@@ -18,11 +18,11 @@ body {
 /* כותרת האתר */
 header {
     background: linear-gradient(135deg, #4a90e2, #007aff);
-    padding: 80px 20px;
+    padding: 30px 20px;
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    margin-bottom: 80px;
+    margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
 
@@ -192,9 +192,10 @@ tr:hover {
 /* כותרות הקבוצות */
 h2 {
     color: #005bb5; /* כחול כהה */
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     border-bottom: 4px solid #007aff;
-    padding-bottom: 15px;
+    padding-bottom: 0px;
     font-size: 2.5em;
 }
 
@@ -209,7 +210,7 @@ h3 {
 
 /* קטעים מיוחדים */
 .section {
-    margin-top: 80px;
+    margin-top: 30px;
     padding: 50px;
     background-color: #ffffff;
     border-radius: 12px;
@@ -250,11 +251,11 @@ form button {
 /* רגל האתר */
 footer {
     background: linear-gradient(135deg, #4a90e2, #007aff);
-    padding: 30px 20px; /* הקטנה מ-40px */
+    padding: 20px 20px; /* הקטנה מ-40px */
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
-    margin-top: 60px;
+    margin-top: 40px;
     transition: transform 0.3s ease;
 }
 
@@ -313,7 +314,7 @@ a:hover {
     }
 
     header {
-        padding: 60px 20px;
+        padding: 40px 20px;
     }
 
     header h1 {
