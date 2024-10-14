@@ -151,6 +151,19 @@ nav ul li a:hover::after {
     max-width: 300px;
 }
 
+
+/* עיצוב לאייקונים ליד הכותרות */
+h2 i, h3 i {
+    margin-left: 10px;
+}
+
+/* עיצוב לאייקונים בתוך תוויות */
+form label i {
+    margin-left: 5px;
+}
+
+
+
 /* כפתורים בתוך הגריד */
 .topics-grid {
     display: grid;
