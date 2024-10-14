@@ -9,20 +9,20 @@
 body {
     direction: rtl;
     font-family: 'Rubik', sans-serif;
-    background-color: #f0f8ff; /* תכלת פסטל */
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+    background-color: #e6f0ff; /* תכלת פסטל כהה יותר */
+    color: #2c3e50; /* כחול כהה */
+    line-height: 1.8;
+    padding: 40px;
 }
 
 /* כותרת האתר */
 header {
-    background: linear-gradient(135deg, #b0e0e6, #87ceeb);
-    padding: 40px 20px;
+    background: linear-gradient(135deg, #4a90e2, #007aff);
+    padding: 80px 20px;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    margin-bottom: 80px;
     transition: transform 0.3s ease;
 }
 
@@ -31,29 +31,31 @@ header:hover {
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
 }
 
 header p {
-    font-size: 1.2em;
-    color: #f0f8ff;
+    font-size: 1.4em;
+    color: #d0e4ff;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* תפריט ניווט */
 nav {
-    background-color: #87ceeb; /* כחול תכלת כהה יותר */
-    padding: 15px 0;
-    margin-bottom: 40px;
+    background-color: #007aff; /* כחול כהה יותר */
+    padding: 15px 0; /* הקטנה מ-20px */
+    margin-bottom: 60px; /* הקטנה מ-80px */
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease;
 }
 
 nav:hover {
-    background-color: #00bfff;
+    background-color: #005bb5;
 }
 
 nav ul {
@@ -64,14 +66,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1em;
+    font-weight: 600;
+    font-size: 1.2em;
     position: relative;
     padding: 5px 0;
     transition: color 0.3s ease;
@@ -81,7 +83,7 @@ nav ul li a::after {
     content: '';
     display: block;
     width: 0;
-    height: 2px;
+    height: 3px;
     background: #ffeb3b;
     transition: width 0.3s;
     position: absolute;
@@ -100,94 +102,159 @@ nav ul li a:hover::after {
 
 /* תוכן העמוד */
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 /* כפתורים */
 .button {
     display: inline-block;
-    padding: 12px 24px;
-    margin: 20px 10px 0 0;
-    font-size: 1em;
-    font-weight: 500;
+    padding: 15px 30px;
+    margin: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
     color: #ffffff;
-    background-color: #87ceeb;
+    background-color: #007aff;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 180px;
+    height: 60px; /* הגדרת גובה אחיד */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button:hover {
-    background-color: #00bfff;
-    transform: translateY(-3px);
+    background-color: #005bb5;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* כפתורים גדולים */
+.button.large-button {
+    font-size: 1.3em;
+    padding: 20px 40px;
+    min-width: 220px;
+}
+
+/* כפתורים בתוך הגריד */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.topics-grid .button {
+    height: 60px; /* אחידות בגובה */
 }
 
 /* טבלאות */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 40px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 60px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
 }
 
 table, th, td {
-    border: 1px solid #87ceeb;
+    border: 1px solid #007aff;
 }
 
 th, td {
-    padding: 16px;
+    padding: 20px;
     text-align: left;
 }
 
 th {
-    background-color: #4682b4; /* כחול עז */
+    background-color: #005bb5; /* כחול כהה */
     color: #ffffff;
     font-weight: 700;
 }
 
 tr:nth-child(even) {
-    background-color: #e0ffff; /* תכלת בהיר */
+    background-color: #d6eaff; /* תכלת בהיר */
 }
 
 tr:hover {
-    background-color: #f5f5f5;
+    background-color: #f0f8ff;
     transition: background-color 0.3s ease;
 }
 
 /* כותרות הקבוצות */
 h2 {
-    color: #4682b4; /* כחול עז */
-    margin-bottom: 20px;
-    border-bottom: 3px solid #87ceeb;
-    padding-bottom: 10px;
-    font-size: 2em;
+    color: #005bb5; /* כחול כהה */
+    margin-bottom: 40px;
+    border-bottom: 4px solid #007aff;
+    padding-bottom: 15px;
+    font-size: 2.5em;
 }
 
-/* כותרות משניות */
 h3 {
-    color: #5f9ea0;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-    border-bottom: 2px solid #87ceeb;
-    padding-bottom: 5px;
+    color: #3399ff;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #007aff;
+    padding-bottom: 7px;
+}
+
+/* קטעים מיוחדים */
+.section {
+    margin-top: 80px;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* טופס המשוב */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+form input, form textarea {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 2px solid #007aff;
+    border-radius: 6px;
+    font-size: 1.1em;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #005bb5;
+    outline: none;
+}
+
+form button {
+    align-self: flex-start;
 }
 
 /* רגל האתר */
 footer {
-    background: linear-gradient(135deg, #b0e0e6, #87ceeb);
-    padding: 20px 0;
+    background: linear-gradient(135deg, #4a90e2, #007aff);
+    padding: 30px 20px; /* הקטנה מ-40px */
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
-    margin-top: 40px;
+    border-radius: 12px;
+    box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
+    margin-top: 60px;
     transition: transform 0.3s ease;
 }
 
@@ -197,7 +264,7 @@ footer:hover {
 
 footer p {
     color: #ffffff;
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
 /* אפקטים עדינים */
@@ -210,6 +277,12 @@ a:hover {
 }
 
 /* רספונסיביות */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -220,11 +293,34 @@ a:hover {
     }
 
     header h1 {
-        font-size: 2em;
+        font-size: 3em;
     }
 
     .button {
         width: 100%;
         text-align: center;
+        min-width: unset; /* הסרת מגבלה על הרוחב */
+    }
+
+    .topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .section {
+        padding: 30px;
     }
 }
