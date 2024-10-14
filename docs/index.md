@@ -16,7 +16,7 @@ title: "בית"
 <div class="topics-grid">
     <a href="{{ '/topics/computers.html' | relative_url }}" class="button"><i class="fas fa-laptop"></i> מחשבים</a>
     <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button"><i class="fas fa-desktop"></i> מערכות הפעלה</a>
-    <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button"><i class="fas fa-code"></i> שפות תכנות</a>
+    <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button"><i class="fas fa-code"></i> תכנות</a>
     <a href="{{ '/topics/web-development.html' | relative_url }}" class="button"><i class="fas fa-globe"></i> פיתוח אתרים</a>
     <a href="{{ '/topics/networking.html' | relative_url }}" class="button"><i class="fas fa-network-wired"></i> רשתות</a>
     <a href="{{ '/topics/cybersecurity.html' | relative_url }}" class="button"><i class="fas fa-shield-alt"></i> אבטחת מידע</a>
