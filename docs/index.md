@@ -12,17 +12,18 @@ title: "בית"
 ## <a id="topics"></a>נושאים עיקריים
 
 <div class="topics-grid">
-    <a href="{{ '/topics/computers.html' | relative_url }}" class="button">מחשבים</a>
-    <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button">מערכות הפעלה</a>
-    <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button">שפות תכנות</a>
-    <a href="{{ '/topics/web-development.html' | relative_url }}" class="button">פיתוח אתרים</a>
-    <a href="{{ '/topics/networking.html' | relative_url }}" class="button">רשתות</a>
-    <a href="{{ '/topics/cybersecurity.html' | relative_url }}" class="button">אבטחת מידע</a>
-    <a href="{{ '/topics/databases.html' | relative_url }}" class="button">מסדי נתונים</a>
-    <a href="{{ '/topics/cloud-computing.html' | relative_url }}" class="button">מחשוב ענן</a>
-    <a href="{{ '/topics/artificial-intelligence.html' | relative_url }}" class="button">בינה מלאכותית</a>
-    <a href="{{ '/topics/hardware-components.html' | relative_url }}" class="button">רכיבי חומרה</a>
+    <a href="{{ '/topics/computers.html' | relative_url }}" class="button"><i class="fas fa-laptop"></i> מחשבים</a>
+    <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button"><i class="fas fa-desktop"></i> מערכות הפעלה</a>
+    <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button"><i class="fas fa-code"></i> שפות תכנות</a>
+    <a href="{{ '/topics/web-development.html' | relative_url }}" class="button"><i class="fas fa-globe"></i> פיתוח אתרים</a>
+    <a href="{{ '/topics/networking.html' | relative_url }}" class="button"><i class="fas fa-network-wired"></i> רשתות</a>
+    <a href="{{ '/topics/cybersecurity.html' | relative_url }}" class="button"><i class="fas fa-shield-alt"></i> אבטחת מידע</a>
+    <a href="{{ '/topics/databases.html' | relative_url }}" class="button"><i class="fas fa-database"></i> מסדי נתונים</a>
+    <a href="{{ '/topics/cloud-computing.html' | relative_url }}" class="button"><i class="fas fa-cloud"></i> מחשוב ענן</a>
+    <a href="{{ '/topics/artificial-intelligence.html' | relative_url }}" class="button"><i class="fas fa-robot"></i> בינה מלאכותית</a>
+    <a href="{{ '/topics/hardware-components.html' | relative_url }}" class="button"><i class="fas fa-microchip"></i> רכיבי חומרה</a>
 </div>
+
 
 ## <a id="about"></a>אודות
 

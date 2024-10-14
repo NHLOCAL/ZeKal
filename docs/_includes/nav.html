@@ -1,7 +1,16 @@
 <nav>
     <ul>
-        {% for item in site.navbar %}
-            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-        {% endfor %}
+        <!-- כפתור בית -->
+        <li><a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> בית</a></li>
+
+        <!-- כפתור נושאים עם קישור יחסי לדף הבית, על ידי קישור ישיר עם עוגן -->
+        <li><a href="{{ '/' | relative_url }}#topics"><i class="fas fa-list"></i> נושאים</a></li>
+
+
+        <!-- כפתור אודות עם קישור יחסי לדף הבית, על ידי קישור ישיר עם עוגן -->
+        <li><a href="{{ '/' | relative_url }}#about"><i class="fas fa-info-circle"></i> אודות</a></li>
+
+        <!-- כפתור משוב עם קישור יחסי לדף הבית, על ידי קישור ישיר עם עוגן -->
+        <li><a href="{{ '/' | relative_url }}#feedback"><i class="fas fa-comment"></i> משוב</a></li>
     </ul>
 </nav>

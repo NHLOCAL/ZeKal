@@ -109,7 +109,7 @@ nav ul li a:hover::after {
 
 /* כפתורים */
 .button {
-    display: inline-block;
+    display: flex;
     padding: 15px 30px;
     margin: 15px;
     font-size: 1.1em;
@@ -129,6 +129,13 @@ nav ul li a:hover::after {
     align-items: center;
     justify-content: center;
 }
+
+
+/* עיצוב כפתורים עם אייקונים מימין לטקסט */
+.button i {
+    margin-left: 10px; /* מרווח בין האייקון לטקסט */
+}
+
 
 .button:hover {
     background-color: #005bb5;
