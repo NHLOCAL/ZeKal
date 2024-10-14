@@ -110,9 +110,9 @@ nav ul li a:hover::after {
 /* כפתורים */
 .button {
     display: flex;
-    padding: 15px 30px;
-    margin: 15px;
-    font-size: 1.1em;
+    padding: 40px 20px 40px 20px;
+    margin: 5px;
+    font-size: 1.3em;
     font-weight: 600;
     color: #ffffff;
     background-color: #007aff;
@@ -162,7 +162,7 @@ form label i {
 .topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
+    gap: 15px;
     margin-top: 40px;
 }
 
