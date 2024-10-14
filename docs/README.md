@@ -36,10 +36,6 @@ navbar:
     url: "/topics/software-development-methodologies.html"
   - title: "מערכות הפעלה"
     url: "/topics/operating-systems.html"
-  - title: "אודות"
-    url: "/about.html"
-  - title: "משוב"
-    url: "/feedback.html"
 
 # הגדרות שפה וכיוון טקסט
 markdown: kramdown
@@ -49,8 +45,3 @@ kramdown:
 
 # פלט אתר
 permalink: /:categories/:title.html
-
-# Google Fonts
-google_fonts:
-  - family: "Rubik"
-    variants: "400,500,700"

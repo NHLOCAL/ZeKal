@@ -1,0 +1,230 @@
+/* Reset בסיסי */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* כיוון טקסט מימין לשמאל ושימוש בגופן Rubik */
+body {
+    direction: rtl;
+    font-family: 'Rubik', sans-serif;
+    background-color: #f0f8ff; /* תכלת פסטל */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* כותרת האתר */
+header {
+    background: linear-gradient(135deg, #b0e0e6, #87ceeb);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+header:hover {
+    transform: translateY(-5px);
+}
+
+header h1 {
+    font-size: 3em;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #f0f8ff;
+}
+
+/* תפריט ניווט */
+nav {
+    background-color: #87ceeb; /* כחול תכלת כהה יותר */
+    padding: 15px 0;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+nav:hover {
+    background-color: #00bfff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffeb3b;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* תוכן העמוד */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* כפתורים */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 20px 10px 0 0;
+    font-size: 1em;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #87ceeb;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.button:hover {
+    background-color: #00bfff;
+    transform: translateY(-3px);
+}
+
+/* טבלאות */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #87ceeb;
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+}
+
+th {
+    background-color: #4682b4; /* כחול עז */
+    color: #ffffff;
+    font-weight: 700;
+}
+
+tr:nth-child(even) {
+    background-color: #e0ffff; /* תכלת בהיר */
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+/* כותרות הקבוצות */
+h2 {
+    color: #4682b4; /* כחול עז */
+    margin-bottom: 20px;
+    border-bottom: 3px solid #87ceeb;
+    padding-bottom: 10px;
+    font-size: 2em;
+}
+
+/* כותרות משניות */
+h3 {
+    color: #5f9ea0;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #87ceeb;
+    padding-bottom: 5px;
+}
+
+/* רגל האתר */
+footer {
+    background: linear-gradient(135deg, #b0e0e6, #87ceeb);
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer p {
+    color: #ffffff;
+    font-size: 1em;
+}
+
+/* אפקטים עדינים */
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffeb3b;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
