@@ -313,6 +313,28 @@ a:hover {
 
 /* מסכים קטנים */
 @media (max-width: 768px) {
+	
+	/* עטיפת טבלאות בגלילה אופקית במסכים קטנים */
+	.table-container {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch; /* מאפשר גלילה חלקה במסכי מגע */
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 40px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	table, th, td {
+		border: 1px solid #007aff;
+		padding: 12px;
+		text-align: center;
+	}
 
 	body {
     padding: 20px;
