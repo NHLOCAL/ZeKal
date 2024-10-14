@@ -429,3 +429,41 @@ a:hover {
     padding: 15px 30px;
     font-size: 1.2em;
 }
+
+
+/* עיצוב ייחודי עבור כפתור ההשמעה */
+.speak-button {
+    background-color: #56C0EB;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%; /* עגול לחלוטין */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל קל */
+}
+
+/* אפקט ריחוף עבור כפתור ההשמעה */
+.speak-button:hover {
+    background-color: #00bfff; /* כחול בהיר יותר */
+    transform: scale(1.1); /* הגדלה קטנה בריחוף */
+}
+
+/* כאשר הכפתור נלחץ */
+.speak-button:active {
+    background-color: #4682b4; /* כחול כהה יותר בעת לחיצה */
+    transform: scale(1); /* חזרה לגודל הרגיל בעת לחיצה */
+}
+
+/* סמל הרמקול בתוך הכפתור */
+.speak-button i {
+    font-size: 14px;
+    color: #ffffff;
+}
