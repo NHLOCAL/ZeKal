@@ -176,39 +176,47 @@ form label i {
     height: 60px; /* אחידות בגובה */
 }
 
-/* טבלאות */
+/* עיצוב כללי לטבלה */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 60px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
 }
 
 table, th, td {
     border: 1px solid #007aff;
+    padding: 12px;
 }
 
-th, td {
-    padding: 20px;
-    text-align: left;
+/* יישור לימין עבור כל התאים */
+td, th {
+    text-align: center; /* יישור לימין */
 }
 
+/* עיצוב עבור העמודה השנייה */
+td:nth-child(2), th:nth-child(2) {
+    direction: ltr;   /* יישור לתצוגה LTR */
+    font-weight: bold; /* הדגשת הטקסט */
+}
+
+/* עיצוב עבור הכותרות */
 th {
-    background-color: #005bb5; /* כחול כהה */
-    color: #ffffff;
-    font-weight: 700;
+    background-color: #005bb5; /* צבע רקע לכותרות */
+    color: #ffffff; /* צבע טקסט לכותרות */
 }
 
 tr:nth-child(even) {
-    background-color: #d6eaff; /* תכלת בהיר */
+    background-color: #d6eaff; /* רקע עבור שורות זוגיות */
 }
 
 tr:hover {
-    background-color: #f0f8ff;
+    background-color: #f0f8ff; /* שינוי רקע בהצבעה */
     transition: background-color 0.3s ease;
 }
+
 
 /* כותרות הקבוצות */
 h2 {
