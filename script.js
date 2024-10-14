@@ -121,9 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     
         // הגדרת הגופן Rubik
-        pdf.addFileToVFS('Rubik-Regular.ttf', RubikNormal); // RubikNormal מוגדר בקובץ הגופן שייבאנו
-        pdf.addFont('Rubik-Regular.ttf', 'Rubik', 'normal');
-        pdf.setFont('Rubik'); // שימוש בגופן Rubik
         pdf.setFontSize(12);
     
         // הוספת טקסט עם כיווניות RTL
