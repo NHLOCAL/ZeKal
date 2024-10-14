@@ -145,8 +145,7 @@ nav ul li a:hover::after {
 .button.large-button {
     font-size: 1.3em;
     padding: 20px 40px;
-    min-width: 250px;
-    max-width: 300px;
+    min-width: 270px;
 }
 
 /* עיצוב לאייקונים ליד הכותרות */
@@ -314,6 +313,15 @@ a:hover {
 
 /* מסכים קטנים */
 @media (max-width: 768px) {
+
+	body {
+    padding: 20px;
+	}
+
+    .container {
+        padding: 0 20px;
+    }	
+
     nav ul {
         flex-direction: column;
         text-align: center;
@@ -328,7 +336,7 @@ a:hover {
     }
 
     .button {
-        width: 100%;
+        width: 90%;
         text-align: center;
         min-width: unset;
     }
@@ -367,7 +375,7 @@ a:hover {
     .button.large-button {
         font-size: 1.1em;
         padding: 15px 25px;
-        min-width: 100%;
+        min-width: 90%;
     }
 
     table, th, td {
