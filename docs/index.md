@@ -12,6 +12,8 @@ title: "בית"
 ## <a id="topics"></a>נושאים עיקריים
 
 <div class="topics-grid">
+    <a href="{{ '/topics/computers.html' | relative_url }}" class="button">מחשבים</a>
+    <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button">מערכות הפעלה</a>
     <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button">שפות תכנות</a>
     <a href="{{ '/topics/web-development.html' | relative_url }}" class="button">פיתוח אתרים</a>
     <a href="{{ '/topics/networking.html' | relative_url }}" class="button">רשתות</a>
@@ -20,8 +22,6 @@ title: "בית"
     <a href="{{ '/topics/cloud-computing.html' | relative_url }}" class="button">מחשוב ענן</a>
     <a href="{{ '/topics/artificial-intelligence.html' | relative_url }}" class="button">בינה מלאכותית</a>
     <a href="{{ '/topics/hardware-components.html' | relative_url }}" class="button">רכיבי חומרה</a>
-    <a href="{{ '/topics/software-development-methodologies.html' | relative_url }}" class="button">מתודולוגיות פיתוח תוכנה</a>
-    <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button">מערכות הפעלה</a>
 </div>
 
 ## <a id="about"></a>אודות
