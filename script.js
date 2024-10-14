@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const pdf = new jsPDF({
             orientation: 'p',
-            unit: 'pt',
+            unit: 'px',
             format: 'a4',
             // הגדרת כיווניות RTL
             lang: 'he',
@@ -123,10 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // הגדרת הגופן Rubik
         pdf.setFontSize(12);
     
-        // הוספת טקסט עם כיווניות RTL
-        pdf.text(`מונחים - ${currentTab}`, pdf.internal.pageSize.getWidth() - 40, 40, {
-            align: 'right',
-        });
+
     
         // היפוך סדר העמודות כדי להתאים ל-RTL
         const reversedHeaders = headers.slice().reverse();
@@ -155,9 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             didDrawCell: function (data) {
                 // פונקציה ליישור טקסט מימין לשמאל
-                data.cell.text = data.cell.text.map(function (t) {
-                    return t.split('').reverse().join('');
-                });
+                data.cell.text = data.cell.text;
             },
         });
     
