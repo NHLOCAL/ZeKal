@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article>
+  <h1>{{ page.title }} / {{ page.hebrew_title }}</h1>
+  
+  <section>
+    <h2>הגדרה</h2>
+    {{ content }}
+  </section>
+  
+  <section>
+    <h2>קטגוריות קשורות</h2>
+    <ul>
+      {% for category in page.categories %}
+        <li>{{ category | link_to_category }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  
+  <section>
+    <h2>מונחים קשורים</h2>
+    <ul>
+      {% for related in page.related_terms %}
+        <li><a href="{{ related.url }}">{{ related.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+</article>

@@ -1,0 +1,28 @@
+title: אתר מונחים טכנולוגיים
+description: הסברים ותרגומים למונחים בתחום המחשבים והטכנולוגיה בעברית.
+baseurl: "" # השאר ריק אם האתר בשורש הדומיין
+url: "https://username.github.io/my-tech-glossary" # שנה לכתובת הריפוזיטורי שלך
+theme: minima
+
+# הגדרות נוספות
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# ניווט
+navigation:
+  - title: דף הבית
+    url: /
+  - title: קטגוריות
+    url: /categories/
+  - title: מילון
+    url: /glossary/
+  - title: אודות
+    url: /about/
+  - title: צור קשר
+    url: /contact/
+
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
