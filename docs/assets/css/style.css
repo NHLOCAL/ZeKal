@@ -46,9 +46,9 @@ header p {
 
 /* תפריט ניווט */
 nav {
-    background-color: #007aff; /* כחול כהה יותר */
-    padding: 15px 0; /* הקטנה מ-20px */
-    margin-bottom: 60px; /* הקטנה מ-80px */
+    background-color: #007aff;
+    padding: 15px 0;
+    margin-bottom: 60px;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease;
@@ -130,12 +130,10 @@ nav ul li a:hover::after {
     justify-content: center;
 }
 
-
 /* עיצוב כפתורים עם אייקונים מימין לטקסט */
 .button i {
     margin-left: 10px; /* מרווח בין האייקון לטקסט */
 }
-
 
 .button:hover {
     background-color: #005bb5;
@@ -151,7 +149,6 @@ nav ul li a:hover::after {
     max-width: 300px;
 }
 
-
 /* עיצוב לאייקונים ליד הכותרות */
 h2 i, h3 i {
     margin-left: 10px;
@@ -161,8 +158,6 @@ h2 i, h3 i {
 form label i {
     margin-left: 5px;
 }
-
-
 
 /* כפתורים בתוך הגריד */
 .topics-grid {
@@ -191,36 +186,32 @@ table, th, td {
     padding: 12px;
 }
 
-/* יישור לימין עבור כל התאים */
 td, th {
-    text-align: center; /* יישור לימין */
+    text-align: center;
 }
 
-/* עיצוב עבור העמודה השנייה */
 td:nth-child(2), th:nth-child(2) {
-    direction: ltr;   /* יישור לתצוגה LTR */
-    font-weight: bold; /* הדגשת הטקסט */
+    direction: ltr;   
+    font-weight: bold;
 }
 
-/* עיצוב עבור הכותרות */
 th {
-    background-color: #005bb5; /* צבע רקע לכותרות */
-    color: #ffffff; /* צבע טקסט לכותרות */
+    background-color: #005bb5;
+    color: #ffffff;
 }
 
 tr:nth-child(even) {
-    background-color: #d6eaff; /* רקע עבור שורות זוגיות */
+    background-color: #d6eaff;
 }
 
 tr:hover {
-    background-color: #f0f8ff; /* שינוי רקע בהצבעה */
+    background-color: #f0f8ff;
     transition: background-color 0.3s ease;
 }
 
-
 /* כותרות הקבוצות */
 h2 {
-    color: #005bb5; /* כחול כהה */
+    color: #005bb5;
     margin-bottom: 20px;
     margin-top: 20px;
     border-bottom: 4px solid #007aff;
@@ -280,7 +271,7 @@ form button {
 /* רגל האתר */
 footer {
     background: linear-gradient(135deg, #4a90e2, #007aff);
-    padding: 20px 20px; /* הקטנה מ-40px */
+    padding: 20px 20px;
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
@@ -307,15 +298,25 @@ a:hover {
 }
 
 /* רספונסיביות */
+
+/* מסכים בינוניים */
 @media (max-width: 1024px) {
     .container {
         padding: 0 30px;
     }
+    header h1 {
+        font-size: 3em;
+    }
+    .topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
 }
 
+/* מסכים קטנים */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
+        text-align: center;
     }
 
     nav ul li {
@@ -323,20 +324,29 @@ a:hover {
     }
 
     header h1 {
-        font-size: 3em;
+        font-size: 2.8em;
     }
 
     .button {
         width: 100%;
         text-align: center;
-        min-width: unset; /* הסרת מגבלה על הרוחב */
+        min-width: unset;
     }
 
     .topics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 30px;
+    }
+
+    table {
+        font-size: 0.9em;
     }
 }
 
+/* מסכים קטנים מאוד */
 @media (max-width: 480px) {
     .topics-grid {
         grid-template-columns: 1fr;
@@ -347,10 +357,45 @@ a:hover {
     }
 
     header h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 
     .section {
-        padding: 30px;
+        padding: 20px;
     }
+
+    .button.large-button {
+        font-size: 1.1em;
+        padding: 15px 25px;
+        min-width: 100%;
+    }
+
+    table, th, td {
+        padding: 10px;
+    }
+}
+
+/* יישור תוכן הקטע הראשון למרכז */
+.first-section {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.first-section h1 {
+    font-size: 2.8em;
+    color: #2c2c2c;
+}
+
+.first-section p {
+    font-size: 1.4em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* יישור הכפתור למרכז */
+.first-section .button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
 }

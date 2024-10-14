@@ -3,11 +3,13 @@ layout: default
 title: "בית"
 ---
 
-# קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות
+<div class="first-section">
+    <h1>קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות</h1>
 
-ברוכים הבאים ל"זה קל!" – המילון המקיף שלך למונחי טכנולוגיה ומחשבים. אנו שואפים לספק לך תרגומים והסברים תמציתיים לשלוש רמות: בסיסי, בינוני ומתקדם
+    <p>ברוכים הבאים ל"זה קל!" – המילון המקיף שלך למונחי טכנולוגיה ומחשבים. אנו שואפים לספק לך תרגומים והסברים תמציתיים בשלוש רמות: בסיסי, בינוני ומתקדם.</p>
 
-<a href="#topics" class="button large-button"><i class="fas fa-list"></i> התחל ללמוד עכשיו</a>
+    <a href="#topics" class="button large-button"><i class="fas fa-book-open"></i> התחל ללמוד עכשיו</a>
+</div>
 
 ## <a id="topics"></a><i class="fas fa-th-large"></i> נושאים עיקריים
 
@@ -23,6 +25,7 @@ title: "בית"
     <a href="{{ '/topics/artificial-intelligence.html' | relative_url }}" class="button"><i class="fas fa-robot"></i> בינה מלאכותית</a>
     <a href="{{ '/topics/hardware-components.html' | relative_url }}" class="button"><i class="fas fa-microchip"></i> רכיבי חומרה</a>
 </div>
+
 
 ## <a id="about"></a><i class="fas fa-info-circle"></i> אודות
 
