@@ -12,7 +12,7 @@ title: "בית"
     
     <!-- הוספת כפתורי GitHub ו-Main Site -->
     <div class="home-buttons">
-        <a href="https://github.com/nhlocal/ZeKal/" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #1A1A1A;">
+        <a href="https://github.com/nhlocal/ZeKal/" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #2E2E2E">
             <i class="fas fa-star"></i> ככב בגיטאהב
         </a>
         <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #03C3DE;">
