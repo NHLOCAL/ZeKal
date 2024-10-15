@@ -53,5 +53,76 @@ function addSpeakButtons() {
     });
 }
 
-// להריץ את הפונקציה כשהדף נטען
-document.addEventListener('DOMContentLoaded', addSpeakButtons);
+
+// פונקציה להציג ולהסתיר כפתור חזרה לראש העמוד
+function handleBackToTopButton() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // אם גלילה יותר מ-300px
+            backToTopButton.style.display = 'flex';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// פונקציה להוסיף כפתור השמעה עם Font Awesome לכל מונח אנגלי בעמודה השנייה
+function addSpeakButtons() {
+    const tables = document.querySelectorAll('table');
+    
+    tables.forEach(table => {
+        const rows = table.querySelectorAll('tr');
+        
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            
+            if (cells.length > 1) { // עמודה שניה
+                const englishTermCell = cells[1]; // תא בעמודה השנייה
+                const englishTerm = englishTermCell.innerText.trim();
+                
+                if (englishTerm) {
+                    const button = document.createElement('button');
+                    button.classList.add('speak-button'); // הוספת מחלקה ייחודית לכפתור
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>'; // סמל רמקול
+                    button.onclick = () => speak(englishTerm);
+                    
+                    englishTermCell.appendChild(button);
+                }
+            }
+        });
+    });
+}
+
+// פונקציה להציג ולהסתיר כפתור חזרה לראש העמוד
+function handleBackToTopButton() {
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'flex';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// להריץ את הפונקציות כשהדף נטען
+document.addEventListener('DOMContentLoaded', () => {
+    addSpeakButtons();
+    handleBackToTopButton();
+});

@@ -13,9 +13,10 @@ body {
     color: #2c3e50; /* כחול כהה */
     line-height: 1.8;
     padding: 40px;
+    padding-top: 50px; /* התאמה בהתאם לגובה התפריט */
 }
 
-/* כותרת האתר */
+/* עיצוב ה-HEADER */
 header {
     background: linear-gradient(135deg, #4a90e2, #007aff);
     padding: 30px 20px;
@@ -23,7 +24,7 @@ header {
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     margin-bottom: 10px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease; /* נוסיף אנימציה */
 }
 
 header:hover {
@@ -51,8 +52,33 @@ nav {
     margin-bottom: 60px;
     border-radius: 8px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease; /* אנימציה להחלפה */
+    position: relative; /* ה-NAV במצב רגיל */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
+
+/* תפריט נייח לאחר גלילה */
+nav.fixed {
+    position: fixed; /* התפריט נשאר קבוע בראש המסך */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* כאשר ה-HEADER נעלם */
+header.hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+
 
 nav:hover {
     background-color: #005bb5;
@@ -345,12 +371,13 @@ a:hover {
     }	
 
     nav ul {
-        flex-direction: column;
         text-align: center;
     }
 
     nav ul li {
         margin: 10px 0;
+        flex: 0 1 45%; /* כל פריט יתפוס 45% מהרוחב של השורה */
+        margin-bottom: 10px; /* מרווח קטן מתחת לכל פריט */
     }
 
     header h1 {
@@ -466,4 +493,37 @@ a:hover {
 .speak-button i {
     font-size: 14px;
     color: #ffffff;
+}
+
+/* עיצוב כפתור חזרה לראש העמוד */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: rgb(0, 91, 181);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+}
+
+/* עיצוב כפתורים נוספים */
+.home-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.home-buttons .button {
+    min-width: 180px;
+    font-size: 1.1em;
 }

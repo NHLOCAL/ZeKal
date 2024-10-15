@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="description" content="{{ site.description }}">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
+    {% seo %}
 	<!-- Google Analytics -->
 	<script src="https://nhlocal.github.io/general-settings.js"></script>
-    {% seo %}
 </head>
 <body>
     {% include header.html %}
@@ -22,6 +22,12 @@
         {{ content }}
     </div>
     {% include footer.html %}
+    
+    <!-- כפתור חזרה לראש העמוד -->
+    <button id="back-to-top" title="חזור לראש">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
 </html>
