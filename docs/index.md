@@ -15,7 +15,7 @@ title: "בית"
         <a href="https://github.com/nhlocal/ZeKal/" class="button" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-star"></i> ככב בגיטאהב
         </a>
-        <a href="https://nhlocal.github.io/?utm_source=ZeKalHome" class="button" target="_blank" rel="noopener noreferrer">
+        <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-external-link-alt"></i> אתר ראשי
         </a>
     </div>
