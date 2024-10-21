@@ -16,7 +16,7 @@ title: "בית"
             <i class="fas fa-star"></i> ככב בגיטאהב
         </a>
         <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #03C3DE;">
-            <i class="fas fa-external-link-alt"></i> לאתר המחבר
+            <i class="fas fa-external-link-alt"></i> לעוד פרוייקטים
         </a>
     </div>
 </div>
