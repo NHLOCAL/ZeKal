@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "זה קל - לימוד אנגלית בקלי קלות"
+title: "ערוץ היוטיוב"
 ---
 
 <div class="section red-section">
