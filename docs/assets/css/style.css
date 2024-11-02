@@ -547,14 +547,17 @@ a:hover {
     background-color: #028fa1; /* כחול כהה יותר */
 }
 
-/* שיפור כפתורים */
-.button {
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    .home-buttons .button {
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 /* כפתורים אדומים */
