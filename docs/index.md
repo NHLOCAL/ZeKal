@@ -12,10 +12,10 @@ title: "בית"
     
     <!-- הוספת כפתורי GitHub ו-Main Site -->
     <div class="home-buttons">
-        <a href="https://github.com/nhlocal/ZeKal/" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #2E2E2E">
-            <i class="fas fa-star"></i> ככב בגיטאהב
+        <a href="https://github.com/nhlocal/ZeKal/" class="button github-button" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> ככב בגיטאהב
         </a>
-        <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button" target="_blank" rel="noopener noreferrer" style="background-color: #03C3DE;">
+        <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button projects-button" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-external-link-alt"></i> לעוד פרוייקטים
         </a>
     </div>
@@ -24,6 +24,7 @@ title: "בית"
 ## <a id="topics"></a><i class="fas fa-th-large"></i> נושאים עיקריים
 
 <div class="topics-grid">
+    <!-- כפתורי הנושאים הקיימים -->
     <a href="{{ '/topics/computers.html' | relative_url }}" class="button"><i class="fas fa-laptop"></i> מחשבים</a>
     <a href="{{ '/topics/operating-systems.html' | relative_url }}" class="button"><i class="fas fa-desktop"></i> מערכות הפעלה</a>
     <a href="{{ '/topics/programming-languages.html' | relative_url }}" class="button"><i class="fas fa-code"></i> תכנות</a>
@@ -36,6 +37,22 @@ title: "בית"
     <a href="{{ '/topics/hardware-components.html' | relative_url }}" class="button"><i class="fas fa-microchip"></i> רכיבי חומרה</a>
 </div>
 
+## <a id="youtube-channel"></a><i class="fab fa-youtube"></i> ערוץ יוטיוב
+
+<div class="section red-section">
+    <h2>זה קל - לימוד אנגלית בקלי קלות</h2>
+    <p>מעוניינים ללמוד אנגלית בצורה פשוטה ומהנה? ערוץ היוטיוב שלנו מציע לימוד אנגלית מחולק ל-10 רמות, החל ממתחילים ועד למתקדמים, עם מילים, משפטים ומבנים לשוניים המתאימים לכל הרמות.</p>
+    <p>הצטרפו אלינו ותתחילו לשפר את האנגלית שלכם כבר היום!</p>
+    
+    <div class="home-buttons">
+        <a href="{{ '/youtube-channel.html' | relative_url }}" class="button large-button red-button">
+            <i class="fas fa-info-circle"></i> למידע נוסף
+        </a>
+        <a href="https://github.com/NHLOCAL/WatchZekal/" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> ככב בגיטאהב
+        </a>
+    </div>
+</div>
 
 ## <a id="about"></a><i class="fas fa-info-circle"></i> אודות
 

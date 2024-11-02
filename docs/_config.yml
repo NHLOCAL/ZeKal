@@ -18,6 +18,8 @@ navbar:
     url: "/"
   - title: "נושאים"
     url: "#topics"
+  - title: "ערוץ יוטיוב"
+    url: "/youtube-channel.html"
   - title: "אודות"
     url: "#about"
   - title: "משוב"
