@@ -20,8 +20,11 @@ title: "ערוץ היוטיוב"
     </div>
 
     <div class="home-buttons">
-        <a href="https://www.youtube.com/@Ze-Kal" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-youtube"></i> בקרו בערוץ היוטיוב
+        <a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=button" 
+        class="button large-button red-button" 
+        target="_blank"
+        rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i> בקרו בערוץ היוטיוב
         </a>
         <a href="https://github.com/NHLOCAL/WatchZekal/" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i> ככב בגיטאהב
