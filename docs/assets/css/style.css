@@ -291,6 +291,7 @@ form input:focus, form textarea:focus {
 
 form button {
     align-self: flex-start;
+    font-family: 'Rubik', sans-serif;
 }
 
 /* רגל האתר */
