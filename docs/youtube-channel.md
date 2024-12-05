@@ -1,30 +1,47 @@
 ---
 layout: default
-title: "ערוץ היוטיוב"
+title: ערוץ היוטיוב
 ---
 
+<!-- youtube-channel.md -->
 <div class="section red-section">
     <h1><i class="fab fa-youtube"></i> ערוץ היוטיוב שלנו</h1>
-    <p>ברוכים הבאים ל"זה קל - לימוד אנגלית בקלי קלות"!</p>
-
+    <p>לימוד אנגלית בקלי קלות! שיעורים איכותיים ומותאמים במיוחד למבוגרים</p>
     <p>ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
 
-    <p>הלמידה מחולקת ל-10 רמות, החל מהיסודות ועד לנושאים מתקדמים, כך שתוכלו להתקדם בקצב שלכם.</p>
+    <div class="video-categories">
+        <h2><i class="fas fa-film"></i> קטגוריות סרטונים</h2>
 
-    <p>כל רמה כוללת מילים, משפטים ומבנים לשוניים המתאימים לרמת הקושי שלה, ומאפשרת לכם לשפר את כישורי השפה שלכם בצורה מתמדת.</p>
-
-    <h2>צפו בסרטון לדוגמה</h2>
-    <!-- הטמעת סרטון YouTube לדוגמה -->
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/AbwtibCzEJg" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        {% for category in site.data.video_categories %}
+        <div class="video-category">
+            <h3><i class="{{ category.icon }}"></i> {{ category.title }}</h3>
+            <p>{{ category.description }}</p>
+            <div class="video-grid">  <!-- מיכל גריד חדש -->
+                {% for video in category.videos %}
+                <div class="video-item"> <!-- אין צורך ב <li> -->
+                    <div class="video-preview">
+                        <iframe src="https://www.youtube.com/embed/{{ video.youtube_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-details">
+                        <h4>{{ video.title }}</h4>
+                        <p>{{ video.description }}</p>
+                        <div class="download-buttons">
+                            <a href="{{ video.mp4_url }}" class="button download-button small-button" download><i class="fas fa-download"></i> MP4</a>
+                            <a href="{{ video.mp3_url }}" class="button download-button small-button" download><i class="fas fa-music"></i> MP3</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
     </div>
-
     <div class="home-buttons">
         <a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=button" 
         class="button large-button red-button" 
         target="_blank"
         rel="noopener noreferrer">
-        <i class="fab fa-youtube"></i> בקרו בערוץ היוטיוב
+        <i class="fab fa-youtube"></i> בקרו בערוץ
         </a>
         <a href="https://github.com/NHLOCAL/WatchZekal/" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i> ככב בגיטאהב
