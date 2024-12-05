@@ -629,7 +629,7 @@ a:hover {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* התאמה דינמית של מספר העמודות */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -638,9 +638,9 @@ a:hover {
     flex-direction: column;
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden; /* מונע גלישה של תוכן מחוץ לגבולות */
+    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* הוספת אנימציות */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-item:hover {
@@ -648,25 +648,35 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+
 .video-preview {
-    position: relative;
-    padding-bottom: 56.25%; /* יחס גובה-רוחב 16:9 */
-    height: 0;
+    position: relative; /* Needed for absolute positioning of the play icon */
+    padding-top: 56.25%; /* Maintain aspect ratio 16:9 */
     overflow: hidden;
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    cursor: pointer; /* Indicate clickable */
 }
 
-.video-preview iframe {
+/* Play icon on thumbnail */
+.play-icon {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .video-details {
     padding: 15px;
-    flex-grow: 1; /* מאפשר לפרטי הסרטון למלא את המיכל */
+    flex-grow: 1;
 }
+
 
 .video-details h4 {
     margin-bottom: 5px;
@@ -683,7 +693,7 @@ a:hover {
 .download-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: auto; /* דוחף את הכפתורים לתחתית */
+    margin-top: 10px;
 }
 
 .button.download-button {
@@ -697,9 +707,8 @@ a:hover {
     transition: background-color 0.3s ease;
     text-decoration: none;
     white-space: nowrap;
-    display: inline-flex; /* מאפשר יישור אייקון וטקסט */
-    align-items: center; /* מיישר את האייקון והטקסט אנכית */
-
+    display: inline-flex;
+    align-items: center;
 }
 
 .button.download-button:hover {
@@ -707,40 +716,25 @@ a:hover {
 }
 
 .button.download-button i {
-    margin-right: 5px; /* מרווח בין האייקון לטקסט */
+    margin-right: 5px;
 }
 
+/* Disabled button style */
+.button.download-button:disabled {
+    background-color: #ccc;
+    cursor: default;
+    opacity: 0.5; /* or use filter: grayscale(100%); for a grayscale effect */
+}
+
+/* Media query for smaller screens */
 @media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
     .download-buttons {
-        justify-content: flex-start; /* שינוי למסכים קטנים */
-        flex-direction: column;
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: flex-start;  /* Align to the left */
     }
-        .download-buttons a{
-                margin-bottom: 10px;
-        }
-
-}
-
-/* אייקון יוטיוב */
-.play-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 40px;
-    color: white;
-    opacity: 0.8;
-    background-color: rgba(0, 0, 0, 0.5); /* רקע שקוף */
-    padding: 10px;
-    border-radius: 50%; /* הופך את האייקון לעגול */
-}
-
-
-
-.video-list {
-    list-style: none;
-    padding: 0;
+    .button.download-button {
+        margin-bottom: 5px;  /* Add some space between buttons */
+        width: 100%;        /* Make buttons full width */
+        justify-content: center; /* center text and icon */
+    }
 }
