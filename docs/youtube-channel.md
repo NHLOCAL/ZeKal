@@ -9,18 +9,22 @@ title: ערוץ היוטיוב
     <p>ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
 
     <div class="video-categories">
-        <h2><i class="fas fa-film"></i> סרטונים</h2>
-        <div class="video-grid">
-            {% for video in site.data.videos.videos %}
-            <div class="video-item">
-                <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer">
-                    <div class="video-preview" style="background-image: url('{{ video.thumbnail }}');">
-                        <i class="fas fa-play play-icon"></i>
-                    </div>
-                </a>
-                <div class="video-details">
-                    <h4>{{ video.title }}</h4>
-                    <p>{{ video.description | markdownify }}</p> <div class="download-buttons">
+        {% for playlist in site.data.videos.playlists %}
+        <div class="video-category">
+            <h3><a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-list"></i> {{ playlist.title }}</a></h3>
+            <p>{{ playlist.description | markdownify }}</p>
+            <div class="video-grid">
+                {% for video in playlist.videos %}
+                <div class="video-item">
+                    <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer">
+                        <div class="video-preview" style="background-image: url('{{ video.thumbnail }}');">
+                            <i class="fas fa-play play-icon"></i>
+                        </div>
+                    </a>
+                    <div class="video-details">
+                        <h4>{{ video.title }}</h4>
+                        <p>{{ video.description | markdownify }}</p>
+                           <div class="download-buttons">
                         {% if video.mp4_url %}
                         <a href="{{ video.mp4_url }}" class="button download-button small-button" download><i class="fas fa-download"></i> MP4</a>
                         {% else %}
@@ -32,27 +36,12 @@ title: ערוץ היוטיוב
                         <button class="button download-button small-button" disabled><i class="fas fa-music"></i> MP3</button>
                         {% endif %}
                     </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        <h2><i class="fas fa-list"></i> פלייליסטים</h2>
-        <div class="video-grid">
-            {% for playlist in site.data.videos.playlists %}
-            <div class="video-item">
-                <a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer">
-                    <div class="video-preview" style="background-image: url('{{ playlist.thumbnail }}');">
-                        <i class="fas fa-list play-icon"></i>
                     </div>
-                </a>
-                <div class="video-details">
-                    <h4>{{ playlist.title }}</h4>
-                    <p>{{ playlist.description | markdownify }}</p>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
 
     <div class="home-buttons">
