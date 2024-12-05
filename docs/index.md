@@ -13,7 +13,7 @@ title: "בית"
     <!-- הוספת כפתורי GitHub ו-Main Site -->
     <div class="home-buttons">
         <a href="https://github.com/nhlocal/ZeKal/" class="button github-button" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i> ככב בגיטאהב
+            <i class="fab fa-github"></i> ככב בגיטהאב
         </a>
         <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button projects-button" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-external-link-alt"></i> לעוד פרוייקטים
@@ -47,10 +47,10 @@ title: "בית"
     <div class="home-buttons">
         <a href="{{ '/youtube-channel.html' | relative_url }}" class="button large-button red-button">
             <i class="fas fa-info-circle"></i> למידע נוסף
-        </a>
-        <a href="https://github.com/NHLOCAL/WatchZekal/" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i> ככב בגיטאהב
-        </a>
+		</a>
+		<a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=referral&utm_campaign=youtube-channel-link" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-youtube"></i> לכניסה לערוץ
+		</a>
     </div>
 </div>
 
