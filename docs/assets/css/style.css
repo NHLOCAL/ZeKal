@@ -578,6 +578,25 @@ a:hover {
     margin-top: 30px;
 }
 
+.red-section h1 {
+    font-size: 2.5em; /* גודל גופן גדול */
+    color: #005bb5;  /* צבע כחול כהה */
+    margin-bottom: 10px; /* מרווח תחתון */
+    text-align: center; /* יישור למרכז */
+    border-bottom: 3px solid #007aff; /* קו תחתון */
+    padding-bottom: 5px; /* ריפוד תחתון */
+    font-weight: bold;
+}
+
+.red-section .header-section p {  /* תיאור מתחת לכותרת */
+    font-size: 1.2em;
+    color: #333;     /* צבע אפור כהה */
+    text-align: center; /* יישור למרכז */
+    margin-bottom: 20px; /* מרווח תחתון */
+    line-height: 1.6;  /* מרווח בין שורות */
+
+}
+
 /* עיצוב לתמיכה בסרטוני וידאו רספונסיביים */
 .video-container {
     position: relative;
@@ -794,13 +813,4 @@ a:hover {
         word-break: break-word; /* מאפשר שבירת מילים ארוכות */
         overflow: visible; /* מאפשר לטקסט לעבור לשורה חדשה */
     }
-}
-
-
-.header-section {
-    margin-bottom: 20px; /* מוסיף מרווח בין הכותרת לרשימת הפלייליסטים */
-}
-
-.red-section h1 {
-    font-size: 2em; /* מקטין את גודל הכותרת */
 }
