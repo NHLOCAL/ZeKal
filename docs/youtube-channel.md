@@ -8,10 +8,16 @@ title: ערוץ היוטיוב
     <p>לימוד אנגלית בקלי קלות! שיעורים איכותיים ומותאמים במיוחד למבוגרים</p>
     <p>ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
 
+    <div class="playlist-links">  <!-- הוספת כפתורי קפיצה -->
+        {% for playlist in site.data.videos.playlists %}
+            <a href="#{{ playlist.title | slugify }}" class="button small-button">{{ playlist.title }}</a>
+        {% endfor %}
+    </div>
+
     <div class="video-categories">
         {% for playlist in site.data.videos.playlists %}
-        <div class="video-category">
-            <h3><a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-list"></i> {{ playlist.title }}</a></h3>
+        <div class="video-category" id="{{ playlist.title | slugify }}">
+            <h3><a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> {{ playlist.title }}</a></h3>
             <p>{{ playlist.description | markdownify }}</p>
             <div class="video-grid">
                 {% for video in playlist.videos %}
@@ -24,18 +30,18 @@ title: ערוץ היוטיוב
                     <div class="video-details">
                         <h4>{{ video.title }}</h4>
                         <p>{{ video.description | markdownify }}</p>
-                           <div class="download-buttons">
-                        {% if video.mp4_url %}
-                        <a href="{{ video.mp4_url }}" class="button download-button small-button" download><i class="fas fa-download"></i> MP4</a>
-                        {% else %}
-                        <button class="button download-button small-button" disabled><i class="fas fa-download"></i> MP4</button>
-                        {% endif %}
-                        {% if video.mp3_url %}
-                        <a href="{{ video.mp3_url }}" class="button download-button small-button" download><i class="fas fa-music"></i> MP3</a>
-                        {% else %}
-                        <button class="button download-button small-button" disabled><i class="fas fa-music"></i> MP3</button>
-                        {% endif %}
-                    </div>
+                        <div class="download-buttons">
+                            {% if video.mp4_url %}
+                            <a href="{{ video.mp4_url }}" class="button download-button small-button" download><i class="fas fa-download"></i> MP4</a>
+                            {% else %}
+                            <button class="button download-button small-button" disabled><i class="fas fa-download"></i> MP4</button>
+                            {% endif %}
+                            {% if video.mp3_url %}
+                            <a href="{{ video.mp3_url }}" class="button download-button small-button" download><i class="fas fa-music"></i> MP3</a>
+                            {% else %}
+                            <button class="button download-button small-button" disabled><i class="fas fa-music"></i> MP3</button>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -44,6 +50,13 @@ title: ערוץ היוטיוב
         {% endfor %}
     </div>
 
-    <div class="home-buttons">
-        </div>
+    <div class="home-buttons">  <!-- החזרת כפתורי "הכנס לערוץ" ו"ככב בגיטאהב" -->
+        <a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=button" 
+           class="button large-button red-button" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> בקרו בערוץ
+        </a>
+        <a href="https://github.com/NHLOCAL/WatchZekal/" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> ככב בגיטאהב
+        </a>
+    </div>
 </div>

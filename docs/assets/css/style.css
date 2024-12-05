@@ -735,6 +735,35 @@ a:hover {
     opacity: 0.5; /* or use filter: grayscale(100%); for a grayscale effect */
 }
 
+.playlist-links {
+    display: flex;
+    flex-wrap: wrap; /* מאפשר מעבר שורה */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.playlist-links .button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* ריפוד מעט גדול יותר לטקסט ארוך */
+    border-radius: 20px; /* פינות מעוגלות יותר */
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap; /* מונע מעבר שורה של הטקסט */
+    overflow: hidden;     /* חותך טקסט ארוך מדי */
+    text-overflow: ellipsis; /* מוסיף שלוש נקודות לטקסט ארוך מדי */
+    min-width: 0;
+    flex: 1 0 auto;
+}
+
+.playlist-links .button:hover {
+    background-color: #0056b3;
+}
+
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: 1fr; /*  פריטים בשורה אחת */
@@ -753,5 +782,16 @@ a:hover {
         flex: 1 1 auto;
         width: auto;
         max-width: 48%;
+		flex-direction: column;
      }
+	 
+    .playlist-links .button {
+        flex-basis: 100%;
+        margin-bottom: 5px;
+        justify-content: center;
+        text-align: center;
+        white-space: normal; /* מאפשר מעבר שורה לטקסט */
+        word-break: break-word; /* מאפשר שבירת מילים ארוכות */
+        overflow: visible; /* מאפשר לטקסט לעבור לשורה חדשה */
+    }
 }
