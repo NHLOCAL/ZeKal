@@ -4,11 +4,12 @@ title: ערוץ היוטיוב
 ---
 
 <div class="section red-section">
-    <h1><i class="fab fa-youtube"></i> ערוץ היוטיוב שלנו</h1>
-    <p>לימוד אנגלית בקלי קלות! שיעורים איכותיים ומותאמים במיוחד למבוגרים</p>
-    <p>ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
+    <div class="header-section"> <!-- מיכל חדש עבור הכותרת והתיאור -->
+        <h1 style="text-align: center;"><i class="fab fa-youtube"></i> ערוץ היוטיוב שלנו</h1>
+        <p style="text-align: center;">לימוד אנגלית בקלי קלות! שיעורים איכותיים ומותאמים במיוחד למבוגרים. ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
+    </div>
 
-    <div class="playlist-links">  <!-- הוספת כפתורי קפיצה -->
+    <div class="playlist-links">
         {% for playlist in site.data.videos.playlists %}
             <a href="#{{ playlist.title | slugify }}" class="button small-button">{{ playlist.title }}</a>
         {% endfor %}

@@ -795,3 +795,12 @@ a:hover {
         overflow: visible; /* מאפשר לטקסט לעבור לשורה חדשה */
     }
 }
+
+
+.header-section {
+    margin-bottom: 20px; /* מוסיף מרווח בין הכותרת לרשימת הפלייליסטים */
+}
+
+.red-section h1 {
+    font-size: 2em; /* מקטין את גודל הכותרת */
+}
