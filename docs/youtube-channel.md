@@ -4,19 +4,19 @@ title: ערוץ היוטיוב
 ---
 
 <div class="section red-section">
-    <div class="header-section"> <!-- מיכל חדש עבור הכותרת והתיאור -->
+    <div class="header-section">
         <h1 style="text-align: center;"><i class="fab fa-youtube"></i> ערוץ היוטיוב שלנו</h1>
         <p style="text-align: center;">לימוד אנגלית בקלי קלות! שיעורים איכותיים ומותאמים במיוחד למבוגרים. ערוץ היוטיוב שלנו מציע לכם ללמוד אנגלית בצורה פשוטה ומהנה.</p>
     </div>
 
     <div class="playlist-links">
-        {% for playlist in site.data.videos.playlists %}
+        {% for playlist in site.data.videos.playlists reversed %}
             <a href="#{{ playlist.title | slugify }}" class="button small-button">{{ playlist.title }}</a>
         {% endfor %}
     </div>
 
     <div class="video-categories">
-        {% for playlist in site.data.videos.playlists %}
+        {% for playlist in site.data.videos.playlists reversed %}
         <div class="video-category" id="{{ playlist.title | slugify }}">
             <h3><a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> {{ playlist.title }}</a></h3>
             <p>{{ playlist.description | markdownify }}</p>
@@ -49,7 +49,7 @@ title: ערוץ היוטיוב
         {% endfor %}
     </div>
 
-    <div class="home-buttons">  <!-- החזרת כפתורי "הכנס לערוץ" ו"ככב בגיטאהב" -->
+    <div class="home-buttons">
         <a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=button" 
            class="button large-button red-button" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-youtube"></i> בקרו בערוץ
