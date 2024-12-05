@@ -18,12 +18,12 @@ title: ערוץ היוטיוב
     <div class="video-categories">
         {% for playlist in site.data.videos.playlists reversed %}
         <div class="video-category" id="{{ playlist.title | slugify }}">
-            <h3><a href="{{ playlist.url }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> {{ playlist.title }}</a></h3>
+            <h3><a href="{{ playlist.url }}&utm_source=ze-kal-site&utm_medium=link" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> {{ playlist.title }}</a></h3>
             <p>{{ playlist.description | markdownify }}</p>
             <div class="video-grid">
                 {% for video in playlist.videos %}
                 <div class="video-item">
-                    <a href="{{ video.url }}" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ video.url }}&utm_source=ze-kal-site&utm_medium=link" target="_blank" rel="noopener noreferrer">
                         <div class="video-preview" style="background-image: url('{{ video.thumbnail }}');">
                             <i class="fas fa-play play-icon"></i>
                         </div>
