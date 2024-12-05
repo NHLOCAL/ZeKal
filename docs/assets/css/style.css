@@ -695,8 +695,10 @@ a:hover {
 
 .download-buttons {
     display: flex;
-    justify-content: space-between; /* מרחק בין כפתורי ההורדה */
+    flex-wrap: wrap; /* מאפשר לכפתורים לעבור לשורה חדשה אם אין מספיק מקום */
+    justify-content: flex-start; /* מיישר את הכפתורים לשמאל */
     margin-top: auto; /* דוחף את הכפתורים לתחתית */
+    gap: 10px; /* מוסיף מרווח בין הכפתורים */
 
 }
 
@@ -713,7 +715,10 @@ a:hover {
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
+    min-width: 120px; /* קובע רוחב מינימלי לכפתורים */
+    flex: 1 0 auto;   /* מאפשר לכפתורים לגדול ולמלא את הרוחב הזמין */
 }
+
 
 .button.download-button:hover {
     background-color: #0056b3;
@@ -730,20 +735,23 @@ a:hover {
     opacity: 0.5; /* or use filter: grayscale(100%); for a grayscale effect */
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: 1fr; /*  פריטים בשורה אחת */
     }
 
     .download-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .button.download-button {
-        margin-bottom: 5px;
-        width: 100%;
-        justify-content: center; /* מרכז את הטקסט והאייקון */
-    }
+        flex-direction: row; /* שינוי לכיוון אופקי */
+        justify-content: space-between; /* מרווח בין הכפתורים */
+        width: 100%; /* תופס את כל רוחב הקונטיינר */
+        align-items: center; /* מיישר את הכפתורים אנכית */
+     }
 
+    .button.download-button {
+         /* מאפס את רוחב הכפתורים במסכים קטנים */
+        min-width: 0;
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 48%;
+     }
 }
