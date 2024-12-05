@@ -599,19 +599,18 @@ a:hover {
 }
 
 
-/* ... קוד CSS קיים ...*/
-
-
-/* style.css */
-
-/* ... קוד CSS קיים ... */
-
 .video-categories {
     margin-top: 40px;
 }
 
 .video-category {
     margin-bottom: 30px;
+    border: 1px solid #ddd; /* גבול דק סביב כל קטגוריה */
+    padding: 20px;      /* ריפוד פנימי */
+    border-radius: 8px;   /* פינות מעוגלות */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* צל קל */
+    overflow: hidden; /* מונע גלישה של תוכן מחוץ לגבולות */
+
 }
 
 .video-category h3 {
@@ -622,6 +621,11 @@ a:hover {
     font-size: 1.8em;
 }
 
+.video-category h3 a {
+    text-decoration: none; /* מסיר את הקו התחתון מהקישור */
+    color: inherit;       /* יורש את הצבע מהכותרת */
+}
+
 .video-category p {
     margin-bottom: 20px;
     color: #333;
@@ -629,13 +633,13 @@ a:hover {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* רספונסיבי - מתאים את מספר העמודות לפי גודל המסך */
     gap: 20px;
 }
 
 .video-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* מאפשר לפרטי הסרטון להופיע מתחת לתמונה */
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -648,14 +652,14 @@ a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-
 .video-preview {
-    position: relative; /* Needed for absolute positioning of the play icon */
-    padding-top: 56.25%; /* Maintain aspect ratio 16:9 */
+    position: relative;
+    padding-top: 56.25%; /* שומר על יחס גובה-רוחב של 16:9 */
     overflow: hidden;
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the image */
-    cursor: pointer; /* Indicate clickable */
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+
 }
 
 /* Play icon on thumbnail */
@@ -674,14 +678,13 @@ a:hover {
 
 .video-details {
     padding: 15px;
-    flex-grow: 1;
+    flex-grow: 1; /* מאפשר לפרטי הסרטון למלא את המיכל */
 }
-
 
 .video-details h4 {
     margin-bottom: 5px;
     font-size: 1.2em;
-    color: #2c3e50; /* צבע טקסט כהה יותר */
+    color: #2c3e50;
 }
 
 .video-details p {
@@ -692,8 +695,9 @@ a:hover {
 
 .download-buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    justify-content: space-between; /* מרחק בין כפתורי ההורדה */
+    margin-top: auto; /* דוחף את הכפתורים לתחתית */
+
 }
 
 .button.download-button {
@@ -728,13 +732,18 @@ a:hover {
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr; /*  פריטים בשורה אחת */
+    }
+
     .download-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: flex-start;  /* Align to the left */
+        flex-direction: column;
+        align-items: flex-start;
     }
     .button.download-button {
-        margin-bottom: 5px;  /* Add some space between buttons */
-        width: 100%;        /* Make buttons full width */
-        justify-content: center; /* center text and icon */
+        margin-bottom: 5px;
+        width: 100%;
+        justify-content: center; /* מרכז את הטקסט והאייקון */
     }
+
 }
