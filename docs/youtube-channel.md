@@ -34,14 +34,12 @@ title: ערוץ היוטיוב
                         <div class="download-buttons">
                             {% if video.mp4_url %}
                             <a href="{{ video.mp4_url }}" class="button download-button small-button" download><i class="fas fa-download"></i> MP4</a>
+                            <a href="{{ video.mp4_url | replace: '.mp4', '.mp3' }}" class="button download-button small-button" download><i class="fas fa-music"></i> MP3</a>
                             {% else %}
                             <button class="button download-button small-button" disabled><i class="fas fa-download"></i> MP4</button>
-                            {% endif %}
-                            {% if video.mp3_url %}
-                            <a href="{{ video.mp3_url }}" class="button download-button small-button" download><i class="fas fa-music"></i> MP3</a>
-                            {% else %}
                             <button class="button download-button small-button" disabled><i class="fas fa-music"></i> MP3</button>
                             {% endif %}
+
                         </div>
                     </div>
                 </div>
