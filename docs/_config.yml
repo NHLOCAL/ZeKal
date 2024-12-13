@@ -15,15 +15,19 @@ plugins:
 # הגדרות ניווט
 navbar:
   - title: "בית"
-    url: "/"
-  - title: "נושאים"
-    url: "#topics"
+    url: /index.html
+  - title: "כל הנושאים"
+    url: /index.html#topics
+  - title: "מילים נפוצות"
+    url: /index.html#common-words
+  - title: "תכנות ומחשבים"
+    url: /index.html#programming-and-computers
   - title: "ערוץ יוטיוב"
-    url: "/youtube-channel.html"
+    url: /youtube-channel.html
   - title: "אודות"
-    url: "#about"
+    url: /index.html#about
   - title: "משוב"
-    url: "#feedback"
+    url: /index.html#feedback
 
 # הגדרות שפה וכיוון טקסט
 markdown: kramdown

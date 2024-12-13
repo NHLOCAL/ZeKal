@@ -234,7 +234,7 @@ tr:hover {
     transition: background-color 0.3s ease;
 }
 
-/* כותרות הקבוצות */
+/* עיצוב כותרות הקבוצות */
 h2 {
     color: #005bb5;
     margin-bottom: 20px;
@@ -242,6 +242,17 @@ h2 {
     border-bottom: 4px solid #007aff;
     padding-bottom: 0px;
     font-size: 2.5em;
+}
+
+/* עיצוב כותרות תת-קטגוריות */
+h2#common-words, h2#programming-and-computers {
+    color: #005bb5;
+    margin-bottom: 15px; /* הקטנת המרווח התחתון */
+    margin-top: 30px; /* הקטנת המרווח העליון */
+    border-bottom: 2px solid #007aff; /* קו תחתון דק יותר */
+    padding-bottom: 5px; /* ריפוד תחתון קטן יותר */
+    font-size: 2.0em; /* גודל גופן קטן יותר */
+    font-weight: 600; /* גופן פחות עבה */
 }
 
 h3 {
