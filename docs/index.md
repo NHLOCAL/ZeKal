@@ -8,7 +8,7 @@ title: "בית"
 
     <p>ברוכים הבאים ל"זה קל!" – המילון המקיף שלך למונחי טכנולוגיה ומחשבים. אנו שואפים לספק לך תרגומים והסברים תמציתיים בשלוש רמות: בסיסי, בינוני ומתקדם.</p>
 
-    <a href="#topics" class="button large-button"><i class="fas fa-book-open"></i> התחל ללמוד עכשיו</a>
+    <a href="#common-words" class="button large-button"><i class="fas fa-book-open"></i> התחל ללמוד עכשיו</a>
     
     <!-- הוספת כפתורי GitHub ו-Main Site -->
     <div class="home-buttons">
@@ -21,7 +21,19 @@ title: "בית"
     </div>
 </div>
 
-## <a id="topics"></a><i class="fas fa-th-large"></i> נושאים עיקריים
+## <a id="topics"></a><i class="fas fa-th-large"></i> נושאים
+
+<h2 id="common-words"><a id="common-words"></a><i class="fas fa-language"></i> מילים נפוצות</h2>
+
+<div class="topics-grid">
+    <!-- כפתורי הנושאים הקיימים -->
+    <a href="{{ '/topics/basic-words-1.html' | relative_url }}" class="button"><i class="fas fa-graduation-cap"></i> בסיסי - חלק 1</a>
+	<a href="{{ '/topics/basic-words-2.html' | relative_url }}" class="button"><i class="fas fa-graduation-cap"></i> בסיסי - חלק 2</a>
+	<a href="{{ '/topics/advanced-words-1.html' | relative_url }}" class="button"><i class="fas fa-rocket"></i> מתקדם - חלק 1</a>
+	<a href="{{ '/topics/advanced-words-2.html' | relative_url }}" class="button"><i class="fas fa-rocket"></i> מתקדם - חלק 2</a>
+</div>
+
+<h2 id="programming-and-computers"><a id="programming-and-computers"></a><i class="fas fa-laptop-code"></i> תכנות ומחשבים</h2>
 
 <div class="topics-grid">
     <!-- כפתורי הנושאים הקיימים -->
