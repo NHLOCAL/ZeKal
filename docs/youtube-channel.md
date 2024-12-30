@@ -10,13 +10,13 @@ title: ערוץ היוטיוב
     </div>
 
     <div class="playlist-links">
-        {% for playlist in site.data.videos.playlists reversed %}
+        {% for playlist in site.data.videos.playlists %}
             <a href="#{{ playlist.title | slugify }}" class="button small-button">{{ playlist.title }}</a>
         {% endfor %}
     </div>
 
     <div class="video-categories">
-        {% for playlist in site.data.videos.playlists reversed %}
+        {% for playlist in site.data.videos.playlists %}
         <div class="video-category" id="{{ playlist.title | slugify }}">
             <h3><a href="{{ playlist.url }}&utm_source=ze-kal-site&utm_medium=link" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle"></i> {{ playlist.title }}</a></h3>
             <p>{{ playlist.description | markdownify }}</p>
