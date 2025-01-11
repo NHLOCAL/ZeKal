@@ -53,16 +53,18 @@ title: "בית"
 
 <div class="section red-section">
     <h2>זה קל - לימוד אנגלית בקלי קלות</h2>
-    <p>מעוניינים ללמוד אנגלית בצורה פשוטה ומהנה? ערוץ היוטיוב שלנו מציע לימוד אנגלית מחולק ל-10 רמות, החל ממתחילים ועד למתקדמים, עם מילים, משפטים ומבנים לשוניים המתאימים לכל הרמות.</p>
-    <p>הצטרפו אלינו ותתחילו לשפר את האנגלית שלכם כבר היום!</p>
+    <p>מעוניינים ללמוד אנגלית בצורה פשוטה ומהנה? ערוץ היוטיוב שלנו "זה קל" מציע חווית לימוד חדשנית וידידותית, שבה <b>כל התכנים נוצרו באמצעות בינה מלאכותית!</b></p>
+    <p>הערוץ מציע מגוון סרטונים ללימוד אנגלית המחולקים ל-10 רמות, החל מיסודות השפה ועד לרמה מתקדמת. כל הסרטונים, התסריטים, העיצוב ואפילו בדיקות התוכן נעשו על ידי מודל השפה o1 של OpenAI ומודלים נוספים.</p>
+    <p>בנוסף, תוכלו למצוא בערוץ סרטוני Shorts ללימוד אוצר מילים במגוון נושאים ועשרות סיפורים מרתקים המחולקים ל-3 רמות קושי. כל זאת כדי להנגיש את לימוד האנגלית בצורה המיטבית.</p>
+    <p>מאגר הקוד והתוכן של הערוץ, ה-Repo, פתוח לציבור ב-<a href="https://github.com/NHLOCAL/WatchZekal" target="_blank">GitHub</a>. אתם מוזמנים לצפות, ללמוד, להשתמש ואף לתרום לפרויקט!</p>
     
     <div class="home-buttons">
         <a href="{{ '/youtube-channel.html' | relative_url }}" class="button large-button red-button">
             <i class="fas fa-info-circle"></i> למידע נוסף
-		</a>
-		<a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=referral&utm_campaign=youtube-channel-link" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
-			<i class="fab fa-youtube"></i> לכניסה לערוץ
-		</a>
+        </a>
+        <a href="https://www.youtube.com/@Ze-Kal?utm_source=ze-kal-site&utm_medium=referral&utm_campaign=youtube-channel-link" class="button large-button red-button" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-youtube"></i> לכניסה לערוץ
+        </a>
     </div>
 </div>
 
