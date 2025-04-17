@@ -1,197 +1,214 @@
 /* book_style.css */
 
-/* 1. טעינת הפונטים מ‑Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap'); /* גוף הטקסט: Frank Ruhl Libre Regular (400), Medium (500), Bold (700) */
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap'); /* כותרות: Assistant Light (300), Regular (400), SemiBold (600), Bold (700), ExtraBold (800) */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap'); /* פונט קוד: IBM Plex Mono Regular (400) - ניתן להוסיף משקלים נוספים אם יש צורך */
+/* 1. טעינת הפונטים מ‑Google Fonts (נשאר ללא שינוי) */
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
 /* --- הגדרות עמוד בסיסיות --- */
 @page {
-  margin: 2cm; /* שוליים סטנדרטיים לדפוס */
+  margin: 2cm;
 }
 
 body {
   direction: rtl;
-  font-family: 'Frank Ruhl Libre', serif; /* פונט סריפי לקריאות ארוכת טקסט */
-  font-size: 14pt; /* הוגדל מעט ל-14pt */
-  line-height: 1.65; /* הוקטן מעט לשיפור צפיפות */
-  color: #222; /* מעט כהה יותר מ-#333 */
-  widows: 3; /* למנוע שורה בודדת בראש עמוד */
-  orphans: 3; /* למנוע שורה בודדת בתחתית עמוד */
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 14pt;
+  line-height: 1.65;
+  color: #222;
+  widows: 3;
+  orphans: 3;
 }
 
 /* --- הגדרות דפים סטטיים (כריכה, מחבר וכו') --- */
-
-/* הגדרה כללית לדף, משמשת בעיקר לכריכה */
 .page {
   box-sizing: border-box;
 }
 
-/* דף כריכה */
+/* דף כריכה - מעודכן */
 .cover-page {
-  page-break-after: always; /* מעבר עמוד אחרי הכריכה */
-  height: calc(100vh - 4cm); /* גובה כמעט מלא, בהתחשב בשוליים */
+  page-break-after: always;
+  height: calc(100vh - 4cm);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  border: 1px solid #eee; /* מסגרת עדינה מאוד (אופציונלי) */
 }
 .cover-content {
   font-family: 'Assistant', sans-serif;
+  padding: 2em; /* ריווח פנימי */
 }
 .cover-title {
   display: block;
-  font-size: 48pt;
-  font-weight: 800; /* ExtraBold */
-  margin-bottom: 0.3em;
-  color: #000;
+  font-size: 42pt; /* הוקטן מעט */
+  font-weight: 800;
+  margin-bottom: 0.2em; /* רווח קטן יותר */
+  color: #111;
 }
 .cover-subtitle {
   display: block;
-  font-size: 24pt;
-  font-weight: 400; /* Regular */
-  color: #444;
+  font-size: 22pt; /* הוקטן מעט */
+  font-weight: 400;
+  color: #555; /* מעט כהה יותר */
+  margin-bottom: 1.5em; /* רווח גדול יותר לפני שם המחבר */
+}
+.cover-author {
+  display: block;
+  font-family: 'Frank Ruhl Libre', serif; /* פונט גוף הטקסט למחבר */
+  font-size: 16pt;
+  font-weight: 500; /* Medium */
+  color: #333;
+  margin-top: 1.5em; /* ריווח מעל שם המחבר */
 }
 
 /* דף ריק */
 .blank-page {
-  page-break-after: always; /* מעבר עמוד אחרי דף ריק */
-  /* אין צורך בתוכן או עיצוב מיוחד */
+  page-break-after: always;
 }
 
-/* דף מידע על המחבר */
+/* דף מידע על הספר והמחבר - מעודכן */
 .author-page {
-  page-break-after: always; /* מעבר עמוד אחרי דף המחבר */
-  padding-top: 5vh; /* ריווח מהחלק העליון */
+  page-break-after: always;
+  padding: 3vh 0; /* ריווח אנכי */
 }
 .author-content {
-  max-width: 650px; /* רוחב מקסימלי לטקסט */
-  margin: 0 auto; /* ממורכז אופקית */
+  max-width: 600px; /* רוחב מעט קטן יותר */
+  margin: 0 auto; /* ממורכז */
   font-family: 'Frank Ruhl Libre', serif;
-  font-size: 12pt; /* פונט מעט קטן יותר למידע משני */
-  line-height: 1.6;
+  font-size: 12pt;
+  line-height: 1.7; /* ריווח שורות מעט גדול יותר בעמוד זה */
+  text-align: center; /* רוב התוכן יהיה ממורכז */
 }
-.author-content h2 { /* עיצוב ייחודי לכותרת בדף המחבר */
+.author-content h2 { /* כותרת העמוד */
    font-family: 'Assistant', sans-serif;
-   font-size: 24pt; /* גודל מותאם לדף */
-   font-weight: 700; /* Bold */
+   font-size: 22pt; /* קטן יותר מהכותרת הראשית */
+   font-weight: 700;
    text-align: center;
-   margin-bottom: 1.5em;
-   border: none; /* הסרת הגבול הימני מכותרות H2 רגילות */
+   margin-bottom: 1em; /* רווח מתחת לכותרת */
+   border: none;
    padding: 0;
    page-break-before: avoid;
    page-break-after: avoid;
 }
+.author-content .book-edition {
+   font-family: 'Assistant', sans-serif;
+   font-size: 11pt;
+   font-weight: 400; /* Regular */
+   color: #666;
+   margin-bottom: 2.5em; /* רווח אחרי המהדורה */
+   text-align: center;
+}
  .author-content .author-name {
    font-family: 'Assistant', sans-serif;
-   font-size: 18pt;
-   font-weight: 600; /* SemiBold */
+   font-size: 16pt; /* מעט קטן יותר */
+   font-weight: 600;
    text-align: center;
-   margin-bottom: 2em;
+   margin-bottom: 1.5em;
  }
-.author-content p {
-  margin: 0.7em 0;
-  text-align: right; /* ברירת מחדל לדף RTL */
-}
+ .author-content .contact-info {
+    margin-bottom: 2.5em; /* רווח מתחת לפרטי יצירת קשר */
+ }
+ .author-content .contact-info p {
+    margin: 0.5em 0; /* רווחים קטנים יותר בין פרטי הקשר */
+    font-size: 11pt; /* פונט קטן יותר לפרטי קשר */
+ }
 .author-content a {
-  color: #0056b3; /* כחול סטנדרטי לקישורים */
+  color: #0056b3;
   text-decoration: none;
-  direction: ltr; /* קישורים בדרך כלל LTR */
-  display: inline-block; /* כדי שכיווניות תעבוד */
+  direction: ltr;
+  display: inline-block;
 }
 .author-content a:hover {
   text-decoration: underline;
 }
-.author-content hr {
+.author-content hr { /* קו מפריד מעוצב */
   border: 0;
   height: 1px;
-  background-color: #ccc;
-  margin: 2.5em 0;
+  background-color: #ddd; /* אפור בהיר יותר */
+  margin: 2.5em auto; /* ממורכז אופקית */
+  width: 50%; /* קצר יותר */
 }
 .author-content .rights-notice,
 .author-content .disclaimer {
   font-size: 10pt;
-  color: #666;
-  text-align: center; /* הודעות זכויות וכו' ממורכזות */
+  color: #777; /* אפור בהיר */
+  text-align: center;
   margin: 0.5em auto;
   max-width: 500px;
+  line-height: 1.5; /* ריווח שורות קטן יותר להודעות */
 }
 
 /* --- עיצוב תוכן הספר הראשי --- */
+/* (שאר העיצוב נשאר זהה לקודם) */
+
+/* Wrap main content to ensure page breaks work correctly after front matter */
+.main-content {
+    /* No specific style needed unless you want to add padding/margin here */
+}
 
 /* כותרות ראשיות (H1) - עמוד פרק */
 h1 {
-  page-break-before: always; /* כל H1 מתחיל עמוד חדש */
+  page-break-before: always;
   display: flex;
-  flex-direction: column; /* סידור כותרת ותת-כותרת אחת מתחת לשניה */
-  align-items: center; /* ממורכז אופקית */
-  justify-content: center; /* ממורכז אנכית (בערך) */
-  min-height: 80vh; /* גובה מינימלי כדי למלא רוב העמוד */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
   margin: 0;
-  padding: 2em 0; /* ריווח פנימי */
+  padding: 2em 0;
   font-family: 'Assistant', sans-serif;
   text-align: center;
 }
-
+/* ... (שאר סגנונות H1, H2, H3, p, pre, code, table וכו' נשארים זהים) ... */
 h1 .main-title {
   display: block;
-  font-size: 28pt; /* מעט קטן יותר מהגודל המקורי */
-  font-weight: 800; /* ExtraBold */
+  font-size: 28pt;
+  font-weight: 800;
 }
 h1 .sub-title {
   display: block;
-  font-size: 36pt; /* הוגדל משמעותית */
-  font-weight: 600; /* SemiBold */
-  margin-top: 0.5em; /* רווח מהכותרת הראשית */
-  color: #333; /* צבע מעט שונה להדגשה */
+  font-size: 36pt;
+  font-weight: 600;
+  margin-top: 0.5em;
+  color: #333;
 }
-/* סגנון לכותרת H1 ללא נקודתיים */
 h1 .full-title {
-   font-size: 32pt; /* גודל סטנדרטי אם אין פיצול */
+   font-size: 32pt;
    font-weight: 800;
 }
-
-/* כותרות משנה (H2) */
 h2 {
   font-family: 'Assistant', sans-serif;
-  font-size: 18pt; /* הוקטן מ-20pt */
-  font-weight: 600; /* SemiBold */
-  margin: 2.5em 0 1em 0; /* רווחים מעודכנים */
+  font-size: 18pt;
+  font-weight: 600;
+  margin: 2.5em 0 1em 0;
   border-right: 4px solid #888;
   padding-right: 0.6em;
-  page-break-after: avoid; /* למנוע שבירת עמוד מיד אחרי כותרת */
+  page-break-after: avoid;
 }
-
-/* כותרות מדרגה נוספת (H3) */
 h3 {
   font-family: 'Assistant', sans-serif;
   font-size: 16pt;
-  font-weight: 400; /* Regular (הוסר italic, שונה מ-Light) */
+  font-weight: 400;
   margin: 1.8em 0 0.6em 0;
-  border-right: 2px solid #ccc; /* שינוי לגבול רציף */
+  border-right: 2px solid #ccc;
   padding-right: 1em;
   page-break-after: avoid;
   color: #444;
 }
-
-/* פסקאות */
 p {
   margin: 0.8em 0;
-  text-align: justify; /* יישור לשני הצדדים לטקסט רץ */
-  hyphens: auto; /* מאפשר מיקוף אוטומטי (תלוי בדפדפן ובתמיכה בשפה) */
+  text-align: justify;
+  hyphens: auto;
 }
-
-/* רשימות */
 ul, ol {
     margin: 1em 0;
-    padding-right: 2em; /* הזחה לרשימות */
+    padding-right: 2em;
 }
 li {
     margin-bottom: 0.5em;
 }
-
-/* ציטוטים */
 blockquote {
   margin: 1.5em 2em;
   padding: 1em 1.5em;
@@ -204,10 +221,8 @@ blockquote {
 }
 blockquote p {
     margin: 0.5em 0;
-    text-align: right; /* לשמור על יישור בתוך הציטוט */
+    text-align: right;
 }
-
-/* סגנון עבור קטעי קוד (pre) */
 pre {
   font-family: 'IBM Plex Mono', monospace;
   background-color: #f4f4f4;
@@ -217,13 +232,11 @@ pre {
   border-radius: 4px;
   direction: ltr;
   text-align: left;
-  font-size: 11pt; /* הוקטן מעט */
+  font-size: 11pt;
   line-height: 1.4;
   page-break-inside: avoid;
   margin: 1.5em 0;
 }
-
-/* סגנון עבור קוד בתוך השורה (code) */
 code {
   font-family: 'IBM Plex Mono', monospace;
   background-color: #eee;
@@ -232,37 +245,32 @@ code {
   font-size: 0.9em;
   direction: ltr;
 }
-/* כדי ש-code בתוך pre לא יקבל עיצוב כפול */
 pre code {
     background-color: transparent;
     padding: 0;
     border-radius: 0;
-    font-size: inherit; /* יורש את גודל הפונט מ-pre */
+    font-size: inherit;
 }
-
-/* טבלאות */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5em 0;
   page-break-inside: avoid;
-  font-size: 0.9em; /* טקסט קטן יותר בטבלאות */
+  font-size: 0.9em;
 }
 th, td {
   border: 1px solid #ccc;
   padding: 0.5em 0.8em;
-  text-align: right; /* ברירת מחדל RTL */
+  text-align: right;
 }
 th {
   background-color: #f0f0f0;
   font-family: 'Assistant', sans-serif;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
 }
 thead th {
-    background-color: #e0e0e0; /* כותרות עליונות מעט כהות יותר */
+    background-color: #e0e0e0;
 }
-
-/* למנוע שבירת דף בתוך אלמנטים חשובים (כבר מכוסה חלקית) */
 figure, img {
   page-break-inside: avoid;
 }

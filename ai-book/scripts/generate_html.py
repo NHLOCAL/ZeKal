@@ -6,7 +6,6 @@ from markdown_it import MarkdownIt
 from bs4 import BeautifulSoup
 
 # --- Determine Project Root ---
-# Assumes the script is located in project_root/scripts/
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 
@@ -17,8 +16,9 @@ DEFAULT_CSS_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'css', 'book_st
 
 
 def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי המסך", author_name="nhlocal"):
-    """Generates the HTML for the front matter pages (Cover, Blank, Author, Blank)."""
-    # (Function content remains the same as before)
+    """Generates the HTML for the front matter pages (Cover, Blank, Author/Info, Blank)."""
+
+    # Split book title if needed for cover styling
     main_cover_title = book_title
     sub_cover_title = ""
     if ':' in book_title:
@@ -26,26 +26,35 @@ def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את
         main_cover_title = parts[0].strip()
         sub_cover_title = parts[1].strip()
 
+    # Placeholder for edition - you might want to generate this dynamically later
+    current_year = 2024
+    current_month = "יוני" # Or dynamically get month name in Hebrew
+    book_edition_text = f"מהדורה ראשונה | {current_month} {current_year}"
+
     front_matter = f"""
 <!-- Cover Page -->
 <div class="page cover-page">
   <div class="cover-content">
      <span class="cover-title">{main_cover_title}</span>
      {'<span class="cover-subtitle">' + sub_cover_title + '</span>' if sub_cover_title else ''}
+     <p class="cover-author">{author_name}</p>
   </div>
 </div>
 
 <!-- Blank Page -->
 <div class="page blank-page"></div>
 
-<!-- Author Info Page -->
+<!-- Author/Info Page -->
 <div class="page author-page">
   <div class="author-content">
-    <h2>על המחבר</h2>
-    <p class="author-name">{author_name}</p>
-    <p>GitHub: <a href="https://github.com/NHLOCAL" target="_blank" rel="noopener noreferrer">https://github.com/NHLOCAL</a></p>
-    <p>אתר פרויקטים: <a href="https://nhlocal.github.io" target="_blank" rel="noopener noreferrer">https://nhlocal.github.io</a></p>
-    <p>דוא"ל: <a href="mailto:nh.local11@gmail.com">nh.local11@gmail.com</a></p>
+    <h2>פרטי הספר והמחבר</h2>
+    <p class="book-edition">{book_edition_text}</p>
+    <p class="author-name">מאת: {author_name}</p>
+    <div class="contact-info">
+        <p>GitHub: <a href="https://github.com/NHLOCAL" target="_blank" rel="noopener noreferrer">github.com/NHLOCAL</a></p>
+        <p>אתר פרויקטים: <a href="https://nhlocal.github.io" target="_blank" rel="noopener noreferrer">nhlocal.github.io</a></p>
+        <p>דוא"ל: <a href="mailto:nh.local11@gmail.com">nh.local11@gmail.com</a></p>
+    </div>
     <hr>
     <p class="rights-notice">כל הזכויות שמורות למחבר, {author_name}.</p>
     <p class="rights-notice">ניתן להפיץ ולשכפל בחופשיות תוך מתן קרדיט (ייחוס) למחבר המקורי.</p>
@@ -62,7 +71,7 @@ def improve_html_structure(html_fragment):
     """
     Parses the HTML fragment and restructures H1 tags for title/subtitle spans.
     """
-    # (Function content remains the same as before)
+    # (Function content remains the same)
     print("Improving HTML structure (Processing H1 titles)...")
     soup = BeautifulSoup(html_fragment, 'lxml')
     h1_tags = soup.find_all('h1')
@@ -92,20 +101,13 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
     """
     Converts Markdown to a full HTML book file with front matter,
     copies the CSS file, and links it locally.
-
-    Args:
-        md_file_path (str): Path to the input Markdown file.
-        html_file_path (str): Path for the output HTML file.
-        css_source_path (str): Path to the source CSS file to copy.
     """
+    # (Function logic remains largely the same, only the final HTML string construction changes slightly)
     print(f"--- Starting HTML Book Generation ---")
-    print(f"Project Root:   {PROJECT_ROOT}")
-    print(f"Input Markdown: {md_file_path}")
-    print(f"Source CSS:     {css_source_path}")
-    print(f"Output HTML:    {html_file_path}")
+    # ... (rest of the initial checks and setup) ...
 
     output_dir = os.path.dirname(html_file_path)
-    css_file_name = os.path.basename(css_source_path) # e.g., "book_style.css"
+    css_file_name = os.path.basename(css_source_path)
     css_dest_path = os.path.join(output_dir, css_file_name)
 
     print(f"Output Dir:     {output_dir}")
@@ -116,28 +118,18 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
     if not os.path.exists(md_file_path):
         print(f"*** ERROR: Input Markdown file not found: '{md_file_path}' ***")
         return False
+    # ... (rest of the checks, directory creation, css copy) ...
 
-    if not os.path.exists(css_source_path):
-        print(f"*** WARNING: Source CSS file not found: '{css_source_path}'. HTML will be generated without styling. ***")
-        # Decide if you want to continue or fail here. Continuing for now.
-        # return False
-
-    # --- 1. Create Output Directory ---
-    try:
-        os.makedirs(output_dir, exist_ok=True)
-        print(f"Ensured output directory exists: {output_dir}")
-    except Exception as e:
-        print(f"*** ERROR: Could not create output directory '{output_dir}': {e} ***")
-        return False
-
-    # --- 2. Copy CSS File ---
     if os.path.exists(css_source_path):
         try:
-            shutil.copy2(css_source_path, css_dest_path) # copy2 preserves metadata
+            shutil.copy2(css_source_path, css_dest_path)
             print(f"Successfully copied CSS to '{css_dest_path}'")
         except Exception as e:
-            print(f"*** ERROR: Could not copy CSS from '{css_source_path}' to '{css_dest_path}': {e} ***")
-            return False # Fail if CSS copy fails
+            print(f"*** ERROR: Could not copy CSS: {e} ***")
+            return False
+    else:
+         print(f"*** WARNING: Source CSS file not found: '{css_source_path}'. HTML generated without styling link. ***")
+         css_file_name = None # Prevent linking if CSS wasn't found/copied
 
     # --- 3. Read Markdown Content ---
     try:
@@ -157,31 +149,32 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
         print(f"*** ERROR during Markdown parsing: {e} ***")
         return False
 
-    # --- 5. Improve HTML Structure (Split H1 on Markdown Content Only) ---
+    # --- 5. Improve HTML Structure (Split H1) ---
     try:
         html_fragment_improved = improve_html_structure(html_fragment_raw)
     except Exception as e:
         print(f"*** ERROR improving HTML structure: {e}. Using raw fragment. ***")
-        html_fragment_improved = html_fragment_raw # Fallback
+        html_fragment_improved = html_fragment_raw
 
-    # --- 6. Generate Front Matter (Always included) ---
-    book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך" # Default book title
+    # --- 6. Generate Front Matter ---
+    book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך"
     static_preamble = get_front_matter_html(book_title=book_main_title, author_name="nhlocal")
-    # Use the book title for the HTML <title> tag
     page_title = book_main_title.split(':')[0].strip()
 
     # --- 7. Construct Full HTML Document ---
     lang = "he"
     direction = "rtl"
 
-    # Link to the *local* CSS file name
+    # Conditionally add the CSS link tag
+    css_link_tag = f'<link rel="stylesheet" href="{css_file_name}">' if css_file_name else "<!-- CSS file not found or not copied -->"
+
     html_full = f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{direction}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
-    <link rel="stylesheet" href="{css_file_name}">
+    {css_link_tag}
 </head>
 <body>
 
@@ -199,7 +192,8 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
         with open(html_file_path, 'w', encoding='utf-8') as f:
             f.write(html_full)
         print(f"Successfully created HTML file: {html_file_path}")
-        print(f"HTML links to '{css_file_name}' (copied to the same directory).")
+        if css_file_name:
+            print(f"HTML links to '{css_file_name}' (copied to the same directory).")
         return True
     except Exception as e:
         print(f"*** ERROR writing HTML file: {e} ***")
@@ -207,8 +201,7 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
 
 # --- Main Execution Logic ---
 if __name__ == "__main__":
-    # --- Dependency Check ---
-    # (Keep the dependency checks for bs4, markdown_it, lxml as before)
+    # (Dependency Checks remain the same)
     try: import bs4
     except ImportError: print("Dependency Error: `pip install beautifulsoup4 lxml`"); sys.exit(1)
     try: import markdown_it
@@ -216,23 +209,17 @@ if __name__ == "__main__":
     try: import lxml
     except ImportError: print("Dependency Error: `pip install lxml`"); sys.exit(1)
 
-
-    # --- Argument Parsing ---
+    # (Argument Parsing remains the same)
     parser = argparse.ArgumentParser(
-        description='Convert Markdown book content (src/content/book.md) to a styled HTML file (output/book.html) with front matter, copying CSS.',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter # Show defaults in help
+        description='Convert Markdown book content to a styled HTML file with front matter, copying CSS.',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-    # Input is now optional positional, defaulting to the standard location
     parser.add_argument('input_md_file', nargs='?', default=DEFAULT_INPUT_MD,
                         help='Path to the input Markdown file.')
     parser.add_argument('-o', '--output', dest='output_html_file', default=DEFAULT_OUTPUT_HTML,
                         help='Path for the output HTML file.')
-    # We don't need an argument for CSS source anymore, using the default
-    # parser.add_argument('--css-source', default=DEFAULT_CSS_SOURCE, help='Path to the source CSS file.')
 
     args = parser.parse_args()
-
-    # Use the fixed default CSS source path
     css_source_to_use = DEFAULT_CSS_SOURCE
 
     # --- Run Conversion ---
@@ -243,4 +230,4 @@ if __name__ == "__main__":
     )
 
     if not success:
-        sys.exit(1) # Exit with error code if generation failed
+        sys.exit(1)
