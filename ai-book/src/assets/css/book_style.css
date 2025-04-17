@@ -1,14 +1,22 @@
 /* book_style.css */
 
-/* 1. טעינת הפונטים מ‑Google Fonts */
+/* 1. טעינת הפונטים מ‑Google Fonts (ללא שינוי) */
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
-
 /* --- הגדרות עמוד בסיסיות --- */
 @page {
+  /* הגדרת שוליים דיפולטיבית *לכל* העמודים */
   margin: 2cm;
+  size: A4; /* מומלץ להגדיר גודל דף מפורש */
+}
+
+/* --- הגדרה מיוחדת לעמוד הכריכה --- */
+@page :first {
+  /* ביטול שוליים *רק* לעמוד הראשון */
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -19,170 +27,65 @@ body {
   color: #222;
   widows: 3;
   orphans: 3;
-  margin: 0;
-  padding: 0;
+  margin: 0; /* חשוב להשאיר */
+  padding: 0; /* חשוב להשאיר */
 }
 
-/* --- הגדרות דפים סטטיים (כריכה, מחבר וכו') --- */
+/* --- הגדרות דפים סטטיים --- */
 .page {
   box-sizing: border-box;
   padding: 0;
 }
 
-/* ===== דף כריכה (ללא שינוי מהגרסה הקודמת) ===== */
-.cover-page {
+/* ===== סגנונות מעודכנים לכריכה מבוססת תמונה ===== */
+.cover-image-page {
+  /* אין צורך ב- @page :first כאן, זה הוחלף ב @page :first למעלה */
   page-break-after: always;
-  height: calc(100vh - 4cm);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #f8f8f8;
-  padding: 2em;
-  font-family: 'Assistant', sans-serif;
-}
-.cover-content {
-  max-width: 80%;
-}
-.cover-title {
-  display: block;
-  font-size: 52pt;
-  font-weight: 800;
-  margin-bottom: 0.2em;
-  line-height: 1.1;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-}
-.cover-subtitle {
-  display: block;
-  font-size: 30pt;
-  font-weight: 400;
-  margin-bottom: 1.5em;
-  color: #d0d0d0;
-  line-height: 1.2;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-}
-.cover-author {
-    display: block;
-    font-size: 18pt;
-    font-weight: 600;
-    margin-top: 2em;
-    color: #e0e0e0;
+  width: 100%;   /* תפוס 100% מרוחב העמוד (שכעת הוא ללא שוליים) */
+  height: 100%;  /* תפוס 100% מגובה העמוד (שכעת הוא ללא שוליים) */
+  padding: 0;    /* ודא שאין ריפוד פנימי */
+  margin: 0;     /* ודא שאין שוליים חיצוניים */
+  overflow: hidden; /* מנע גלישה */
+  /* הסרנו את height: calc(100vh...) */
 }
 
-/* דף ריק */
+.cover-image {
+  display: block;
+  width: 100%;      /* תפוס 100% מה-div המכיל */
+  height: 100%;     /* תפוס 100% מה-div המכיל */
+  object-fit: cover; /* כסה את כל השטח, שמור על יחס, חתוך אם צריך */
+}
+
+/* דף ריק (ללא שינוי) */
 .blank-page {
   page-break-after: always;
 }
 
-/* ===== דף מידע על המחבר - עיצוב קלאסי מחודש ===== */
+/* ===== דף מידע על המחבר (ללא שינוי) ===== */
 .author-page {
   page-break-after: always;
-  padding: 3cm 2cm; /* הגדלת ריווח עליון/תחתון */
-  /* אין צורך ב-flex כאן, נותנים לתוכן לזרום */
+  padding: 3cm 2cm; /* ריווח פנימי רגיל לדפים עם תוכן */
 }
-
-.author-content {
-  max-width: 700px; /* הגדלת רוחב מקסימלי */
-  margin: 0 auto; /* עדיין ממורכז אופקית בעמוד */
-  font-family: 'Frank Ruhl Libre', serif;
-  font-size: 12pt; /* גודל בסיס לעמוד זה */
-  line-height: 1.7;
-  text-align: right; /* !!! יישור לימין כברירת מחדל !!! */
-}
-
-/* חלק פרטי הספר והמחבר */
-.author-content .book-info-section {
-    margin-bottom: 1.5em;
-}
-
-.author-content .book-title-on-author-page {
-   font-family: 'Assistant', sans-serif;
-   font-size: 26pt; /* מעט גדול יותר */
-   font-weight: 700;
-   margin-bottom: 0.4em;
-   color: #111;
-   text-align: right; /* וידוא יישור */
-}
-
-.author-content .author-name {
-   font-family: 'Assistant', sans-serif;
-   font-size: 18pt; /* מעט קטן יותר */
-   font-weight: 600;
-   margin-bottom: 0.6em;
-   color: #333;
-   text-align: right;
- }
-
-.author-content .version-info {
-    font-size: 12pt; /* גודל קריא */
-    color: #555; /* מעט כהה יותר */
-    margin-bottom: 1em;
-    text-align: right;
-}
-
-/* קווי הפרדה */
-.author-content hr.author-separator {
-  border: 0;
-  height: 1px;
-  background-color: #bbb; /* מעט כהה יותר */
-  margin: 2.5em 0; /* רווחים אחידים, רוחב מלא אוטומטי */
-  width: 100%;
-}
-
-/* חלק פרטי הקשר */
-.author-content .contact-section {
-    margin-bottom: 1.5em;
-}
-
-.author-content .contact-info-heading {
-    font-family: 'Assistant', sans-serif;
-    font-weight: 700; /* מודגש */
-    font-size: 14pt; /* גודל כותרת משנה */
-    color: #333;
-    margin-bottom: 1em;
-    text-align: right;
-}
-
-.author-content .contact-detail {
-    margin: 0.5em 0; /* רווח בין פרטי הקשר */
-    font-size: 12pt;
-    text-align: right;
-    line-height: 1.6;
-}
-
-/* קישורים */
-.author-content a.author-link {
-  color: #0056b3;
-  text-decoration: none;
-  font-family: 'Assistant', sans-serif; /* שימוש בפונט סאנס-סריפי לקישורים */
-  font-size: 12pt;
-  direction: ltr; /* חשוב לכיווניות נכונה */
-  display: inline-block; /* מאפשר כיווניות בלי לשבור שורה */
-  /* margin-left: 0.5em; */ /* אפשר להוסיף רווח קטן אחרי הקישור אם רוצים */
-}
-.author-content a.author-link:hover {
-  text-decoration: underline;
-  color: #003d82;
-}
-
-/* חלק המידע המשפטי */
-.author-content .legal-section {
-    margin-top: 1.5em;
-}
-
-.author-content .rights-notice,
-.author-content .disclaimer {
-  font-size: 11pt; /* מעט גדול יותר מהקודם */
-  color: #666;
-  margin: 0.6em 0;
-  line-height: 1.6;
-  text-align: right;
-}
+/* ... שאר סגנונות עמוד המחבר ללא שינוי ... */
+.author-content { max-width: 700px; margin: 0 auto; font-family: 'Frank Ruhl Libre', serif; font-size: 12pt; line-height: 1.7; text-align: right; }
+.author-content .book-info-section { margin-bottom: 1.5em; }
+.author-content .book-title-on-author-page { font-family: 'Assistant', sans-serif; font-size: 26pt; font-weight: 700; margin-bottom: 0.4em; color: #111; text-align: right; }
+.author-content .author-name { font-family: 'Assistant', sans-serif; font-size: 18pt; font-weight: 600; margin-bottom: 0.6em; color: #333; text-align: right; }
+.author-content .version-info { font-size: 12pt; color: #555; margin-bottom: 1em; text-align: right; }
+.author-content hr.author-separator { border: 0; height: 1px; background-color: #bbb; margin: 2.5em 0; width: 100%; }
+.author-content .contact-section { margin-bottom: 1.5em; }
+.author-content .contact-info-heading { font-family: 'Assistant', sans-serif; font-weight: 700; font-size: 14pt; color: #333; margin-bottom: 1em; text-align: right; }
+.author-content .contact-detail { margin: 0.5em 0; font-size: 12pt; text-align: right; line-height: 1.6; }
+.author-content a.author-link { color: #0056b3; text-decoration: none; font-family: 'Assistant', sans-serif; font-size: 12pt; direction: ltr; display: inline-block; }
+.author-content a.author-link:hover { text-decoration: underline; color: #003d82; }
+.author-content .legal-section { margin-top: 1.5em; }
+.author-content .rights-notice, .author-content .disclaimer { font-size: 11pt; color: #666; margin: 0.6em 0; line-height: 1.6; text-align: right; }
 
 /* --- עיצוב תוכן הספר הראשי (ללא שינוי) --- */
-.main-content { }
+.main-content {
+  /* תוכן הספר יתחיל בעמוד השני ויכבד את השוליים של 2 ס"מ שהוגדרו ב-@page הדיפולטיבי */
+}
+/* ... שאר סגנונות הספר ללא שינוי ... */
 h1 { page-break-before: always; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; margin: 0; padding: 2em 0; font-family: 'Assistant', sans-serif; text-align: center; }
 h1 .main-title { display: block; font-size: 28pt; font-weight: 800; }
 h1 .sub-title { display: block; font-size: 36pt; font-weight: 600; margin-top: 0.5em; color: #333; }
