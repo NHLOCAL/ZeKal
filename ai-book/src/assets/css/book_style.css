@@ -1,9 +1,10 @@
 /* book_style.css */
 
-/* 1. טעינת הפונטים מ‑Google Fonts (נשאר ללא שינוי) */
+/* 1. טעינת הפונטים מ‑Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
 
 /* --- הגדרות עמוד בסיסיות --- */
 @page {
@@ -18,14 +19,17 @@ body {
   color: #222;
   widows: 3;
   orphans: 3;
+  margin: 0;
+  padding: 0;
 }
 
 /* --- הגדרות דפים סטטיים (כריכה, מחבר וכו') --- */
 .page {
   box-sizing: border-box;
+  padding: 0;
 }
 
-/* דף כריכה - מעודכן */
+/* ===== דף כריכה (ללא שינוי מהגרסה הקודמת) ===== */
 .cover-page {
   page-break-after: always;
   height: calc(100vh - 4cm);
@@ -34,33 +38,37 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border: 1px solid #eee; /* מסגרת עדינה מאוד (אופציונלי) */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f8f8f8;
+  padding: 2em;
+  font-family: 'Assistant', sans-serif;
 }
 .cover-content {
-  font-family: 'Assistant', sans-serif;
-  padding: 2em; /* ריווח פנימי */
+  max-width: 80%;
 }
 .cover-title {
   display: block;
-  font-size: 42pt; /* הוקטן מעט */
+  font-size: 52pt;
   font-weight: 800;
-  margin-bottom: 0.2em; /* רווח קטן יותר */
-  color: #111;
+  margin-bottom: 0.2em;
+  line-height: 1.1;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
 }
 .cover-subtitle {
   display: block;
-  font-size: 22pt; /* הוקטן מעט */
+  font-size: 30pt;
   font-weight: 400;
-  color: #555; /* מעט כהה יותר */
-  margin-bottom: 1.5em; /* רווח גדול יותר לפני שם המחבר */
+  margin-bottom: 1.5em;
+  color: #d0d0d0;
+  line-height: 1.2;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 .cover-author {
-  display: block;
-  font-family: 'Frank Ruhl Libre', serif; /* פונט גוף הטקסט למחבר */
-  font-size: 16pt;
-  font-weight: 500; /* Medium */
-  color: #333;
-  margin-top: 1.5em; /* ריווח מעל שם המחבר */
+    display: block;
+    font-size: 18pt;
+    font-weight: 600;
+    margin-top: 2em;
+    color: #e0e0e0;
 }
 
 /* דף ריק */
@@ -68,209 +76,129 @@ body {
   page-break-after: always;
 }
 
-/* דף מידע על הספר והמחבר - מעודכן */
+/* ===== דף מידע על המחבר - עיצוב קלאסי מחודש ===== */
 .author-page {
   page-break-after: always;
-  padding: 3vh 0; /* ריווח אנכי */
+  padding: 3cm 2cm; /* הגדלת ריווח עליון/תחתון */
+  /* אין צורך ב-flex כאן, נותנים לתוכן לזרום */
 }
+
 .author-content {
-  max-width: 600px; /* רוחב מעט קטן יותר */
-  margin: 0 auto; /* ממורכז */
+  max-width: 700px; /* הגדלת רוחב מקסימלי */
+  margin: 0 auto; /* עדיין ממורכז אופקית בעמוד */
   font-family: 'Frank Ruhl Libre', serif;
-  font-size: 12pt;
-  line-height: 1.7; /* ריווח שורות מעט גדול יותר בעמוד זה */
-  text-align: center; /* רוב התוכן יהיה ממורכז */
+  font-size: 12pt; /* גודל בסיס לעמוד זה */
+  line-height: 1.7;
+  text-align: right; /* !!! יישור לימין כברירת מחדל !!! */
 }
-.author-content h2 { /* כותרת העמוד */
+
+/* חלק פרטי הספר והמחבר */
+.author-content .book-info-section {
+    margin-bottom: 1.5em;
+}
+
+.author-content .book-title-on-author-page {
    font-family: 'Assistant', sans-serif;
-   font-size: 22pt; /* קטן יותר מהכותרת הראשית */
+   font-size: 26pt; /* מעט גדול יותר */
    font-weight: 700;
-   text-align: center;
-   margin-bottom: 1em; /* רווח מתחת לכותרת */
-   border: none;
-   padding: 0;
-   page-break-before: avoid;
-   page-break-after: avoid;
+   margin-bottom: 0.4em;
+   color: #111;
+   text-align: right; /* וידוא יישור */
 }
-.author-content .book-edition {
+
+.author-content .author-name {
    font-family: 'Assistant', sans-serif;
-   font-size: 11pt;
-   font-weight: 400; /* Regular */
-   color: #666;
-   margin-bottom: 2.5em; /* רווח אחרי המהדורה */
-   text-align: center;
-}
- .author-content .author-name {
-   font-family: 'Assistant', sans-serif;
-   font-size: 16pt; /* מעט קטן יותר */
+   font-size: 18pt; /* מעט קטן יותר */
    font-weight: 600;
-   text-align: center;
-   margin-bottom: 1.5em;
+   margin-bottom: 0.6em;
+   color: #333;
+   text-align: right;
  }
- .author-content .contact-info {
-    margin-bottom: 2.5em; /* רווח מתחת לפרטי יצירת קשר */
- }
- .author-content .contact-info p {
-    margin: 0.5em 0; /* רווחים קטנים יותר בין פרטי הקשר */
-    font-size: 11pt; /* פונט קטן יותר לפרטי קשר */
- }
-.author-content a {
-  color: #0056b3;
-  text-decoration: none;
-  direction: ltr;
-  display: inline-block;
-}
-.author-content a:hover {
-  text-decoration: underline;
-}
-.author-content hr { /* קו מפריד מעוצב */
-  border: 0;
-  height: 1px;
-  background-color: #ddd; /* אפור בהיר יותר */
-  margin: 2.5em auto; /* ממורכז אופקית */
-  width: 50%; /* קצר יותר */
-}
-.author-content .rights-notice,
-.author-content .disclaimer {
-  font-size: 10pt;
-  color: #777; /* אפור בהיר */
-  text-align: center;
-  margin: 0.5em auto;
-  max-width: 500px;
-  line-height: 1.5; /* ריווח שורות קטן יותר להודעות */
-}
 
-/* --- עיצוב תוכן הספר הראשי --- */
-/* (שאר העיצוב נשאר זהה לקודם) */
-
-/* Wrap main content to ensure page breaks work correctly after front matter */
-.main-content {
-    /* No specific style needed unless you want to add padding/margin here */
-}
-
-/* כותרות ראשיות (H1) - עמוד פרק */
-h1 {
-  page-break-before: always;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  margin: 0;
-  padding: 2em 0;
-  font-family: 'Assistant', sans-serif;
-  text-align: center;
-}
-/* ... (שאר סגנונות H1, H2, H3, p, pre, code, table וכו' נשארים זהים) ... */
-h1 .main-title {
-  display: block;
-  font-size: 28pt;
-  font-weight: 800;
-}
-h1 .sub-title {
-  display: block;
-  font-size: 36pt;
-  font-weight: 600;
-  margin-top: 0.5em;
-  color: #333;
-}
-h1 .full-title {
-   font-size: 32pt;
-   font-weight: 800;
-}
-h2 {
-  font-family: 'Assistant', sans-serif;
-  font-size: 18pt;
-  font-weight: 600;
-  margin: 2.5em 0 1em 0;
-  border-right: 4px solid #888;
-  padding-right: 0.6em;
-  page-break-after: avoid;
-}
-h3 {
-  font-family: 'Assistant', sans-serif;
-  font-size: 16pt;
-  font-weight: 400;
-  margin: 1.8em 0 0.6em 0;
-  border-right: 2px solid #ccc;
-  padding-right: 1em;
-  page-break-after: avoid;
-  color: #444;
-}
-p {
-  margin: 0.8em 0;
-  text-align: justify;
-  hyphens: auto;
-}
-ul, ol {
-    margin: 1em 0;
-    padding-right: 2em;
-}
-li {
-    margin-bottom: 0.5em;
-}
-blockquote {
-  margin: 1.5em 2em;
-  padding: 1em 1.5em;
-  border-right: 5px solid #e0e0e0;
-  background-color: #f9f9f9;
-  color: #555;
-  font-size: 0.95em;
-  line-height: 1.6;
-  page-break-inside: avoid;
-}
-blockquote p {
-    margin: 0.5em 0;
+.author-content .version-info {
+    font-size: 12pt; /* גודל קריא */
+    color: #555; /* מעט כהה יותר */
+    margin-bottom: 1em;
     text-align: right;
 }
-pre {
-  font-family: 'IBM Plex Mono', monospace;
-  background-color: #f4f4f4;
-  padding: 1em;
-  overflow-x: auto;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  direction: ltr;
-  text-align: left;
-  font-size: 11pt;
-  line-height: 1.4;
-  page-break-inside: avoid;
-  margin: 1.5em 0;
-}
-code {
-  font-family: 'IBM Plex Mono', monospace;
-  background-color: #eee;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  font-size: 0.9em;
-  direction: ltr;
-}
-pre code {
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
-    font-size: inherit;
-}
-table {
+
+/* קווי הפרדה */
+.author-content hr.author-separator {
+  border: 0;
+  height: 1px;
+  background-color: #bbb; /* מעט כהה יותר */
+  margin: 2.5em 0; /* רווחים אחידים, רוחב מלא אוטומטי */
   width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  page-break-inside: avoid;
-  font-size: 0.9em;
 }
-th, td {
-  border: 1px solid #ccc;
-  padding: 0.5em 0.8em;
+
+/* חלק פרטי הקשר */
+.author-content .contact-section {
+    margin-bottom: 1.5em;
+}
+
+.author-content .contact-info-heading {
+    font-family: 'Assistant', sans-serif;
+    font-weight: 700; /* מודגש */
+    font-size: 14pt; /* גודל כותרת משנה */
+    color: #333;
+    margin-bottom: 1em;
+    text-align: right;
+}
+
+.author-content .contact-detail {
+    margin: 0.5em 0; /* רווח בין פרטי הקשר */
+    font-size: 12pt;
+    text-align: right;
+    line-height: 1.6;
+}
+
+/* קישורים */
+.author-content a.author-link {
+  color: #0056b3;
+  text-decoration: none;
+  font-family: 'Assistant', sans-serif; /* שימוש בפונט סאנס-סריפי לקישורים */
+  font-size: 12pt;
+  direction: ltr; /* חשוב לכיווניות נכונה */
+  display: inline-block; /* מאפשר כיווניות בלי לשבור שורה */
+  /* margin-left: 0.5em; */ /* אפשר להוסיף רווח קטן אחרי הקישור אם רוצים */
+}
+.author-content a.author-link:hover {
+  text-decoration: underline;
+  color: #003d82;
+}
+
+/* חלק המידע המשפטי */
+.author-content .legal-section {
+    margin-top: 1.5em;
+}
+
+.author-content .rights-notice,
+.author-content .disclaimer {
+  font-size: 11pt; /* מעט גדול יותר מהקודם */
+  color: #666;
+  margin: 0.6em 0;
+  line-height: 1.6;
   text-align: right;
 }
-th {
-  background-color: #f0f0f0;
-  font-family: 'Assistant', sans-serif;
-  font-weight: 600;
-}
-thead th {
-    background-color: #e0e0e0;
-}
-figure, img {
-  page-break-inside: avoid;
-}
+
+/* --- עיצוב תוכן הספר הראשי (ללא שינוי) --- */
+.main-content { }
+h1 { page-break-before: always; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; margin: 0; padding: 2em 0; font-family: 'Assistant', sans-serif; text-align: center; }
+h1 .main-title { display: block; font-size: 28pt; font-weight: 800; }
+h1 .sub-title { display: block; font-size: 36pt; font-weight: 600; margin-top: 0.5em; color: #333; }
+h1 .full-title { font-size: 32pt; font-weight: 800; }
+h2 { font-family: 'Assistant', sans-serif; font-size: 18pt; font-weight: 600; margin: 2.5em 0 1em 0; border-right: 4px solid #888; padding-right: 0.6em; page-break-after: avoid; }
+h3 { font-family: 'Assistant', sans-serif; font-size: 16pt; font-weight: 400; margin: 1.8em 0 0.6em 0; border-right: 2px solid #ccc; padding-right: 1em; page-break-after: avoid; color: #444; }
+p { margin: 0.8em 0; text-align: justify; hyphens: auto; }
+ul, ol { margin: 1em 0; padding-right: 2em; }
+li { margin-bottom: 0.5em; }
+blockquote { margin: 1.5em 2em; padding: 1em 1.5em; border-right: 5px solid #e0e0e0; background-color: #f9f9f9; color: #555; font-size: 0.95em; line-height: 1.6; page-break-inside: avoid; }
+blockquote p { margin: 0.5em 0; text-align: right; }
+pre { font-family: 'IBM Plex Mono', monospace; background-color: #f4f4f4; padding: 1em; overflow-x: auto; border: 1px solid #ccc; border-radius: 4px; direction: ltr; text-align: left; font-size: 11pt; line-height: 1.4; page-break-inside: avoid; margin: 1.5em 0; }
+code { font-family: 'IBM Plex Mono', monospace; background-color: #eee; padding: 0.2em 0.4em; border-radius: 3px; font-size: 0.9em; direction: ltr; }
+pre code { background-color: transparent; padding: 0; border-radius: 0; font-size: inherit; }
+table { width: 100%; border-collapse: collapse; margin: 1.5em 0; page-break-inside: avoid; font-size: 0.9em; }
+th, td { border: 1px solid #ccc; padding: 0.5em 0.8em; text-align: right; }
+th { background-color: #f0f0f0; font-family: 'Assistant', sans-serif; font-weight: 600; }
+thead th { background-color: #e0e0e0; }
+figure, img { page-break-inside: avoid; }

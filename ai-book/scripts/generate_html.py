@@ -1,7 +1,7 @@
+# scripts/generate_html.py
 import argparse
 import os
 import sys
-import shutil # For copying files
 from markdown_it import MarkdownIt
 from bs4 import BeautifulSoup
 
@@ -16,9 +16,8 @@ DEFAULT_CSS_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'css', 'book_st
 
 
 def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי המסך", author_name="nhlocal"):
-    """Generates the HTML for the front matter pages (Cover, Blank, Author/Info, Blank)."""
+    """Generates the HTML for the front matter pages (Cover, Blank, Author, Blank)."""
 
-    # Split book title if needed for cover styling
     main_cover_title = book_title
     sub_cover_title = ""
     if ':' in book_title:
@@ -26,39 +25,47 @@ def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את
         main_cover_title = parts[0].strip()
         sub_cover_title = parts[1].strip()
 
-    # Placeholder for edition - you might want to generate this dynamically later
-    current_year = 2024
-    current_month = "יוני" # Or dynamically get month name in Hebrew
-    book_edition_text = f"מהדורה ראשונה | {current_month} {current_year}"
-
+    # --- Author Page Structure with Sections ---
     front_matter = f"""
 <!-- Cover Page -->
 <div class="page cover-page">
   <div class="cover-content">
      <span class="cover-title">{main_cover_title}</span>
      {'<span class="cover-subtitle">' + sub_cover_title + '</span>' if sub_cover_title else ''}
-     <p class="cover-author">{author_name}</p>
+     <span class="cover-author">{author_name}</span>
   </div>
 </div>
 
 <!-- Blank Page -->
 <div class="page blank-page"></div>
 
-<!-- Author/Info Page -->
+<!-- Author Info / Colophon Page -->
 <div class="page author-page">
   <div class="author-content">
-    <h2>פרטי הספר והמחבר</h2>
-    <p class="book-edition">{book_edition_text}</p>
-    <p class="author-name">מאת: {author_name}</p>
-    <div class="contact-info">
-        <p>GitHub: <a href="https://github.com/NHLOCAL" target="_blank" rel="noopener noreferrer">github.com/NHLOCAL</a></p>
-        <p>אתר פרויקטים: <a href="https://nhlocal.github.io" target="_blank" rel="noopener noreferrer">nhlocal.github.io</a></p>
-        <p>דוא"ל: <a href="mailto:nh.local11@gmail.com">nh.local11@gmail.com</a></p>
+
+    <div class="book-info-section">
+      <h2 class="book-title-on-author-page">{book_title}</h2>
+      <p class="author-name">{author_name}</p>
+      <p class="version-info">מהדורה ראשונה | אפריל 2025</p>
     </div>
-    <hr>
-    <p class="rights-notice">כל הזכויות שמורות למחבר, {author_name}.</p>
-    <p class="rights-notice">ניתן להפיץ ולשכפל בחופשיות תוך מתן קרדיט (ייחוס) למחבר המקורי.</p>
-    <p class="disclaimer">תוכן הספר מובא כפי שהוא (AS IS). אין המחבר אחראי לכל נזק ישיר או עקיף שעלול להיגרם כתוצאה מהשימוש במידע המופיע בספר זה.</p>
+
+    <hr class="author-separator">
+
+    <div class="contact-section">
+      <p class="contact-info-heading">יצירת קשר ומידע נוסף:</p>
+      <p class="contact-detail">GitHub: <a class="author-link" href="https://github.com/NHLOCAL" target="_blank" rel="noopener noreferrer">https://github.com/NHLOCAL</a></p>
+      <p class="contact-detail">אתר פרויקטים: <a class="author-link" href="https://nhlocal.github.io" target="_blank" rel="noopener noreferrer">https://nhlocal.github.io</a></p>
+      <p class="contact-detail">דוא"ל: <a class="author-link" href="mailto:nh.local11@gmail.com">nh.local11@gmail.com</a></p>
+    </div>
+
+    <hr class="author-separator">
+
+    <div class="legal-section">
+      <p class="rights-notice">כל הזכויות שמורות למחבר, {author_name} © 2025.</p>
+      <p class="rights-notice">ניתן להפיץ ולשכפל בחופשיות תוך מתן קרדיט (ייחוס) למחבר המקורי.</p>
+      <p class="disclaimer">תוכן הספר מובא כפי שהוא (AS IS). אין המחבר אחראי לכל נזק ישיר או עקיף שעלול להיגרם כתוצאה מהשימוש במידע המופיע בספר זה.</p>
+    </div>
+
    </div>
 </div>
 
@@ -67,11 +74,11 @@ def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את
 """
     return front_matter
 
+
 def improve_html_structure(html_fragment):
     """
     Parses the HTML fragment and restructures H1 tags for title/subtitle spans.
     """
-    # (Function content remains the same)
     print("Improving HTML structure (Processing H1 titles)...")
     soup = BeautifulSoup(html_fragment, 'lxml')
     h1_tags = soup.find_all('h1')
@@ -99,37 +106,43 @@ def improve_html_structure(html_fragment):
 
 def generate_book_html(md_file_path, html_file_path, css_source_path):
     """
-    Converts Markdown to a full HTML book file with front matter,
-    copies the CSS file, and links it locally.
+    Converts Markdown to a full HTML book file with front matter
+    and *embeds* the CSS styles directly within the HTML head.
     """
-    # (Function logic remains largely the same, only the final HTML string construction changes slightly)
-    print(f"--- Starting HTML Book Generation ---")
-    # ... (rest of the initial checks and setup) ...
+    print(f"--- Starting HTML Book Generation (with Embedded CSS) ---")
+    print(f"Project Root:   {PROJECT_ROOT}")
+    print(f"Input Markdown: {md_file_path}")
+    print(f"Source CSS:     {css_source_path}")
+    print(f"Output HTML:    {html_file_path}")
 
     output_dir = os.path.dirname(html_file_path)
-    css_file_name = os.path.basename(css_source_path)
-    css_dest_path = os.path.join(output_dir, css_file_name)
-
     print(f"Output Dir:     {output_dir}")
-    print(f"CSS Filename:   {css_file_name}")
-    print(f"CSS Dest Path:  {css_dest_path}")
-
 
     if not os.path.exists(md_file_path):
         print(f"*** ERROR: Input Markdown file not found: '{md_file_path}' ***")
         return False
-    # ... (rest of the checks, directory creation, css copy) ...
 
+    if not os.path.exists(css_source_path):
+        print(f"*** WARNING: Source CSS file not found: '{css_source_path}'. HTML will be generated without styles. ***")
+
+    # --- 1. Create Output Directory ---
+    try:
+        os.makedirs(output_dir, exist_ok=True)
+        print(f"Ensured output directory exists: {output_dir}")
+    except Exception as e:
+        print(f"*** ERROR: Could not create output directory '{output_dir}': {e} ***")
+        return False
+
+    # --- 2. Read CSS Content (Instead of Copying) ---
+    css_content = ""
     if os.path.exists(css_source_path):
         try:
-            shutil.copy2(css_source_path, css_dest_path)
-            print(f"Successfully copied CSS to '{css_dest_path}'")
+            with open(css_source_path, 'r', encoding='utf-8') as f_css:
+                css_content = f_css.read()
+            print(f"Successfully read CSS content from '{css_source_path}' for embedding.")
         except Exception as e:
-            print(f"*** ERROR: Could not copy CSS: {e} ***")
-            return False
-    else:
-         print(f"*** WARNING: Source CSS file not found: '{css_source_path}'. HTML generated without styling link. ***")
-         css_file_name = None # Prevent linking if CSS wasn't found/copied
+            print(f"*** WARNING: Could not read CSS file '{css_source_path}': {e}. Proceeding without embedded styles. ***")
+            css_content = "/* CSS could not be loaded */"
 
     # --- 3. Read Markdown Content ---
     try:
@@ -149,24 +162,21 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
         print(f"*** ERROR during Markdown parsing: {e} ***")
         return False
 
-    # --- 5. Improve HTML Structure (Split H1) ---
+    # --- 5. Improve HTML Structure (Split H1 on Markdown Content Only) ---
     try:
         html_fragment_improved = improve_html_structure(html_fragment_raw)
     except Exception as e:
         print(f"*** ERROR improving HTML structure: {e}. Using raw fragment. ***")
-        html_fragment_improved = html_fragment_raw
+        html_fragment_improved = html_fragment_raw # Fallback
 
     # --- 6. Generate Front Matter ---
     book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך"
     static_preamble = get_front_matter_html(book_title=book_main_title, author_name="nhlocal")
     page_title = book_main_title.split(':')[0].strip()
 
-    # --- 7. Construct Full HTML Document ---
+    # --- 7. Construct Full HTML Document (Embedding CSS) ---
     lang = "he"
     direction = "rtl"
-
-    # Conditionally add the CSS link tag
-    css_link_tag = f'<link rel="stylesheet" href="{css_file_name}">' if css_file_name else "<!-- CSS file not found or not copied -->"
 
     html_full = f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{direction}">
@@ -174,7 +184,9 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{page_title}</title>
-    {css_link_tag}
+    <style>
+{css_content}
+    </style>
 </head>
 <body>
 
@@ -191,9 +203,7 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
     try:
         with open(html_file_path, 'w', encoding='utf-8') as f:
             f.write(html_full)
-        print(f"Successfully created HTML file: {html_file_path}")
-        if css_file_name:
-            print(f"HTML links to '{css_file_name}' (copied to the same directory).")
+        print(f"Successfully created HTML file with embedded styles: {html_file_path}")
         return True
     except Exception as e:
         print(f"*** ERROR writing HTML file: {e} ***")
@@ -201,7 +211,7 @@ def generate_book_html(md_file_path, html_file_path, css_source_path):
 
 # --- Main Execution Logic ---
 if __name__ == "__main__":
-    # (Dependency Checks remain the same)
+    # --- Dependency Check ---
     try: import bs4
     except ImportError: print("Dependency Error: `pip install beautifulsoup4 lxml`"); sys.exit(1)
     try: import markdown_it
@@ -209,9 +219,9 @@ if __name__ == "__main__":
     try: import lxml
     except ImportError: print("Dependency Error: `pip install lxml`"); sys.exit(1)
 
-    # (Argument Parsing remains the same)
+    # --- Argument Parsing ---
     parser = argparse.ArgumentParser(
-        description='Convert Markdown book content to a styled HTML file with front matter, copying CSS.',
+        description='Convert Markdown book content to a single HTML file with embedded styles and front matter.',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument('input_md_file', nargs='?', default=DEFAULT_INPUT_MD,
@@ -220,7 +230,7 @@ if __name__ == "__main__":
                         help='Path for the output HTML file.')
 
     args = parser.parse_args()
-    css_source_to_use = DEFAULT_CSS_SOURCE
+    css_source_to_use = DEFAULT_CSS_SOURCE # Still needed to know *where* to read CSS from
 
     # --- Run Conversion ---
     success = generate_book_html(
