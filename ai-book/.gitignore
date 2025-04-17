@@ -1,0 +1,42 @@
+# Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build output directory
+build/
+
+# Distribution / packaging
+*.exe
+*.msi
+*.dmg
+*.pkg
+*.deb
+*.rpm
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Fonts directory
+src/assets/fonts/
+
+# programs and tools
+src/assets/programs/
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files (add your IDE if needed)
+.idea/
+.vscode/
+
+# Dependency directories (example, if using virtual environments)
+venv/
+env/
+
+output/

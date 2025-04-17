@@ -1,0 +1,268 @@
+/* book_style.css */
+
+/* 1. טעינת הפונטים מ‑Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap'); /* גוף הטקסט: Frank Ruhl Libre Regular (400), Medium (500), Bold (700) */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap'); /* כותרות: Assistant Light (300), Regular (400), SemiBold (600), Bold (700), ExtraBold (800) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap'); /* פונט קוד: IBM Plex Mono Regular (400) - ניתן להוסיף משקלים נוספים אם יש צורך */
+
+/* --- הגדרות עמוד בסיסיות --- */
+@page {
+  margin: 2cm; /* שוליים סטנדרטיים לדפוס */
+}
+
+body {
+  direction: rtl;
+  font-family: 'Frank Ruhl Libre', serif; /* פונט סריפי לקריאות ארוכת טקסט */
+  font-size: 14pt; /* הוגדל מעט ל-14pt */
+  line-height: 1.65; /* הוקטן מעט לשיפור צפיפות */
+  color: #222; /* מעט כהה יותר מ-#333 */
+  widows: 3; /* למנוע שורה בודדת בראש עמוד */
+  orphans: 3; /* למנוע שורה בודדת בתחתית עמוד */
+}
+
+/* --- הגדרות דפים סטטיים (כריכה, מחבר וכו') --- */
+
+/* הגדרה כללית לדף, משמשת בעיקר לכריכה */
+.page {
+  box-sizing: border-box;
+}
+
+/* דף כריכה */
+.cover-page {
+  page-break-after: always; /* מעבר עמוד אחרי הכריכה */
+  height: calc(100vh - 4cm); /* גובה כמעט מלא, בהתחשב בשוליים */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cover-content {
+  font-family: 'Assistant', sans-serif;
+}
+.cover-title {
+  display: block;
+  font-size: 48pt;
+  font-weight: 800; /* ExtraBold */
+  margin-bottom: 0.3em;
+  color: #000;
+}
+.cover-subtitle {
+  display: block;
+  font-size: 24pt;
+  font-weight: 400; /* Regular */
+  color: #444;
+}
+
+/* דף ריק */
+.blank-page {
+  page-break-after: always; /* מעבר עמוד אחרי דף ריק */
+  /* אין צורך בתוכן או עיצוב מיוחד */
+}
+
+/* דף מידע על המחבר */
+.author-page {
+  page-break-after: always; /* מעבר עמוד אחרי דף המחבר */
+  padding-top: 5vh; /* ריווח מהחלק העליון */
+}
+.author-content {
+  max-width: 650px; /* רוחב מקסימלי לטקסט */
+  margin: 0 auto; /* ממורכז אופקית */
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 12pt; /* פונט מעט קטן יותר למידע משני */
+  line-height: 1.6;
+}
+.author-content h2 { /* עיצוב ייחודי לכותרת בדף המחבר */
+   font-family: 'Assistant', sans-serif;
+   font-size: 24pt; /* גודל מותאם לדף */
+   font-weight: 700; /* Bold */
+   text-align: center;
+   margin-bottom: 1.5em;
+   border: none; /* הסרת הגבול הימני מכותרות H2 רגילות */
+   padding: 0;
+   page-break-before: avoid;
+   page-break-after: avoid;
+}
+ .author-content .author-name {
+   font-family: 'Assistant', sans-serif;
+   font-size: 18pt;
+   font-weight: 600; /* SemiBold */
+   text-align: center;
+   margin-bottom: 2em;
+ }
+.author-content p {
+  margin: 0.7em 0;
+  text-align: right; /* ברירת מחדל לדף RTL */
+}
+.author-content a {
+  color: #0056b3; /* כחול סטנדרטי לקישורים */
+  text-decoration: none;
+  direction: ltr; /* קישורים בדרך כלל LTR */
+  display: inline-block; /* כדי שכיווניות תעבוד */
+}
+.author-content a:hover {
+  text-decoration: underline;
+}
+.author-content hr {
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+  margin: 2.5em 0;
+}
+.author-content .rights-notice,
+.author-content .disclaimer {
+  font-size: 10pt;
+  color: #666;
+  text-align: center; /* הודעות זכויות וכו' ממורכזות */
+  margin: 0.5em auto;
+  max-width: 500px;
+}
+
+/* --- עיצוב תוכן הספר הראשי --- */
+
+/* כותרות ראשיות (H1) - עמוד פרק */
+h1 {
+  page-break-before: always; /* כל H1 מתחיל עמוד חדש */
+  display: flex;
+  flex-direction: column; /* סידור כותרת ותת-כותרת אחת מתחת לשניה */
+  align-items: center; /* ממורכז אופקית */
+  justify-content: center; /* ממורכז אנכית (בערך) */
+  min-height: 80vh; /* גובה מינימלי כדי למלא רוב העמוד */
+  margin: 0;
+  padding: 2em 0; /* ריווח פנימי */
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+}
+
+h1 .main-title {
+  display: block;
+  font-size: 28pt; /* מעט קטן יותר מהגודל המקורי */
+  font-weight: 800; /* ExtraBold */
+}
+h1 .sub-title {
+  display: block;
+  font-size: 36pt; /* הוגדל משמעותית */
+  font-weight: 600; /* SemiBold */
+  margin-top: 0.5em; /* רווח מהכותרת הראשית */
+  color: #333; /* צבע מעט שונה להדגשה */
+}
+/* סגנון לכותרת H1 ללא נקודתיים */
+h1 .full-title {
+   font-size: 32pt; /* גודל סטנדרטי אם אין פיצול */
+   font-weight: 800;
+}
+
+/* כותרות משנה (H2) */
+h2 {
+  font-family: 'Assistant', sans-serif;
+  font-size: 18pt; /* הוקטן מ-20pt */
+  font-weight: 600; /* SemiBold */
+  margin: 2.5em 0 1em 0; /* רווחים מעודכנים */
+  border-right: 4px solid #888;
+  padding-right: 0.6em;
+  page-break-after: avoid; /* למנוע שבירת עמוד מיד אחרי כותרת */
+}
+
+/* כותרות מדרגה נוספת (H3) */
+h3 {
+  font-family: 'Assistant', sans-serif;
+  font-size: 16pt;
+  font-weight: 400; /* Regular (הוסר italic, שונה מ-Light) */
+  margin: 1.8em 0 0.6em 0;
+  border-right: 2px solid #ccc; /* שינוי לגבול רציף */
+  padding-right: 1em;
+  page-break-after: avoid;
+  color: #444;
+}
+
+/* פסקאות */
+p {
+  margin: 0.8em 0;
+  text-align: justify; /* יישור לשני הצדדים לטקסט רץ */
+  hyphens: auto; /* מאפשר מיקוף אוטומטי (תלוי בדפדפן ובתמיכה בשפה) */
+}
+
+/* רשימות */
+ul, ol {
+    margin: 1em 0;
+    padding-right: 2em; /* הזחה לרשימות */
+}
+li {
+    margin-bottom: 0.5em;
+}
+
+/* ציטוטים */
+blockquote {
+  margin: 1.5em 2em;
+  padding: 1em 1.5em;
+  border-right: 5px solid #e0e0e0;
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.6;
+  page-break-inside: avoid;
+}
+blockquote p {
+    margin: 0.5em 0;
+    text-align: right; /* לשמור על יישור בתוך הציטוט */
+}
+
+/* סגנון עבור קטעי קוד (pre) */
+pre {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #f4f4f4;
+  padding: 1em;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  direction: ltr;
+  text-align: left;
+  font-size: 11pt; /* הוקטן מעט */
+  line-height: 1.4;
+  page-break-inside: avoid;
+  margin: 1.5em 0;
+}
+
+/* סגנון עבור קוד בתוך השורה (code) */
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  background-color: #eee;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  direction: ltr;
+}
+/* כדי ש-code בתוך pre לא יקבל עיצוב כפול */
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit; /* יורש את גודל הפונט מ-pre */
+}
+
+/* טבלאות */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  page-break-inside: avoid;
+  font-size: 0.9em; /* טקסט קטן יותר בטבלאות */
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5em 0.8em;
+  text-align: right; /* ברירת מחדל RTL */
+}
+th {
+  background-color: #f0f0f0;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 600; /* SemiBold */
+}
+thead th {
+    background-color: #e0e0e0; /* כותרות עליונות מעט כהות יותר */
+}
+
+/* למנוע שבירת דף בתוך אלמנטים חשובים (כבר מכוסה חלקית) */
+figure, img {
+  page-break-inside: avoid;
+}
