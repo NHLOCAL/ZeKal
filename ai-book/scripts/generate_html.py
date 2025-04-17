@@ -1,14 +1,24 @@
 import argparse
 import os
+import sys
+import shutil # For copying files
 from markdown_it import MarkdownIt
-# <<< תלות חדשה >>>
 from bs4 import BeautifulSoup
-import shutil # For checking dependency
+
+# --- Determine Project Root ---
+# Assumes the script is located in project_root/scripts/
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+# --- Default Paths ---
+DEFAULT_INPUT_MD = os.path.join(PROJECT_ROOT, 'src', 'content', 'book.md')
+DEFAULT_OUTPUT_HTML = os.path.join(PROJECT_ROOT, 'output', 'book.html')
+DEFAULT_CSS_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'css', 'book_style.css')
+
 
 def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי המסך", author_name="nhlocal"):
     """Generates the HTML for the front matter pages (Cover, Blank, Author, Blank)."""
-
-    # Split book title if needed for cover styling
+    # (Function content remains the same as before)
     main_cover_title = book_title
     sub_cover_title = ""
     if ':' in book_title:
@@ -50,15 +60,9 @@ def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את
 
 def improve_html_structure(html_fragment):
     """
-    Parses the HTML fragment and restructures H1 tags to split titles based on the first ':'.
-    Also wraps the original H1 text in spans for consistent targeting, even if no colon is found.
-
-    Args:
-        html_fragment (str): The raw HTML fragment from markdown-it.
-
-    Returns:
-        str: The modified HTML fragment with restructured H1 tags.
+    Parses the HTML fragment and restructures H1 tags for title/subtitle spans.
     """
+    # (Function content remains the same as before)
     print("Improving HTML structure (Processing H1 titles)...")
     soup = BeautifulSoup(html_fragment, 'lxml')
     h1_tags = soup.find_all('h1')
@@ -66,105 +70,111 @@ def improve_html_structure(html_fragment):
     for h1 in h1_tags:
         original_text = h1.get_text(strip=True)
         colon_index = original_text.find(':')
-
-        # Clear the original content of H1
-        h1.clear()
+        h1.clear() # Clear existing content
 
         if colon_index > 0:
-            # Split text if colon exists and is not at the start
             main_title_text = original_text[:colon_index].strip()
             sub_title_text = original_text[colon_index+1:].strip()
-
-            # Create new spans for main and sub titles
             main_span = soup.new_tag('span', attrs={'class': 'main-title'})
             main_span.string = main_title_text
-
             sub_span = soup.new_tag('span', attrs={'class': 'sub-title'})
             sub_span.string = sub_title_text
-
             h1.append(main_span)
             h1.append(sub_span)
         else:
-            # If no colon or it's at the start, wrap the whole text in a single span
-            # This helps apply consistent styling (like centering) defined on the spans
-            full_span = soup.new_tag('span', attrs={'class': 'main-title full-title'}) # Use main-title class plus specific one
+            full_span = soup.new_tag('span', attrs={'class': 'main-title full-title'})
             full_span.string = original_text
             h1.append(full_span)
-
     return str(soup)
 
 
-def convert_md_to_linked_html(md_file_path, html_file_path, css_file_name="book_style.css", add_front_matter=False):
+def generate_book_html(md_file_path, html_file_path, css_source_path):
     """
-    Converts Markdown to an HTML file linked to an external CSS stylesheet.
-    Includes H1 title splitting and optional front matter pages.
+    Converts Markdown to a full HTML book file with front matter,
+    copies the CSS file, and links it locally.
 
     Args:
         md_file_path (str): Path to the input Markdown file.
         html_file_path (str): Path for the output HTML file.
-        css_file_name (str): Name of the external CSS file to link.
-        add_front_matter (bool): Whether to prepend cover/author pages.
+        css_source_path (str): Path to the source CSS file to copy.
     """
-    print(f"--- Starting Advanced HTML Conversion (Linking External CSS) ---")
+    print(f"--- Starting HTML Book Generation ---")
+    print(f"Project Root:   {PROJECT_ROOT}")
     print(f"Input Markdown: {md_file_path}")
+    print(f"Source CSS:     {css_source_path}")
     print(f"Output HTML:    {html_file_path}")
-    print(f"Linking CSS:    {css_file_name}")
-    print(f"Add Front Matter: {'Yes' if add_front_matter else 'No'}")
+
+    output_dir = os.path.dirname(html_file_path)
+    css_file_name = os.path.basename(css_source_path) # e.g., "book_style.css"
+    css_dest_path = os.path.join(output_dir, css_file_name)
+
+    print(f"Output Dir:     {output_dir}")
+    print(f"CSS Filename:   {css_file_name}")
+    print(f"CSS Dest Path:  {css_dest_path}")
+
 
     if not os.path.exists(md_file_path):
         print(f"*** ERROR: Input Markdown file not found: '{md_file_path}' ***")
         return False
 
-    # --- 1. Read Markdown Content ---
+    if not os.path.exists(css_source_path):
+        print(f"*** WARNING: Source CSS file not found: '{css_source_path}'. HTML will be generated without styling. ***")
+        # Decide if you want to continue or fail here. Continuing for now.
+        # return False
+
+    # --- 1. Create Output Directory ---
+    try:
+        os.makedirs(output_dir, exist_ok=True)
+        print(f"Ensured output directory exists: {output_dir}")
+    except Exception as e:
+        print(f"*** ERROR: Could not create output directory '{output_dir}': {e} ***")
+        return False
+
+    # --- 2. Copy CSS File ---
+    if os.path.exists(css_source_path):
+        try:
+            shutil.copy2(css_source_path, css_dest_path) # copy2 preserves metadata
+            print(f"Successfully copied CSS to '{css_dest_path}'")
+        except Exception as e:
+            print(f"*** ERROR: Could not copy CSS from '{css_source_path}' to '{css_dest_path}': {e} ***")
+            return False # Fail if CSS copy fails
+
+    # --- 3. Read Markdown Content ---
     try:
         with open(md_file_path, 'r', encoding='utf-8') as f:
             md_content = f.read()
         print("Successfully read Markdown file.")
     except Exception as e:
-        print(f"Error reading Markdown file: {e}")
+        print(f"*** ERROR reading Markdown file: {e} ***")
         return False
 
-    # --- 2. Convert Markdown to HTML Fragment ---
+    # --- 4. Convert Markdown to HTML Fragment ---
     try:
         md = MarkdownIt('commonmark', {'breaks': False, 'html': True, 'linkify': True, 'typographer': True}).enable(['table', 'strikethrough'])
         html_fragment_raw = md.render(md_content)
         print("Successfully converted Markdown to HTML fragment.")
     except Exception as e:
-        print(f"Error during Markdown parsing: {e}")
+        print(f"*** ERROR during Markdown parsing: {e} ***")
         return False
 
-    # --- 3. Improve HTML Structure (Split H1 on Markdown Content Only) ---
+    # --- 5. Improve HTML Structure (Split H1 on Markdown Content Only) ---
     try:
         html_fragment_improved = improve_html_structure(html_fragment_raw)
     except Exception as e:
-        print(f"Error improving HTML structure with BeautifulSoup: {e}")
-        print("Falling back to raw HTML fragment.")
+        print(f"*** ERROR improving HTML structure: {e}. Using raw fragment. ***")
         html_fragment_improved = html_fragment_raw # Fallback
 
-    # --- 4. Generate Front Matter (Optional) ---
-    static_preamble = ""
-    page_title = os.path.basename(html_file_path).replace('.html', '') # Default title
-    book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך" # Define default book title
+    # --- 6. Generate Front Matter (Always included) ---
+    book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך" # Default book title
+    static_preamble = get_front_matter_html(book_title=book_main_title, author_name="nhlocal")
+    # Use the book title for the HTML <title> tag
+    page_title = book_main_title.split(':')[0].strip()
 
-    if add_front_matter:
-        static_preamble = get_front_matter_html(book_title=book_main_title, author_name="nhlocal")
-        # Use the book title for the HTML <title> tag if front matter is added
-        page_title = book_main_title.split(':')[0].strip() # Use main part of book title
-
-    # --- 5. Construct Full HTML Document (Linking CSS) ---
+    # --- 7. Construct Full HTML Document ---
     lang = "he"
     direction = "rtl"
 
-    # Try to extract title from *original* H1 fragment for <title> tag *if* front matter isn't added
-    if not add_front_matter:
-        try:
-            soup_title = BeautifulSoup(html_fragment_raw, 'lxml')
-            first_h1 = soup_title.find('h1')
-            if first_h1:
-                page_title = first_h1.get_text(strip=True)
-        except Exception: pass
-
-    # <<< Link to external CSS file instead of embedding styles >>>
+    # Link to the *local* CSS file name
     html_full = f"""<!DOCTYPE html>
 <html lang="{lang}" dir="{direction}">
 <head>
@@ -176,75 +186,61 @@ def convert_md_to_linked_html(md_file_path, html_file_path, css_file_name="book_
 <body>
 
 {static_preamble}
+<div class="main-content">
 {html_fragment_improved}
+</div>
 
 </body>
 </html>
 """
 
-    # --- 6. Write HTML to File ---
+    # --- 8. Write HTML to File ---
     try:
-        os.makedirs(os.path.dirname(html_file_path), exist_ok=True) # Ensure output directory exists
         with open(html_file_path, 'w', encoding='utf-8') as f:
             f.write(html_full)
-        print(f"Successfully created HTML file linking to '{css_file_name}': {html_file_path}")
-        print(f"IMPORTANT: Ensure the CSS file '{css_file_name}' exists in the same directory or provide the correct path.")
+        print(f"Successfully created HTML file: {html_file_path}")
+        print(f"HTML links to '{css_file_name}' (copied to the same directory).")
         return True
     except Exception as e:
-        print(f"Error writing HTML file: {e}")
+        print(f"*** ERROR writing HTML file: {e} ***")
         return False
 
 # --- Main Execution Logic ---
 if __name__ == "__main__":
     # --- Dependency Check ---
-    try:
-        import bs4
-    except ImportError:
-        print("\n*** DEPENDENCY ERROR: 'beautifulsoup4' library not found. ***")
-        print("Please install it using: pip install beautifulsoup4 lxml")
-        exit()
-    try:
-        import markdown_it
-    except ImportError:
-         print("\n*** DEPENDENCY ERROR: 'markdown-it-py' library not found. ***")
-         print("Please install it using: pip install markdown-it-py")
-         exit()
-    # Check for lxml parser too
-    try:
-        import lxml
-    except ImportError:
-        print("\n*** DEPENDENCY ERROR: 'lxml' library not found (used by BeautifulSoup). ***")
-        print("Please install it using: pip install lxml")
-        exit()
+    # (Keep the dependency checks for bs4, markdown_it, lxml as before)
+    try: import bs4
+    except ImportError: print("Dependency Error: `pip install beautifulsoup4 lxml`"); sys.exit(1)
+    try: import markdown_it
+    except ImportError: print("Dependency Error: `pip install markdown-it-py`"); sys.exit(1)
+    try: import lxml
+    except ImportError: print("Dependency Error: `pip install lxml`"); sys.exit(1)
 
 
     # --- Argument Parsing ---
-    parser = argparse.ArgumentParser(description='Convert Markdown to enhanced HTML linking external CSS, with optional front matter.')
-    parser.add_argument('input_md_file', help='Path to the input Markdown file.')
-    parser.add_argument('-o', '--output', dest='output_html_file',
-                        help='Path for the output HTML file (optional). Defaults to input filename with .html extension.')
-    parser.add_argument('--css', dest='css_file', default='book_style.css',
-                        help='Filename/path for the external CSS file to link (default: book_style.css).')
-    parser.add_argument('-f', '--add-front-matter', action='store_true',
-                        help='Add standard front matter (Cover, Author info, Blank pages).')
-
+    parser = argparse.ArgumentParser(
+        description='Convert Markdown book content (src/content/book.md) to a styled HTML file (output/book.html) with front matter, copying CSS.',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter # Show defaults in help
+    )
+    # Input is now optional positional, defaulting to the standard location
+    parser.add_argument('input_md_file', nargs='?', default=DEFAULT_INPUT_MD,
+                        help='Path to the input Markdown file.')
+    parser.add_argument('-o', '--output', dest='output_html_file', default=DEFAULT_OUTPUT_HTML,
+                        help='Path for the output HTML file.')
+    # We don't need an argument for CSS source anymore, using the default
+    # parser.add_argument('--css-source', default=DEFAULT_CSS_SOURCE, help='Path to the source CSS file.')
 
     args = parser.parse_args()
 
-    # --- Determine Output HTML Path ---
-    if args.output_html_file:
-        output_file = args.output_html_file
-    else:
-        # Place output in the same directory as the input by default
-        output_dir = os.path.dirname(args.input_md_file)
-        base_name, _ = os.path.splitext(os.path.basename(args.input_md_file))
-        output_file = os.path.join(output_dir, base_name + ".html")
-
+    # Use the fixed default CSS source path
+    css_source_to_use = DEFAULT_CSS_SOURCE
 
     # --- Run Conversion ---
-    convert_md_to_linked_html(
+    success = generate_book_html(
         md_file_path=args.input_md_file,
-        html_file_path=output_file,
-        css_file_name=args.css_file,
-        add_front_matter=args.add_front_matter
+        html_file_path=args.output_html_file,
+        css_source_path=css_source_to_use
     )
+
+    if not success:
+        sys.exit(1) # Exit with error code if generation failed
