@@ -18,7 +18,7 @@ DEFAULT_CSS_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'css', 'book_st
 DEFAULT_COVER_IMAGE_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'images', 'cover.png')
 
 
-def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי המסך", author_name="nhlocal"):
+def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי הבינה", author_name="nhlocal"):
     """Generates the HTML for the front matter pages (Image Cover, Blank, Author, Blank)."""
 
     # --- Updated Author Page Structure (no changes here) ---
