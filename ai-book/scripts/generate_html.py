@@ -18,7 +18,7 @@ DEFAULT_CSS_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'css', 'book_st
 DEFAULT_COVER_IMAGE_SOURCE = os.path.join(PROJECT_ROOT, 'src', 'assets', 'images', 'cover.png')
 
 
-def get_front_matter_html(book_title="הקופסה הפתוחה: להכיר את המוח שמאחורי הבינה", author_name="nhlocal"):
+def get_front_matter_html(book_title="הקופסה הפתוחה: להבין את המוח שמאחורי הבינה", author_name="nhlocal"):
     """Generates the HTML for the front matter pages (Image Cover, Blank, Author, Blank)."""
 
     # --- Updated Author Page Structure (no changes here) ---
@@ -185,7 +185,7 @@ def generate_book_html(md_file_path, html_file_path, css_source_path, cover_imag
         html_fragment_improved = html_fragment_raw
 
     # --- 7. Generate Front Matter (Includes Image Cover HTML) ---
-    book_main_title = "הקופסה הפתוחה: להכיר את המוח שמאחורי המסך"
+    book_main_title = "הקופסה הפתוחה: להבין את המוח שמאחורי הבינה"
     static_preamble = get_front_matter_html(book_title=book_main_title, author_name="nhlocal")
     page_title = book_main_title.split(':')[0].strip()
 
