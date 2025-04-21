@@ -16,7 +16,7 @@ plugins:
 # הגדרות ניווט (נשאר דומה, העיצוב ישפיע על המראה)
 navbar:
   - title: "בית"
-    url: /index.md
+    url: /
   - title: "כל הנושאים"
     url: /index.html#topics
   - title: "מילים נפוצות"
