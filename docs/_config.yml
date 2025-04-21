@@ -1,8 +1,9 @@
-title: "זה קל!"
-description: "קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות"
+title: "זה קל! | מונחי טכנולוגיה בקלות"
+description: "המדריך המקיף והפשוט שלך להבנת מונחי טכנולוגיה, מחשבים ותכנות בעברית. הסברים ברורים לכל רמה."
 baseurl: "/ZeKal" # נדרש עבור GitHub Pages
 url: "https://nhlocal.github.io" # URL האתר
 language: "he"
+logo: "/assets/images/logo.png" # (Optional) Add a path to your logo image
 
 # תבנית Jekyll שתשמש (נשתמש בעיצוב מותאם אישית)
 theme: null
@@ -12,10 +13,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# הגדרות ניווט
+# הגדרות ניווט (נשאר דומה, העיצוב ישפיע על המראה)
 navbar:
   - title: "בית"
-    url: /index.html
+    url: /index.md
   - title: "כל הנושאים"
     url: /index.html#topics
   - title: "מילים נפוצות"
@@ -38,7 +39,17 @@ kramdown:
 # פלט אתר
 permalink: /:categories/:title.html
 
-# Google Fonts
+# Google Fonts (נשאר Rubik, אפשר לגוון אם רוצים)
 google_fonts:
   - family: "Rubik"
-    variants: "400,500,700"
+    variants: "300,400,500,700" # הוספת משקלים נוספים
+
+# הגדרות נוספות (אם נדרש)
+# مثلا, הגדרות ברירת מחדל לפוסטים
+# defaults:
+#   -
+#     scope:
+#       path: ""
+#       type: "posts"
+#     values:
+#       layout: "post"
