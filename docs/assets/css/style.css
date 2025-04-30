@@ -655,6 +655,7 @@ td:nth-child(2), th:nth-child(2) {
     text-align: left;
     font-weight: 500;
     white-space: nowrap;
+    vertical-align: middle;
 }
 
 /* Speak Button */
@@ -669,14 +670,17 @@ td:nth-child(2), th:nth-child(2) {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    display: inline-flex;
+    display: inline-flex; /* Keeps icon centered within the button */
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
+    margin-left: 10px; /* CHANGED: Adds space to the LEFT, between LTR text and button */
+    /* margin-right: 8px; <-- REMOVED this line */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    vertical-align: middle;
-    flex-shrink: 0; /* Prevent shrinking in flex context */
+    vertical-align: middle; /* Aligns the button itself relative to the text line */
+    flex-shrink: 0; /* Prevents the button from shrinking if space is tight */
 }
+
+/* Keep hover/active states as they were or adjust if needed */
 .speak-button:hover {
     background-color: var(--color-accent-dark);
     transform: scale(1.1);
