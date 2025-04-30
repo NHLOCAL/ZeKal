@@ -1,7 +1,7 @@
 :root {
     --font-primary: 'Rubik', sans-serif;
 
-    /* Color Palette (Refined) */
+    /* Color Palette (Refined + Inspired) */
     --color-primary: #2a6f97;          /* Slate Blue */
     --color-primary-dark: #1e5b80;       /* Darker Slate Blue */
     --color-secondary: #343a40;         /* Dark Gray */
@@ -18,17 +18,20 @@
     --color-table-row-even: #f8f9fa;
     --color-danger: #dc3545;
     --color-danger-light: #f8d7da;
+    --color-project-button: #03C3DE;   /* Inspired Turquoise for Projects button */
+    --color-project-button-dark: #02a9c0; /* Darker Turquoise for hover */
+
 
     --header-height: 75px;
     --nav-height: 55px;
-    --header-scrolled-height: calc(var(--header-height) * 0.85); /* Store scrolled heights */
+    --header-scrolled-height: calc(var(--header-height) * 0.85);
     --nav-scrolled-height: calc(var(--nav-height) * 0.95);
-    --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 20px); /* Offset for anchor scrolling (+ buffer) */
+    --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 20px);
 
-    --border-radius: 6px;
-    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
-    --box-shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.12); /* Enhanced hover shadow */
-    --transition-speed: 0.2s; /* Standard transition speed */
+    --border-radius: 8px; /* UPDATED: Slightly softer corners */
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* UPDATED: Subtler default shadow */
+    --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12); /* UPDATED: More pronounced hover shadow */
+    --transition-speed: 0.2s;
 }
 
 * {
@@ -69,7 +72,7 @@ body {
 }
 
 .main-container {
-    padding-top: 45px; /* Adjusted spacing */
+    padding-top: 45px;
     padding-bottom: 45px;
 }
 
@@ -81,12 +84,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2.6em; }
-h2 { font-size: 2.1em; margin-top: 2em; } /* More space above H2 */
+h2 { font-size: 2.1em; margin-top: 2em; }
 h3 { font-size: 1.6em; margin-top: 1.8em; color: var(--color-primary); }
 h4 { font-size: 1.2em; color: var(--color-secondary); font-weight: 600; margin-bottom: 0.8em;}
 
 p {
-    margin-bottom: 1.3em; /* Slightly more space after paragraphs */
+    margin-bottom: 1.3em;
     color: var(--color-text-light);
 }
 
@@ -257,54 +260,76 @@ li {
     display: flex;
     align-items: center;
     white-space: nowrap;
+    position: relative; /* Needed for the ::after pseudo-element */
+    overflow: hidden; /* Hide underline overflow */
 }
+
+/* NEW: Underline hover effect inspired by old CSS */
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px; /* Thickness of the underline */
+    background-color: var(--color-accent); /* Use accent color */
+    transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a:focus::after {
+    width: 100%; /* Expand underline on hover/focus */
+}
+/* Ensure hover background doesn't clash */
+.nav-menu li a:hover,
+.nav-menu li a:focus,
+.nav-menu li a.active {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly less opacity to see underline better */
+    color: var(--color-white);
+}
+
 
 .nav-menu li a i {
     margin-left: 8px;
     font-size: 1.1em;
     opacity: 0.9;
-    width: 1.2em; /* Fixed width for alignment */
+    width: 1.2em;
     text-align: center;
 }
 
-.nav-menu li a:hover,
-.nav-menu li a:focus,
-.nav-menu li a.active {
-    background-color: rgba(255, 255, 255, 0.2); /* Brighter hover/active */
-    color: var(--color-white);
-}
 
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     color: var(--color-white);
-    font-size: 1.7em; /* Larger icon */
+    font-size: 1.7em;
     cursor: pointer;
     padding: 10px;
 }
 
 /* Sections */
 .section {
-    margin-top: 50px; /* More space between sections */
-    padding: 45px 40px; /* Generous padding */
+    margin-top: 50px;
+    padding: 45px 40px;
     background-color: var(--color-background-content);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     border: 1px solid var(--color-border);
 }
 .section:first-of-type {
-    margin-top: 40px; /* Less margin for the first section after hero */
+    margin-top: 40px;
 }
 
 .section h2, .section h3 {
-    margin-top: 0; /* Reset top margin for headers inside sections */
+    margin-top: 0;
 }
 
 .section h2 {
     border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 15px; /* More padding */
-    margin-bottom: 40px; /* More space after H2 */
+    padding-bottom: 15px;
+    margin-bottom: 40px;
     font-size: 2em;
     display: flex;
     align-items: center;
@@ -312,13 +337,13 @@ li {
 .section h2 i {
     margin-left: 15px;
     color: var(--color-primary);
-    font-size: 1.1em; /* Slightly larger icon */
+    font-size: 1.1em;
 }
 
 .section h3 {
     border-bottom: 1px solid var(--color-accent);
     padding-bottom: 12px;
-    margin-bottom: 35px; /* More space after H3 */
+    margin-bottom: 35px;
     font-size: 1.5em;
     color: var(--color-primary);
     display: flex;
@@ -329,9 +354,20 @@ li {
     color: var(--color-accent);
     font-size: 1.05em;
 }
+.section h3 a {
+    color: inherit;
+    transition: color var(--transition-speed) ease;
+}
+.section h3 a:hover {
+     color: var(--color-accent);
+}
+.section h3 a:hover i {
+    color: var(--color-accent);
+}
+
 .section h3 + p {
-    margin-top: -15px; /* Pull paragraph slightly closer to H3 */
-    margin-bottom: 25px; /* Ensure enough space before next element */
+    margin-top: -15px;
+    margin-bottom: 25px;
 }
 
 
@@ -340,10 +376,11 @@ li {
     text-align: center;
     padding: 75px 20px;
     background-color: var(--color-primary);
+    /* Optional Subtle Gradient: background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); */
     color: var(--color-white);
     border-radius: var(--border-radius);
     margin-top: 30px;
-    margin-bottom: 50px; /* Add margin below hero */
+    margin-bottom: 50px;
     box-shadow: var(--box-shadow-hover);
 }
 
@@ -356,7 +393,7 @@ li {
 
 .hero-section p {
     font-size: 1.25em;
-    color: rgba(255, 255, 255, 0.95); /* Brighter text */
+    color: rgba(255, 255, 255, 0.95);
     max-width: 750px;
     margin: 0 auto 35px auto;
 }
@@ -366,40 +403,39 @@ li {
     font-size: 1.2em;
 }
 
-/* YouTube Section Specific Styling */
-.youtube-section {
-    background-color: var(--color-danger-light);
-    border: 1px solid var(--color-danger);
-    padding: 45px 40px;
+/* YouTube Section Specific Styling (Home Page) */
+/* Removed the distinct red styling, applying a subtle background variation */
+.section.youtube-section {
+    background-color: var(--color-background-body); /* Slightly different bg */
+    border-color: #ced4da; /* Slightly darker border than default */
 }
 
-.youtube-section h2 {
-    color: var(--color-danger);
-    border-color: var(--color-danger);
+.section.youtube-section h2 {
+    color: var(--color-primary); /* Use primary color */
+    border-color: var(--color-primary); /* Match border */
     text-align: center;
 }
-.youtube-section h2 i {
-    color: var(--color-danger);
+.section.youtube-section h2 i {
+    color: var(--color-primary); /* Match icon color */
 }
 
-.youtube-section p {
+.section.youtube-section p {
     text-align: center;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.youtube-section .button.large-button {
-    background: var(--color-danger);
-    color: var(--color-white); /* Ensure white text */
+/* Keep buttons standard or use accent */
+.section.youtube-section .button.large-button {
+     /* Let buttons inherit default .button or .accent-button styles */
+     /* Example: Using accent color for main CTA */
+     /* background-color: var(--color-accent); */
+     /* color: var(--color-secondary); */
 }
-
-.youtube-section .button.large-button:hover {
-    background: #c82333;
-    color: var(--color-white);
-}
-.youtube-section .button.large-button i {
-    color: var(--color-white); /* Match icon color */
+.section.youtube-section .button.large-button:hover {
+     /* background-color: var(--color-accent-dark); */
+     /* color: var(--color-secondary); */
 }
 
 
@@ -419,7 +455,7 @@ li {
     cursor: pointer;
     text-decoration: none;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow);
     text-align: center;
     line-height: 1.4;
 }
@@ -430,16 +466,16 @@ li {
 }
 
 .button:hover {
-    background-color: var(--color-primary-dark); /* Slightly darker hover */
+    background-color: var(--color-primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--box-shadow-hover); /* Enhanced hover shadow */
+    box-shadow: var(--box-shadow-hover);
     color: var(--color-white);
 }
 
 .button:active {
-    background-color: #1a5070; /* Even darker active state */
-    transform: translateY(0); /* No movement on active */
-    box-shadow: inset 0 3px 5px rgba(0,0,0,0.15); /* Clearer inset shadow */
+    background-color: #1a5070;
+    transform: translateY(0);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
 }
 
 /* Accent Button - Refined Feedback */
@@ -448,13 +484,13 @@ li {
     color: var(--color-secondary);
 }
 .button.accent-button:hover {
-    background-color: var(--color-accent-dark); /* Darker accent hover */
+    background-color: var(--color-accent-dark);
     color: var(--color-secondary);
     box-shadow: var(--box-shadow-hover);
     transform: translateY(-2px);
 }
 .button.accent-button:active {
-    background-color: #d98607; /* Even darker active accent */
+    background-color: #d98607;
     transform: translateY(0);
     box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
 }
@@ -474,13 +510,14 @@ li {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 18px; /* More gap */
+    gap: 18px;
 }
 
 .home-buttons .button {
     min-width: 170px;
 }
 
+/* GitHub Button Style */
 .github-button {
     background-color: #333;
     color: var(--color-white);
@@ -493,19 +530,21 @@ li {
     background-color: #000;
 }
 
+/* Projects Button Style (Inspired by old CSS) */
 .projects-button {
-    background-color: var(--color-secondary-light);
+    background-color: var(--color-project-button); /* Turquoise */
     color: var(--color-white);
 }
 .projects-button:hover {
-    background-color: var(--color-secondary);
+    background-color: var(--color-project-button-dark); /* Darker Turquoise */
     color: var(--color-white);
 }
 .projects-button:active {
-    background-color: #495057; /* Darker gray active */
+    background-color: #028fa1; /* Even Darker Turquoise */
 }
 
-/* Download Buttons (YouTube Page) */
+
+/* Download Buttons (YouTube Page) - Changed to OUTLINE style */
 .download-buttons {
     display: flex;
     gap: 10px;
@@ -515,42 +554,63 @@ li {
 }
 
 .button.download-button {
-    background-color: var(--color-primary);
-    padding: 8px 12px;
+    /* Override default button style for outline look */
+    background-color: transparent;
+    border: 1px solid var(--color-secondary-light); /* Use light secondary color for border */
+    color: var(--color-secondary-light); /* Use light secondary color for text */
+    padding: 7px 11px; /* Adjust padding for outline */
     font-size: 0.85em;
     min-width: 90px;
     flex: 1;
     font-weight: 500;
+    box-shadow: none; /* Remove default shadow */
 }
 .button.download-button:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-secondary-light); /* Fill on hover */
+    color: var(--color-white); /* White text on hover */
+    border-color: var(--color-secondary-light); /* Keep border color */
+    transform: none; /* No transform for subtle buttons */
+    box-shadow: none;
 }
+.button.download-button:active {
+    background-color: var(--color-secondary); /* Darker fill on active */
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+    transform: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Subtle inset shadow */
+}
+
 .button.download-button i {
     margin-left: 6px;
     font-size: 1em;
+    color: inherit; /* Inherit text color */
 }
+
 .button.download-button[disabled] {
-    background-color: #adb5bd; /* Use a gray from palette */
+    background-color: transparent;
+    border-color: #ced4da; /* Lighter border for disabled */
+    color: #adb5bd; /* Lighter text for disabled */
     cursor: default;
-    opacity: 0.8;
+    opacity: 0.7;
     transform: none;
     box-shadow: none;
-    color: #495057; /* Darker text on disabled */
 }
 .button.download-button[disabled]:hover {
-     background-color: #adb5bd;
+     background-color: transparent; /* No hover fill for disabled */
+     color: #adb5bd;
 }
 .button.download-button[disabled] i {
-    color: #495057;
+    color: inherit;
 }
+
 
 /* Topics Grid */
 .topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 30px; /* Wider gap */
+    gap: 30px;
     margin-top: 30px;
-    margin-bottom: 45px; /* הוספת רווח תחתון אחרי הגריד */
+    margin-bottom: 45px;
 }
 
 .topic-card {
@@ -569,7 +629,7 @@ li {
 }
 
 .topic-card:hover {
-    transform: translateY(-5px) scale(1.03); /* Slightly more scale */
+    transform: translateY(-5px) scale(1.03);
     box-shadow: var(--box-shadow-hover);
 }
 
@@ -594,7 +654,7 @@ li {
     display: block;
     height: 100%;
     width: 100%;
-    border-radius: var(--border-radius); /* Ensure link covers card */
+    border-radius: var(--border-radius);
 }
 .topic-card a:hover h4 {
     color: var(--color-accent);
@@ -602,7 +662,7 @@ li {
 .topic-card a:hover i {
     color: var(--color-accent);
 }
-.topic-card a:focus { /* Add focus style for accessibility */
+.topic-card a:focus {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
@@ -615,7 +675,7 @@ li {
     -webkit-overflow-scrolling: touch;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    margin-bottom: 35px; /* More space after table */
+    margin-bottom: 35px;
     box-shadow: var(--box-shadow);
     background-color: var(--color-white);
 }
@@ -645,7 +705,7 @@ table tr:nth-child(even) {
     background-color: var(--color-table-row-even);
 }
 
-table tr:hover td { /* Highlight all cells in row */
+table tr:hover td {
     background-color: #e9ecef;
 }
 
@@ -657,6 +717,7 @@ td:nth-child(2), th:nth-child(2) {
     white-space: nowrap;
     vertical-align: middle;
 }
+
 
 /* Speak Button */
 .speak-button {
@@ -670,17 +731,14 @@ td:nth-child(2), th:nth-child(2) {
     border-radius: 50%;
     cursor: pointer;
     transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    display: inline-flex; /* Keeps icon centered within the button */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px; /* CHANGED: Adds space to the LEFT, between LTR text and button */
-    /* margin-right: 8px; <-- REMOVED this line */
+    margin-left: 10px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    vertical-align: middle; /* Aligns the button itself relative to the text line */
-    flex-shrink: 0; /* Prevents the button from shrinking if space is tight */
+    vertical-align: middle;
+    flex-shrink: 0;
 }
-
-/* Keep hover/active states as they were or adjust if needed */
 .speak-button:hover {
     background-color: var(--color-accent-dark);
     transform: scale(1.1);
@@ -699,7 +757,7 @@ td:nth-child(2), th:nth-child(2) {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased gap */
+    gap: 20px;
 }
 
 form label {
@@ -711,11 +769,11 @@ form label {
 }
 
 form label i {
-    margin-left: 10px; /* More space */
+    margin-left: 10px;
     color: var(--color-primary);
-    width: 20px; /* Fixed width */
+    width: 20px;
     text-align: center;
-    font-size: 1.1em; /* Slightly larger icon */
+    font-size: 1.1em;
 }
 
 form input[type="text"],
@@ -734,7 +792,7 @@ form input[type="text"]:focus,
 form input[type="email"]:focus,
 form textarea:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.2); /* Brighter focus ring */
+    box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.2);
     outline: none;
 }
 
@@ -746,39 +804,53 @@ form textarea {
 form button[type="submit"] {
     align-self: flex-start;
     margin-top: 10px;
-    /* Uses .accent-button class */
 }
 
-/* YouTube Page Specifics */
+/* YouTube Page Specifics (youtube-channel.md) */
+/* Container section uses default .section styling */
+
+/* Playlist Links - Styled as Pills */
 .playlist-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 40px;
+    gap: 12px; /* Gap between links */
+    margin-bottom: 45px; /* Space after links */
+    padding-bottom: 20px; /* Space before horizontal line */
+    border-bottom: 1px solid var(--color-border); /* Separator line */
 }
 
-.playlist-links .button {
-    background-color: var(--color-secondary-light);
+.playlist-links a { /* Target links directly */
+    background-color: var(--color-background-body); /* Light background */
+    color: var(--color-primary); /* Primary text color */
+    border: 1px solid var(--color-border);
     padding: 8px 18px;
     font-size: 0.9em;
     font-weight: 500;
+    border-radius: 20px; /* Rounded pill shape */
+    text-decoration: none;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    white-space: nowrap;
 }
-.playlist-links .button:hover {
-    background-color: var(--color-secondary);
+.playlist-links a:hover,
+.playlist-links a:focus {
+    background-color: var(--color-primary); /* Primary fill on hover */
+    color: var(--color-white); /* White text on hover */
+    border-color: var(--color-primary);
 }
+
 
 .video-categories {
     margin-top: 40px;
 }
 
 .video-category {
-    margin-bottom: 50px; /* More space between categories */
+    margin-bottom: 50px;
 }
 
-.video-category h3 {
+.video-category h3 { /* Category Title */
     color: var(--color-primary);
-    margin-bottom: 25px; /* Increased margin */
+    margin-bottom: 15px; /* Less space before description */
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 12px;
     font-size: 1.8em;
@@ -794,7 +866,7 @@ form button[type="submit"] {
     margin-left: 12px;
     color: var(--color-primary);
      transition: color var(--transition-speed) ease;
-     font-size: 1em; /* Ensure icon size matches text */
+     font-size: 1em;
 }
 .video-category h3 a:hover {
     color: var(--color-accent);
@@ -802,10 +874,10 @@ form button[type="submit"] {
 .video-category h3 a:hover i {
     color: var(--color-accent);
 }
-.video-category > p {
+.video-category > p { /* Category Description */
     font-size: 1.05em;
     color: var(--color-text-light);
-    margin-bottom: 35px; /* Increased margin */
+    margin-bottom: 35px;
 }
 
 .video-grid {
@@ -814,7 +886,7 @@ form button[type="submit"] {
     gap: 30px;
 }
 
-.video-item {
+.video-item { /* Video Card */
     background-color: var(--color-background-content);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -826,11 +898,11 @@ form button[type="submit"] {
 }
 
 .video-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02); /* Add subtle scale */
     box-shadow: var(--box-shadow-hover);
 }
 
-.video-preview {
+.video-preview { /* Thumbnail Area */
     position: relative;
     padding-top: 56.25%;
     background-size: cover;
@@ -858,22 +930,22 @@ form button[type="submit"] {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.video-details {
+.video-details { /* Text and Buttons Area */
     padding: 20px 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.video-details h4 {
-    margin-bottom: 12px;
-    font-size: 1.15em;
-    color: var(--color-secondary);
+.video-details h4 { /* Video Title */
+    margin-bottom: 10px; /* Less space before description */
+    font-size: 1.2em; /* Slightly larger title */
+    color: var(--color-primary); /* Use primary color for title */
     line-height: 1.4;
     font-weight: 600;
 }
 
-.video-details p {
+.video-details p { /* Video Description */
     margin-bottom: 15px;
     color: var(--color-text-light);
     font-size: 0.95em;
@@ -884,10 +956,11 @@ form button[type="submit"] {
 /* Footer */
 .site-footer {
     background: var(--color-secondary);
-    padding: 40px 0; /* More padding */
+    padding: 40px 0;
     text-align: center;
     margin-top: 60px;
     color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Rounded top corners */
 }
 
 .site-footer p {
@@ -937,7 +1010,7 @@ form button[type="submit"] {
 .error-404 {
     text-align: center;
     padding: 60px 20px;
-    min-height: 60vh; /* Ensure it takes some height */
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -971,14 +1044,14 @@ form button[type="submit"] {
 
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 25px; /* Adjusted gap */
+        gap: 25px;
     }
     .video-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 25px;
     }
     .container { max-width: 960px; }
-    .section { padding: 40px 35px; } /* Adjusted padding */
+    .section { padding: 40px 35px; }
 }
 
 @media (max-width: 768px) {
@@ -987,7 +1060,7 @@ form button[type="submit"] {
         --nav-height: 50px;
          --header-scrolled-height: calc(var(--header-height) * 0.85);
          --nav-scrolled-height: calc(var(--nav-height) * 0.95);
-         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 15px); /* Adjust offset for mobile */
+         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 15px);
     }
     html { font-size: 15px; }
     body { padding-top: var(--header-height); }
@@ -998,7 +1071,7 @@ form button[type="submit"] {
 
     .container { padding: 0 15px; }
     .main-container { padding-top: 30px; padding-bottom: 30px; }
-    .section { padding: 35px 25px; margin-top: 40px; } /* Adjusted padding/margin */
+    .section { padding: 35px 25px; margin-top: 40px; }
     .section:first-of-type { margin-top: 30px; }
     .hero-section { padding: 50px 15px; margin-bottom: 40px; }
     .hero-section h1 { font-size: 2.4em; }
@@ -1009,7 +1082,7 @@ form button[type="submit"] {
         display: block;
         margin-right: auto;
         z-index: 1001;
-        font-size: 1.8em; /* Ensure sufficient size */
+        font-size: 1.8em;
     }
     .site-nav .container {
         justify-content: flex-start;
@@ -1046,6 +1119,9 @@ form button[type="submit"] {
      .nav-menu li a:hover, .nav-menu li a:focus {
          background-color: rgba(255, 255, 255, 0.2);
      }
+     .nav-menu li a::after { /* Disable underline in mobile dropdown */
+         display: none;
+     }
     .nav-menu li:last-child a {
         border-bottom: none;
     }
@@ -1055,7 +1131,7 @@ form button[type="submit"] {
 
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 20px; /* Adjusted gap */
+        gap: 20px;
     }
     .topic-card { min-height: 140px; padding: 25px 20px; }
     .topic-card i { font-size: 2.4em; margin-bottom: 15px; }
@@ -1063,7 +1139,7 @@ form button[type="submit"] {
 
     .video-grid {
         grid-template-columns: 1fr;
-        gap: 25px; /* Increased gap */
+        gap: 25px;
     }
 
     .home-buttons {
@@ -1076,7 +1152,7 @@ form button[type="submit"] {
         max-width: 320px;
     }
 
-     /* Download buttons */
+     /* Download buttons (Outline style) */
      .download-buttons {
          flex-direction: row;
          justify-content: space-between;
@@ -1085,22 +1161,31 @@ form button[type="submit"] {
         flex-basis: 48%;
         min-width: 0;
         font-size: 0.8em;
-        padding: 8px 10px;
+        padding: 6px 8px; /* Adjust padding */
     }
 
     #back-to-top {
-        width: 42px; /* Slightly smaller */
+        width: 42px;
         height: 42px;
         bottom: 20px;
-        right: 20px; /* Position from RIGHT */
+        right: 20px;
     }
     #back-to-top i { font-size: 1.1em; }
 
     /* Table adjustments */
     .table-container { margin-bottom: 25px; }
     table th, table td { padding: 10px 12px; font-size: 0.9em; }
-    .speak-button { width: 20px; height: 20px; font-size: 10px; margin-right: 6px; }
+    .speak-button { width: 20px; height: 20px; font-size: 10px; margin-left: 8px; }
     .speak-button i { font-size: 10px; }
+
+    /* Playlist links on mobile */
+    .playlist-links {
+        gap: 8px; /* Smaller gap */
+    }
+    .playlist-links a {
+        padding: 6px 14px; /* Smaller padding */
+        font-size: 0.85em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1109,7 +1194,7 @@ form button[type="submit"] {
         --nav-height: 48px;
          --header-scrolled-height: calc(var(--header-height) * 0.85);
          --nav-scrolled-height: calc(var(--nav-height) * 0.95);
-         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 10px); /* Further adjust offset */
+         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 10px);
     }
     html { font-size: 14.5px; }
     body { line-height: 1.65; }
@@ -1123,7 +1208,7 @@ form button[type="submit"] {
     .hero-section .button { font-size: 1em; padding: 12px 25px; }
 
     .topics-grid {
-        grid-template-columns: 1fr; /* Stack topics */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
     .button.large-button { font-size: 1em; padding: 12px 25px; }
@@ -1146,14 +1231,20 @@ form button[type="submit"] {
 
      /* Table adjustments for very small screens */
      table th, table td {
-         padding: 8px 10px; /* Further reduce padding */
-         font-size: 0.85em; /* Further reduce font size */
+         padding: 8px 10px;
+         font-size: 0.85em;
      }
      .speak-button {
          width: 18px;
          height: 18px;
          font-size: 9px;
-         margin-right: 5px;
+         margin-left: 6px;
      }
      .speak-button i { font-size: 9px; }
+
+     /* Playlist links on very small screens */
+     .playlist-links a {
+        font-size: 0.8em;
+        padding: 5px 12px;
+     }
 }
