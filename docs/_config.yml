@@ -1,9 +1,8 @@
 title: "זה קל!"
 description: "קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות"
 baseurl: ""  # או "/" - מציין את שורש האתר
-url: "https://ze-kal.top" # URL 
+url: "https://ze-kal.top" # URL האתר
 language: "he"
-logo: "/assets/images/logo.png" # (Optional) Add a path to your logo image
 
 # תבנית Jekyll שתשמש (נשתמש בעיצוב מותאם אישית)
 theme: null
@@ -13,10 +12,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# הגדרות ניווט (נשאר דומה, העיצוב ישפיע על המראה)
+# הגדרות ניווט
 navbar:
   - title: "בית"
-    url: /
+    url: /index.html
   - title: "כל הנושאים"
     url: /index.html#topics
   - title: "מילים נפוצות"
@@ -39,17 +38,7 @@ kramdown:
 # פלט אתר
 permalink: /:categories/:title.html
 
-# Google Fonts (נשאר Rubik, אפשר לגוון אם רוצים)
+# Google Fonts
 google_fonts:
   - family: "Rubik"
-    variants: "300,400,500,700" # הוספת משקלים נוספים
-
-# הגדרות נוספות (אם נדרש)
-# مثلا, הגדרות ברירת מחדל לפוסטים
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "post"
+    variants: "400,500,700"
