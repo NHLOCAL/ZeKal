@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title == "בית" %}{{ site.title }}{% else %}{{ page.title }} | {{ site.title | split: '|' | first | strip }}{% endif %}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}"> <!-- Assuming favicon exists -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.png' | relative_url }}"> <!-- Assuming favicon exists -->
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
