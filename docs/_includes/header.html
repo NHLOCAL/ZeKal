@@ -1,6 +1,14 @@
-<header>
-    <div class="header-content">
-        <h1>{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
+<header class="site-header" id="site-header">
+    <div class="container header-content">
+        <!-- Optional Logo -->
+        {% if site.logo %}
+        <a href="{{ '/' | relative_url }}" class="site-logo-link">
+            <img src="{{ site.logo | relative_url }}" alt="{{ site.title | split: '|' | first | strip }} Logo" class="site-logo">
+        </a>
+        {% endif %}
+        <div class="site-branding">
+            <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title | split: '|' | first | strip }}</a></h1>
+            <p class="site-description">{{ site.description }}</p>
+        </div>
     </div>
 </header>
