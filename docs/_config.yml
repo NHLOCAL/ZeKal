@@ -1,7 +1,7 @@
 title: "זה קל!"
 description: "קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות"
-baseurl: "/ZeKal" # נדרש עבור GitHub Pages
-url: "https://nhlocal.github.io" # URL האתר
+baseurl: ""  # או "/" - מציין את שורש האתר
+url: "https://ze-kal.top" # URL האתר
 language: "he"
 
 # תבנית Jekyll שתשמש (נשתמש בעיצוב מותאם אישית)
