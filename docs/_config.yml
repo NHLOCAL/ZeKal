@@ -1,7 +1,7 @@
-title: "זה קל! | מונחי טכנולוגיה בקלות"
-description: "המדריך המקיף והפשוט שלך להבנת מונחי טכנולוגיה, מחשבים ותכנות בעברית. הסברים ברורים לכל רמה."
-baseurl: "/ZeKal" # נדרש עבור GitHub Pages
-url: "https://nhlocal.github.io" # URL האתר
+title: "זה קל!"
+description: "קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות"
+baseurl: ""  # או "/" - מציין את שורש האתר
+url: "https://ze-kal.top" # URL 
 language: "he"
 logo: "/assets/images/logo.png" # (Optional) Add a path to your logo image
 
