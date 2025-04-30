@@ -1,34 +1,29 @@
-/* File: assets/css/style.css */
-/* --- Ze Kal! Modern Styles --- */
-
-/* 1. Variables & Basic Reset
---------------------------------------------- */
 :root {
     --font-primary: 'Rubik', sans-serif;
 
     /* New Color Palette */
-    --color-primary: #008080; /* Teal */
-    --color-primary-dark: #006666;
-    --color-secondary: #2F4F4F; /* Dark Slate Gray */
-    --color-secondary-light: #4d7b7b;
-    --color-accent: #FF7F50; /* Coral */
-    --color-accent-dark: #e67347;
-    --color-background-light: #F0F8FF; /* AliceBlue - very light blue */
-    --color-background-medium: #B0C4DE; /* Light Steel Blue */
-    --color-text: #333333;
-    --color-text-light: #555555;
+    --color-primary: #2a6f97;          /* Slate Blue */
+    --color-primary-dark: #1e5b80;       /* Darker Slate Blue */
+    --color-secondary: #343a40;         /* Dark Gray (for text/elements) */
+    --color-secondary-light: #6c757d;    /* Medium Gray (for less important text/elements) */
+    --color-accent: #fca311;           /* Golden Orange */
+    --color-accent-dark: #e79307;        /* Darker Golden Orange */
+    --color-background-body: #f8f9fa;   /* Very Light Gray */
+    --color-background-content: #ffffff; /* White */
+    --color-text: #212529;             /* Near Black */
+    --color-text-light: #495057;         /* Darker Medium Gray */
     --color-white: #ffffff;
-    --color-border: #d0d0d0;
-    --color-table-header: var(--color-secondary);
-    --color-table-row-even: var(--color-background-light);
-    --color-danger: #e60000; /* For specific sections like YouTube */
-    --color-danger-light: #ffe6e6;
+    --color-border: #dee2e6;           /* Light Gray */
+    --color-table-header: var(--color-primary); /* Primary color for table headers */
+    --color-table-row-even: #f8f9fa;    /* Same as body background */
+    --color-danger: #dc3545;           /* Bootstrap Red */
+    --color-danger-light: #f8d7da;      /* Light Red */
 
-    --header-height: 80px; /* Adjust as needed */
-    --nav-height: 60px;    /* Adjust as needed */
+    --header-height: 75px; /* Slightly adjusted */
+    --nav-height: 55px;   /* Slightly adjusted */
     --border-radius: 6px;
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); /* Softer shadow */
+    --box-shadow-hover: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger hover shadow */
 }
 
 * {
@@ -37,26 +32,25 @@
     box-sizing: border-box;
 }
 
-/* 2. Global Styles
---------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
 body {
     direction: rtl;
     font-family: var(--font-primary);
-    background-color: var(--color-background-light);
+    background-color: var(--color-background-body);
     color: var(--color-text);
     line-height: 1.7;
-    font-size: 16px; /* Base font size */
-    padding-top: var(--header-height); /* Space for fixed header/nav */
-}
-
-html {
-    scroll-behavior: smooth; /* Enable smooth scrolling globally */
+    padding-top: var(--header-height); /* Adjust based on fixed header height */
+    font-weight: 400; /* Default weight */
 }
 
 .container {
-    max-width: 1200px; /* Slightly wider container */
+    max-width: 1140px; /* Slightly narrower standard container */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px; /* Consistent padding */
 }
 
 .main-container {
@@ -67,14 +61,14 @@ html {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--color-secondary);
-    margin-bottom: 0.8em;
+    margin-bottom: 1em; /* Consistent margin */
     line-height: 1.3;
 }
 
-h1 { font-size: 2.8em; } /* 44.8px */
-h2 { font-size: 2.2em; margin-top: 1.8em; } /* 35.2px */
-h3 { font-size: 1.6em; margin-top: 1.5em; color: var(--color-primary-dark); } /* 25.6px */
-h4 { font-size: 1.2em; } /* 19.2px */
+h1 { font-size: 2.6em; }
+h2 { font-size: 2.1em; margin-top: 1.8em; }
+h3 { font-size: 1.6em; margin-top: 1.5em; color: var(--color-primary); } /* Use primary color for H3 */
+h4 { font-size: 1.2em; color: var(--color-secondary); font-weight: 600; }
 
 p {
     margin-bottom: 1.2em;
@@ -84,45 +78,46 @@ p {
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    color: var(--color-accent);
+    color: var(--color-primary-dark);
 }
 
 img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: var(--border-radius); /* Add subtle rounding to images */
 }
 
 ul, ol {
     margin-bottom: 1.2em;
-    padding-right: 20px; /* Indentation for RTL lists */
+    padding-right: 25px; /* Slightly more padding */
 }
 
 li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.6em;
 }
 
 /* Skip Link */
 .skip-link {
     position: absolute;
-    top: -40px;
+    top: -45px; /* Ensure it's hidden well */
     left: 0;
     background: var(--color-secondary);
     color: var(--color-white);
-    padding: 8px;
+    padding: 10px 15px;
     z-index: 10000;
     transition: top 0.3s ease-in-out;
+    border-radius: 0 0 var(--border-radius) 0;
 }
 .skip-link:focus {
     top: 0;
 }
 
-/* 3. Header
---------------------------------------------- */
+/* Header */
 .site-header {
     background: var(--color-white);
     box-shadow: var(--box-shadow);
@@ -136,10 +131,8 @@ li {
 }
 
 .site-header.scrolled {
-    /* Optional: Slightly different style when scrolled */
-    /* background: rgba(255, 255, 255, 0.95); */
-    /* backdrop-filter: blur(5px); */
-    height: calc(var(--header-height) * 0.8); /* Slightly smaller header */
+    height: calc(var(--header-height) * 0.85); /* Slightly less shrink */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 }
 
 .header-content {
@@ -149,32 +142,35 @@ li {
 }
 
 .site-logo-link {
-    display: inline-block; /* Allows margin */
-    margin-left: 15px; /* Space between logo and text */
+    display: inline-block;
+    margin-left: 15px;
+    flex-shrink: 0;
 }
 
 .site-logo {
-    max-height: calc(var(--header-height) * 0.6); /* Logo scales with header */
+    max-height: calc(var(--header-height) * 0.65); /* Adjust logo size */
     width: auto;
     transition: max-height 0.3s ease;
 }
 
 .site-header.scrolled .site-logo {
-    max-height: calc(var(--header-height) * 0.8 * 0.6); /* Adjust logo size when header shrinks */
+    max-height: calc(var(--header-height) * 0.85 * 0.6);
 }
 
 .site-branding {
     flex-grow: 1;
+    line-height: 1.3;
 }
 
 .site-title {
-    font-size: 1.8em; /* Adjust as needed */
+    font-size: 1.7em; /* Slightly smaller title */
     margin: 0;
     font-weight: 700;
 }
 
 .site-title a {
     color: var(--color-secondary);
+    transition: color 0.2s ease;
 }
 .site-title a:hover {
     color: var(--color-primary);
@@ -183,46 +179,42 @@ li {
 .site-description {
     font-size: 0.9em;
     color: var(--color-text-light);
-    margin: 0;
-    display: block; /* Ensure it's visible initially */
+    margin: 2px 0 0 0; /* Adjust spacing */
+    display: block;
     transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s ease;
     opacity: 1;
-    max-height: 50px; /* Adjust if needed */
+    max-height: 50px;
     visibility: visible;
 }
 
 .site-header.scrolled .site-description {
-    /* Hide description smoothly when header shrinks */
     opacity: 0;
     max-height: 0;
     visibility: hidden;
-    margin-top: -5px; /* Prevent layout shift */
+    margin-top: -5px;
 }
 
-
-/* 4. Navigation
---------------------------------------------- */
+/* Navigation */
 .site-nav {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary); /* Use primary color */
     position: fixed;
-    top: var(--header-height); /* Position below header */
+    top: var(--header-height);
     left: 0;
     width: 100%;
-    z-index: 999; /* Below header but above content */
+    z-index: 999;
     height: var(--nav-height);
     transition: top 0.3s ease, height 0.3s ease, background-color 0.3s ease;
 }
 
 .site-header.scrolled + .site-nav {
-    /* Adjust nav position when header shrinks */
-    top: calc(var(--header-height) * 0.8);
-    height: calc(var(--nav-height) * 0.9); /* Slightly smaller nav */
+    top: calc(var(--header-height) * 0.85);
+    height: calc(var(--nav-height) * 0.95); /* Slightly less shrink */
 }
 
 .site-nav .container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center menu items */
+    justify-content: center;
     height: 100%;
 }
 
@@ -232,97 +224,114 @@ li {
     align-items: center;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
 }
 
 .nav-menu li {
-    margin: 0 10px; /* Spacing between items */
+    margin: 0 8px; /* Slightly tighter spacing */
 }
 
 .nav-menu li a {
     color: var(--color-white);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1em; /* Adjust nav item size */
-    padding: 10px 8px;
+    font-size: 0.95em; /* Slightly smaller nav font */
+    padding: 10px 12px;
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     display: flex;
     align-items: center;
+    white-space: nowrap; /* Prevent wrapping */
 }
 
 .nav-menu li a i {
-    margin-left: 8px; /* Space between icon and text */
-    font-size: 1.1em; /* Slightly larger icons */
+    margin-left: 8px;
+    font-size: 1.1em;
+    opacity: 0.9;
 }
 
 .nav-menu li a:hover,
-.nav-menu li a:focus {
-    background-color: var(--color-primary);
+.nav-menu li a:focus,
+.nav-menu li a.active { /* Style for active page link */
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle background */
     color: var(--color-white);
 }
 
-/* Mobile Menu Toggle */
 .menu-toggle {
-    display: none; /* Hidden by default */
+    display: none;
     background: none;
     border: none;
     color: var(--color-white);
-    font-size: 1.5em;
+    font-size: 1.6em; /* Larger toggle icon */
     cursor: pointer;
     padding: 10px;
 }
 
-
-/* 5. Content Sections
---------------------------------------------- */
+/* Sections */
 .section {
     margin-top: 40px;
-    padding: 30px 40px;
-    background-color: var(--color-white);
+    padding: 40px; /* More padding */
+    background-color: var(--color-background-content);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    border: 1px solid var(--color-border); /* Add a subtle border */
 }
 
 .section h2, .section h3 {
-    margin-top: 0; /* Reset top margin for section titles */
+    margin-top: 0;
 }
 
 .section h2 {
-    border-bottom: 3px solid var(--color-primary);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    font-size: 2em;
+    border-bottom: 2px solid var(--color-primary); /* Thinner border */
+    padding-bottom: 12px;
+    margin-bottom: 35px;
+    font-size: 2em; /* Adjusted slightly */
+    display: flex;
+    align-items: center;
 }
-.section h3 {
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 8px;
-    margin-bottom: 25px;
-    font-size: 1.5em;
+.section h2 i {
+    margin-left: 12px;
+    color: var(--color-primary);
 }
 
-/* Hero Section (First section on homepage) */
+.section h3 {
+    border-bottom: 1px solid var(--color-accent); /* Thinner, accent border */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 1.5em; /* Adjusted slightly */
+    color: var(--color-primary);
+     display: flex;
+    align-items: center;
+}
+.section h3 i {
+    margin-left: 10px;
+    color: var(--color-accent);
+}
+
+/* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    padding: 70px 20px; /* More vertical padding */
+    /* background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); */
+    background-color: var(--color-primary); /* Solid color might be cleaner */
     color: var(--color-white);
     border-radius: var(--border-radius);
     margin-top: 30px;
+    box-shadow: var(--box-shadow-hover); /* Stronger shadow for hero */
 }
 
 .hero-section h1 {
     color: var(--color-white);
-    font-size: 3em;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+    font-size: 3.2em; /* Larger hero title */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    margin-bottom: 25px;
 }
 
 .hero-section p {
-    font-size: 1.3em;
+    font-size: 1.25em; /* Slightly larger hero text */
     color: rgba(255, 255, 255, 0.9);
-    max-width: 700px;
-    margin: 0 auto 30px auto;
+    max-width: 750px;
+    margin: 0 auto 35px auto;
 }
 
 .hero-section .button {
@@ -330,7 +339,7 @@ li {
     font-size: 1.2em;
 }
 
-/* YouTube Section Styling */
+/* YouTube Section Specific Styling */
 .youtube-section {
     background-color: var(--color-danger-light);
     border: 1px solid var(--color-danger);
@@ -342,6 +351,9 @@ li {
     border-color: var(--color-danger);
     text-align: center;
 }
+.youtube-section h2 i {
+    color: var(--color-danger); /* Match icon color */
+}
 
 .youtube-section p {
     text-align: center;
@@ -350,23 +362,22 @@ li {
     margin-right: auto;
 }
 
-.youtube-section .button {
+.youtube-section .button.large-button {
     background: var(--color-danger);
 }
 
-.youtube-section .button:hover {
-    background: #cc0000; /* Darker red */
+.youtube-section .button.large-button:hover {
+    background: #c82333; /* Darker red */
 }
 
-/* 6. Buttons
---------------------------------------------- */
+/* Buttons */
 .button {
-    display: inline-flex; /* Use flex for alignment */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 25px;
+    padding: 12px 28px; /* Adjusted padding */
     font-size: 1em;
-    font-weight: 500;
+    font-weight: 600; /* Slightly bolder */
     font-family: var(--font-primary);
     color: var(--color-white);
     background-color: var(--color-primary);
@@ -374,20 +385,22 @@ li {
     border-radius: var(--border-radius);
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
-    line-height: 1.4; /* Ensure text vertical align */
+    line-height: 1.4;
 }
 
 .button i {
-    margin-left: 8px; /* Space icon from text (RTL) */
+    margin-left: 10px; /* More space for icon */
+    font-size: 1.1em;
 }
 
 .button:hover {
     background-color: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--box-shadow-hover);
+    color: var(--color-white); /* Ensure text stays white */
 }
 
 .button:active {
@@ -398,20 +411,25 @@ li {
 /* Accent Button */
 .button.accent-button {
     background-color: var(--color-accent);
+    color: var(--color-secondary); /* Dark text on light accent */
 }
 .button.accent-button:hover {
     background-color: var(--color-accent-dark);
+    color: var(--color-secondary); /* Ensure text stays dark */
+}
+.button.accent-button i {
+     color: var(--color-secondary); /* Match icon color */
 }
 
 /* Large Button */
 .button.large-button {
-    font-size: 1.15em;
-    padding: 15px 35px;
+    font-size: 1.1em;
+    padding: 14px 35px;
 }
 
-/* GitHub/Projects Buttons */
+/* Home Buttons Section */
 .home-buttons {
-    margin-top: 30px;
+    margin-top: 35px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -419,7 +437,7 @@ li {
 }
 
 .home-buttons .button {
-    min-width: 160px;
+    min-width: 170px; /* Slightly wider */
 }
 
 .github-button {
@@ -440,107 +458,124 @@ li {
 .download-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: auto; /* Push to bottom of card */
+    padding-top: 15px; /* Space above buttons */
     flex-wrap: wrap;
 }
 
 .button.download-button {
     background-color: var(--color-primary);
-    padding: 8px 15px;
-    font-size: 0.9em;
-    min-width: 100px; /* Ensure minimum width */
-    flex: 1; /* Allow buttons to grow */
+    padding: 8px 12px;
+    font-size: 0.85em; /* Smaller download buttons */
+    min-width: 90px;
+    flex: 1;
+    font-weight: 500;
 }
 .button.download-button:hover {
     background-color: var(--color-primary-dark);
 }
-
-.button.download-button:disabled {
+.button.download-button i {
+    margin-left: 6px;
+    font-size: 1em;
+}
+.button.download-button[disabled] {
     background-color: #ccc;
     cursor: default;
-    opacity: 0.6;
+    opacity: 0.7;
     transform: none;
     box-shadow: none;
 }
+.button.download-button[disabled]:hover {
+     background-color: #ccc; /* Ensure no color change on hover */
+}
 
-/* 7. Topics Grid / Cards
---------------------------------------------- */
+/* Topics Grid */
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); /* Slightly wider min */
     gap: 25px;
     margin-top: 30px;
 }
 
 .topic-card {
-    background-color: var(--color-white);
+    background-color: var(--color-background-content);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: 25px;
+    padding: 30px 25px; /* Adjusted padding */
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Use flex for vertical alignment */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    min-height: 150px; /* Minimum height for consistency */
+    justify-content: center;
+    align-items: center; /* Center content horizontally */
+    min-height: 160px; /* Taller cards */
+    border: 1px solid var(--color-border);
 }
 
 .topic-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02); /* Add subtle scale */
     box-shadow: var(--box-shadow-hover);
 }
 
 .topic-card i {
-    font-size: 2.5em;
+    font-size: 2.8em; /* Larger icons */
     color: var(--color-primary);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    transition: color 0.2s ease;
 }
 
-.topic-card h4 { /* Use h4 for topic titles in cards */
+.topic-card h4 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.15em;
     color: var(--color-secondary);
+    font-weight: 600;
+     transition: color 0.2s ease;
 }
 
 .topic-card a {
-    color: inherit; /* Make the whole card clickable */
+    color: inherit;
     text-decoration: none;
+    display: block; /* Make the whole card clickable easily */
+    height: 100%;
+    width: 100%;
 }
 .topic-card a:hover h4 {
-    color: var(--color-accent); /* Change title color on hover */
+    color: var(--color-accent);
+}
+.topic-card a:hover i {
+    color: var(--color-accent);
 }
 
-
-/* 8. Tables
---------------------------------------------- */
+/* Tables */
 .table-container {
     width: 100%;
-    overflow-x: auto; /* Enable horizontal scroll on small screens */
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     margin-bottom: 30px;
     box-shadow: var(--box-shadow);
+    background-color: var(--color-white); /* Ensure background for container */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--color-white);
+    font-size: 0.95em; /* Slightly smaller table font */
 }
 
 table th, table td {
     border: 1px solid var(--color-border);
     padding: 12px 15px;
-    text-align: right; /* Default RTL text align */
+    text-align: right;
     vertical-align: middle;
 }
 
 table th {
     background-color: var(--color-table-header);
     color: var(--color-white);
-    font-weight: 500;
-    white-space: nowrap; /* Prevent headers from wrapping */
+    font-weight: 600; /* Bolder headers */
+    white-space: nowrap;
 }
 
 table tr:nth-child(even) {
@@ -548,68 +583,71 @@ table tr:nth-child(even) {
 }
 
 table tr:hover {
-    background-color: var(--color-background-medium);
-    transition: background-color 0.2s ease;
+    background-color: #e9ecef; /* Slightly darker hover */
+    transition: background-color 0.15s ease;
 }
 
-/* Specific column styling */
-td:nth-child(2), th:nth-child(2) { /* English Term column */
+/* Specific LTR column */
+td:nth-child(2), th:nth-child(2) {
     direction: ltr;
     text-align: left;
     font-weight: 500;
-    white-space: nowrap; /* Keep English term + button together */
+    white-space: nowrap;
 }
 
-/* Speak Button in Table */
+/* Speak Button */
 .speak-button {
     background-color: var(--color-accent);
     border: none;
-    color: var(--color-white);
-    font-size: 12px; /* Smaller icon */
-    width: 24px;
-    height: 24px;
+    color: var(--color-secondary); /* Dark text on accent */
+    font-size: 11px; /* Smaller button */
+    width: 22px;
+    height: 22px;
     padding: 0;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px; /* RTL margin */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    vertical-align: middle; /* Align with text */
+    margin-right: 8px; /* Spacing */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
 }
 .speak-button:hover {
     background-color: var(--color-accent-dark);
     transform: scale(1.1);
+    color: var(--color-secondary);
 }
 .speak-button:active {
     transform: scale(1);
 }
 .speak-button i {
-    font-size: 12px;
-    color: var(--color-white);
-    margin: 0; /* Reset margin from general button */
+    font-size: 11px;
+    color: var(--color-secondary);
+    margin: 0;
 }
 
-/* 9. Forms (Feedback)
---------------------------------------------- */
+/* Forms */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Space between form elements */
+    gap: 18px; /* More gap */
 }
 
 form label {
-    font-weight: 500;
+    font-weight: 600; /* Bolder labels */
     color: var(--color-secondary);
-    display: flex; /* Align icon and text */
+    display: flex;
     align-items: center;
+    font-size: 0.95em;
 }
 
 form label i {
-    margin-left: 8px; /* RTL spacing */
+    margin-left: 8px;
     color: var(--color-primary);
+    width: 18px; /* Fixed width for icon alignment */
+    text-align: center;
 }
 
 form input[type="text"],
@@ -620,45 +658,43 @@ form textarea {
     border-radius: var(--border-radius);
     font-size: 1em;
     font-family: var(--font-primary);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff; /* Ensure white background */
 }
 
 form input[type="text"]:focus,
 form input[type="email"]:focus,
 form textarea:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1); /* Teal focus ring */
+    box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.15); /* Use primary color for focus ring */
     outline: none;
 }
 
 form textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 130px;
 }
 
 form button[type="submit"] {
-    align-self: flex-start; /* Button aligns to the start (right in RTL) */
+    align-self: flex-start;
     margin-top: 10px;
-    background-color: var(--color-accent); /* Use accent for submit */
-}
-form button[type="submit"]:hover {
-     background-color: var(--color-accent-dark);
+    /* Uses .accent-button class */
 }
 
-/* 10. YouTube Page Specifics
---------------------------------------------- */
+/* YouTube Page Specifics */
 .playlist-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 40px;
 }
 
 .playlist-links .button {
     background-color: var(--color-secondary-light);
-    padding: 8px 15px;
+    padding: 8px 18px; /* Adjusted padding */
     font-size: 0.9em;
+    font-weight: 500;
 }
 .playlist-links .button:hover {
     background-color: var(--color-secondary);
@@ -672,8 +708,8 @@ form button[type="submit"]:hover {
     margin-bottom: 40px;
 }
 
-.video-category h3 {
-    color: var(--color-primary-dark);
+.video-category h3 { /* Style category title */
+    color: var(--color-primary);
     margin-bottom: 20px;
     border-bottom: 2px solid var(--color-primary);
     padding-bottom: 10px;
@@ -684,27 +720,40 @@ form button[type="submit"]:hover {
     color: inherit;
     display: flex;
     align-items: center;
+     transition: color 0.2s ease;
 }
 .video-category h3 a i {
-    margin-left: 10px;
+    margin-left: 12px;
     color: var(--color-primary);
+     transition: color 0.2s ease;
+}
+.video-category h3 a:hover {
+    color: var(--color-accent);
+}
+.video-category h3 a:hover i {
+    color: var(--color-accent);
+}
+.video-category > p { /* Style category description */
+    font-size: 1.05em;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
 }
 
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 30px; /* More gap */
 }
 
-/* Video Card Style */
 .video-item {
-    background-color: var(--color-white);
+    background-color: var(--color-background-content);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: hidden; /* Clip image */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid var(--color-border);
 }
 
 .video-item:hover {
@@ -718,6 +767,7 @@ form button[type="submit"]:hover {
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    background-color: #eee; /* Placeholder color */
 }
 
 .play-icon {
@@ -725,12 +775,13 @@ form button[type="submit"]:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3em;
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 15px;
+    font-size: 3.5em; /* Larger play icon */
+    color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 18px;
     border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    pointer-events: none; /* Prevent icon from blocking link */
 }
 
 .video-item:hover .play-icon {
@@ -739,62 +790,62 @@ form button[type="submit"]:hover {
 }
 
 .video-details {
-    padding: 20px;
-    flex-grow: 1; /* Make details fill space */
+    padding: 20px 25px; /* More padding */
+    flex-grow: 1;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
 }
 
 .video-details h4 {
-    margin-bottom: 10px;
-    font-size: 1.2em;
+    margin-bottom: 12px;
+    font-size: 1.15em; /* Slightly larger video title */
     color: var(--color-secondary);
     line-height: 1.4;
+    font-weight: 600;
 }
 
 .video-details p {
     margin-bottom: 15px;
     color: var(--color-text-light);
     font-size: 0.95em;
-    flex-grow: 1; /* Push download buttons to bottom */
+    flex-grow: 1; /* Push buttons down */
+    line-height: 1.6;
 }
 
-/* 11. Footer
---------------------------------------------- */
+/* Footer */
 .site-footer {
-    background: var(--color-secondary);
-    padding: 30px 0;
+    background: var(--color-secondary); /* Dark gray footer */
+    padding: 35px 0;
     text-align: center;
-    margin-top: 50px;
-    color: rgba(255, 255, 255, 0.8);
+    margin-top: 60px; /* More space before footer */
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .site-footer p {
     margin: 0;
     font-size: 0.95em;
-    color: inherit; /* Inherit footer text color */
+    color: inherit;
 }
 
-/* 12. Back to Top Button
---------------------------------------------- */
+/* Back to Top Button */
 #back-to-top {
     position: fixed;
-    bottom: 30px;
-    left: 30px; /* Changed to left for RTL consistency */
+    bottom: 25px;
+    left: 25px; /* Position from left in LTR context, will appear right in RTL */
     background-color: var(--color-accent);
-    color: var(--color-white);
+    color: var(--color-secondary); /* Dark icon */
     border: none;
     border-radius: 50%;
     width: 45px;
     height: 45px;
     cursor: pointer;
-    display: none; /* Hidden initially */
+    display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.3s ease;
     z-index: 1001;
-    opacity: 0; /* Start hidden */
+    opacity: 0;
 }
 
 #back-to-top.visible {
@@ -805,77 +856,109 @@ form button[type="submit"]:hover {
 #back-to-top:hover {
     background-color: var(--color-accent-dark);
     transform: scale(1.1);
+     color: var(--color-secondary);
 }
 
 #back-to-top i {
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 
-/* 13. Responsiveness
---------------------------------------------- */
+/* 404 Page Specific */
+.error-404 {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .error-404 h1 {
+    font-size: 7em;
+    margin: 0 0 20px 0;
+    color: var(--color-primary); /* Use primary color */
+    font-weight: 700;
+  }
+  .error-404 p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: var(--color-text);
+  }
+  .error-404 .button { /* Use the main button style */
+      margin-top: 25px;
+      /* Assign accent color directly or via class */
+      background-color: var(--color-accent);
+      color: var(--color-secondary);
+  }
+   .error-404 .button:hover {
+       background-color: var(--color-accent-dark);
+       color: var(--color-secondary);
+   }
+   .error-404 .button i {
+       color: var(--color-secondary);
+   }
 
-/* Medium Screens (Tablets) */
+/* Responsive Design */
+
 @media (max-width: 1024px) {
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2em; }
-    h3 { font-size: 1.4em; }
+    html { font-size: 15.5px; } /* Slightly smaller base on tablets */
+    h1 { font-size: 2.4em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.5em; }
 
-    .hero-section h1 { font-size: 2.6em; }
+    .hero-section h1 { font-size: 2.8em; }
     .hero-section p { font-size: 1.2em; }
 
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
     }
     .video-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
     }
+    .container { max-width: 960px; }
+    .section { padding: 35px; }
 }
 
-/* Small Screens (Mobiles) */
 @media (max-width: 768px) {
     :root {
         --header-height: 70px;
-        --nav-height: 55px;
+        --nav-height: 50px;
     }
+    html { font-size: 15px; }
+    body { padding-top: var(--header-height); }
 
-    body {
-        padding-top: var(--header-height); /* Adjust for smaller fixed header */
-        font-size: 15px;
-    }
-
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.3em; }
+    h1 { font-size: 2.1em; }
+    h2 { font-size: 1.7em; }
+    h3 { font-size: 1.4em; }
 
     .container { padding: 0 15px; }
-    .main-container { padding-top: 25px; padding-bottom: 25px; }
-    .section { padding: 25px; }
-    .hero-section { padding: 40px 15px; }
-    .hero-section h1 { font-size: 2.2em; }
+    .main-container { padding-top: 30px; padding-bottom: 30px; }
+    .section { padding: 30px 25px; } /* Adjusted padding */
+    .hero-section { padding: 50px 15px; }
+    .hero-section h1 { font-size: 2.4em; }
     .hero-section p { font-size: 1.1em; }
 
-    /* Mobile Navigation */
+    /* Mobile Menu */
     .menu-toggle {
-        display: block; /* Show toggle */
-        margin-right: auto; /* Push toggle to the right */
+        display: block;
+        margin-right: auto; /* Keep toggle accessible */
         z-index: 1001;
     }
     .site-nav .container {
-        justify-content: space-between; /* Align logo/title left, toggle right */
+        justify-content: flex-start; /* Align toggle to the right (due to RTL) */
     }
      .nav-menu {
-        display: none; /* Hide menu by default */
+        display: none; /* Hidden by default */
         position: absolute;
-        top: var(--nav-height); /* Position below nav bar */
+        top: var(--nav-height); /* Position below nav */
         left: 0;
         width: 100%;
-        background-color: var(--color-secondary);
+        background-color: var(--color-primary-dark); /* Slightly darker background for dropdown */
         flex-direction: column;
-        padding: 15px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        max-height: calc(100vh - var(--nav-height) - var(--header-height)*0.8); /* Limit height */
+        padding: 10px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        max-height: calc(100vh - var(--nav-height) - var(--header-height)*0.85); /* Limit height */
         overflow-y: auto;
+        border-top: 1px solid var(--color-primary);
     }
     .nav-menu.active {
         display: flex; /* Show when active */
@@ -883,31 +966,35 @@ form button[type="submit"]:hover {
     .nav-menu li {
         margin: 0;
         width: 100%;
-        text-align: center;
+        text-align: right; /* Align text right */
     }
     .nav-menu li a {
-        padding: 15px 20px;
-        border-bottom: 1px solid var(--color-secondary-light);
-        justify-content: center;
+        padding: 14px 25px; /* More padding for touch */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: flex-start; /* Align icon/text to start (right in RTL) */
+        font-size: 1em; /* Ensure readability */
+        border-radius: 0; /* No radius inside dropdown */
     }
+     .nav-menu li a:hover, .nav-menu li a:focus {
+         background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter hover */
+     }
     .nav-menu li:last-child a {
         border-bottom: none;
     }
     .site-header.scrolled + .site-nav .nav-menu {
-        top: calc(var(--nav-height) * 0.9);
+         top: calc(var(--nav-height) * 0.95); /* Adjust top position when scrolled */
     }
-
 
     .topics-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 15px;
     }
-    .topic-card { min-height: 130px; padding: 20px; }
-    .topic-card i { font-size: 2em; margin-bottom: 10px; }
+    .topic-card { min-height: 140px; padding: 25px 20px; }
+    .topic-card i { font-size: 2.4em; margin-bottom: 15px; }
     .topic-card h4 { font-size: 1.1em; }
 
     .video-grid {
-        grid-template-columns: 1fr; /* Single column */
+        grid-template-columns: 1fr; /* Stack videos */
         gap: 20px;
     }
 
@@ -916,19 +1003,19 @@ form button[type="submit"]:hover {
         align-items: center;
     }
     .home-buttons .button {
-        width: 100%;
-        max-width: 300px;
+        width: 90%; /* Take most of width */
+        max-width: 320px; /* Limit max width */
     }
 
-    /* Ensure download buttons stack nicely */
+     /* Adjust download buttons layout */
      .download-buttons {
-         flex-direction: row;
-         justify-content: space-between;
+         flex-direction: row; /* Keep side-by-side if possible */
+         justify-content: space-between; /* Space them out */
      }
     .button.download-button {
-        flex-basis: 48%; /* Approx 2 buttons per row */
-        min-width: 0; /* Remove min-width */
-        font-size: 0.85em;
+        flex-basis: 48%; /* Try to fit two per row */
+        min-width: 0;
+        font-size: 0.8em; /* Smaller text */
         padding: 8px 10px;
     }
 
@@ -938,36 +1025,48 @@ form button[type="submit"]:hover {
         bottom: 20px;
         left: 20px;
     }
-    #back-to-top i { font-size: 1em; }
+    #back-to-top i { font-size: 1.1em; }
 
-    /* Ensure table scroll works */
+    /* Table adjustments */
     .table-container { margin-bottom: 20px; }
-    table th, table td { padding: 10px 12px; font-size: 0.95em; }
-    .speak-button { width: 22px; height: 22px; font-size: 11px; margin-right: 8px; }
-    .speak-button i { font-size: 11px; }
-
+    table th, table td { padding: 10px 12px; font-size: 0.9em; } /* Slightly smaller padding/font */
+    .speak-button { width: 20px; height: 20px; font-size: 10px; margin-right: 6px; }
+    .speak-button i { font-size: 10px; }
 }
 
-/* Very Small Screens */
 @media (max-width: 480px) {
     :root {
-        --header-height: 60px;
-        --nav-height: 50px;
+        --header-height: 65px;
+        --nav-height: 48px;
     }
-    body { font-size: 14px; }
+    html { font-size: 14.5px; }
+    body { line-height: 1.65; } /* Slightly more line height */
+
     h1 { font-size: 1.9em; }
     h2 { font-size: 1.6em; }
+    h3 { font-size: 1.3em; }
 
-    .hero-section h1 { font-size: 2em; }
+    .hero-section h1 { font-size: 2.1em; }
     .hero-section p { font-size: 1em; }
     .hero-section .button { font-size: 1em; padding: 12px 25px; }
 
     .topics-grid {
-        grid-template-columns: 1fr; /* Single column */
+        grid-template-columns: 1fr; /* Stack topics */
     }
     .button.large-button { font-size: 1em; padding: 12px 25px; }
 
-    .button.download-button {
-       flex-basis: 100%; /* Stack download buttons */
+    /* Stack download buttons on very small screens */
+    .download-buttons {
+       flex-direction: column;
+       gap: 8px;
     }
+     .button.download-button {
+       flex-basis: auto; /* Let them take full width */
+       width: 100%;
+    }
+
+     /* Adjust form padding/spacing */
+     form { gap: 15px; }
+     form input[type="text"], form input[type="email"], form textarea { padding: 10px 12px; }
+     form label { font-size: 0.9em; }
 }
