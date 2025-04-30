@@ -1,973 +1,827 @@
-/* File: assets/css/style.css */
-/* --- Ze Kal! Modern Styles --- */
-
-/* 1. Variables & Basic Reset
---------------------------------------------- */
-:root {
-    --font-primary: 'Rubik', sans-serif;
-
-    /* New Color Palette */
-    --color-primary: #008080; /* Teal */
-    --color-primary-dark: #006666;
-    --color-secondary: #2F4F4F; /* Dark Slate Gray */
-    --color-secondary-light: #4d7b7b;
-    --color-accent: #FF7F50; /* Coral */
-    --color-accent-dark: #e67347;
-    --color-background-light: #F0F8FF; /* AliceBlue - very light blue */
-    --color-background-medium: #B0C4DE; /* Light Steel Blue */
-    --color-text: #333333;
-    --color-text-light: #555555;
-    --color-white: #ffffff;
-    --color-border: #d0d0d0;
-    --color-table-header: var(--color-secondary);
-    --color-table-row-even: var(--color-background-light);
-    --color-danger: #e60000; /* For specific sections like YouTube */
-    --color-danger-light: #ffe6e6;
-
-    --header-height: 80px; /* Adjust as needed */
-    --nav-height: 60px;    /* Adjust as needed */
-    --border-radius: 6px;
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
-}
-
+/* Reset בסיסי */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 2. Global Styles
---------------------------------------------- */
+/* כיוון טקסט מימין לשמאל ושימוש בגופן Rubik */
 body {
     direction: rtl;
-    font-family: var(--font-primary);
-    background-color: var(--color-background-light);
-    color: var(--color-text);
-    line-height: 1.7;
-    font-size: 16px; /* Base font size */
-    padding-top: var(--header-height); /* Space for fixed header/nav */
+    font-family: 'Rubik', sans-serif;
+    background-color: #e6f0ff; /* תכלת פסטל כהה יותר */
+    color: #2c3e50; /* כחול כהה */
+    line-height: 1.8;
+    padding: 40px;
+    padding-top: 50px; /* התאמה בהתאם לגובה התפריט */
 }
 
-html {
-    scroll-behavior: smooth; /* Enable smooth scrolling globally */
+/* עיצוב ה-HEADER */
+header {
+    background: linear-gradient(135deg, #4a90e2, #007aff);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    transition: all 0.3s ease; /* נוסיף אנימציה */
 }
 
-.container {
-    max-width: 1200px; /* Slightly wider container */
+header:hover {
+    transform: translateY(-5px);
+}
+
+header h1 {
+    font-size: 3.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.4em;
+    color: #d0e4ff;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.main-container {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    color: var(--color-secondary);
-    margin-bottom: 0.8em;
-    line-height: 1.3;
-}
-
-h1 { font-size: 2.8em; } /* 44.8px */
-h2 { font-size: 2.2em; margin-top: 1.8em; } /* 35.2px */
-h3 { font-size: 1.6em; margin-top: 1.5em; color: var(--color-primary-dark); } /* 25.6px */
-h4 { font-size: 1.2em; } /* 19.2px */
-
-p {
-    margin-bottom: 1.2em;
-    color: var(--color-text-light);
-}
-
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--color-accent);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-ul, ol {
-    margin-bottom: 1.2em;
-    padding-right: 20px; /* Indentation for RTL lists */
-}
-
-li {
-    margin-bottom: 0.5em;
-}
-
-/* Skip Link */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--color-secondary);
-    color: var(--color-white);
-    padding: 8px;
-    z-index: 10000;
-    transition: top 0.3s ease-in-out;
-}
-.skip-link:focus {
+/* תפריט ניווט */
+nav {
+    background-color: #007aff;
+    padding: 15px 0;
+    margin-bottom: 60px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s ease; /* אנימציה להחלפה */
+    position: relative; /* ה-NAV במצב רגיל */
     top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-/* 3. Header
---------------------------------------------- */
-.site-header {
-    background: var(--color-white);
-    box-shadow: var(--box-shadow);
-    position: fixed;
+/* תפריט נייח לאחר גלילה */
+nav.fixed {
+    position: fixed; /* התפריט נשאר קבוע בראש המסך */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    height: var(--header-height);
-    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
-.site-header.scrolled {
-    /* Optional: Slightly different style when scrolled */
-    /* background: rgba(255, 255, 255, 0.95); */
-    /* backdrop-filter: blur(5px); */
-    height: calc(var(--header-height) * 0.8); /* Slightly smaller header */
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.site-logo-link {
-    display: inline-block; /* Allows margin */
-    margin-left: 15px; /* Space between logo and text */
-}
-
-.site-logo {
-    max-height: calc(var(--header-height) * 0.6); /* Logo scales with header */
-    width: auto;
-    transition: max-height 0.3s ease;
-}
-
-.site-header.scrolled .site-logo {
-    max-height: calc(var(--header-height) * 0.8 * 0.6); /* Adjust logo size when header shrinks */
-}
-
-.site-branding {
-    flex-grow: 1;
-}
-
-.site-title {
-    font-size: 1.8em; /* Adjust as needed */
-    margin: 0;
-    font-weight: 700;
-}
-
-.site-title a {
-    color: var(--color-secondary);
-}
-.site-title a:hover {
-    color: var(--color-primary);
-}
-
-.site-description {
-    font-size: 0.9em;
-    color: var(--color-text-light);
-    margin: 0;
-    display: block; /* Ensure it's visible initially */
-    transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s ease;
-    opacity: 1;
-    max-height: 50px; /* Adjust if needed */
-    visibility: visible;
-}
-
-.site-header.scrolled .site-description {
-    /* Hide description smoothly when header shrinks */
+/* כאשר ה-HEADER נעלם */
+header.hidden {
     opacity: 0;
-    max-height: 0;
     visibility: hidden;
-    margin-top: -5px; /* Prevent layout shift */
-}
-
-
-/* 4. Navigation
---------------------------------------------- */
-.site-nav {
-    background-color: var(--color-secondary);
-    position: fixed;
-    top: var(--header-height); /* Position below header */
-    left: 0;
-    width: 100%;
-    z-index: 999; /* Below header but above content */
-    height: var(--nav-height);
-    transition: top 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-}
-
-.site-header.scrolled + .site-nav {
-    /* Adjust nav position when header shrinks */
-    top: calc(var(--header-height) * 0.8);
-    height: calc(var(--nav-height) * 0.9); /* Slightly smaller nav */
-}
-
-.site-nav .container {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center menu items */
-    height: 100%;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    align-items: center;
+    height: 0;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    transition: all 0.3s ease;
 }
 
-.nav-menu li {
-    margin: 0 10px; /* Spacing between items */
+
+
+nav:hover {
+    background-color: #005bb5;
 }
 
-.nav-menu li a {
-    color: var(--color-white);
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1em; /* Adjust nav item size */
-    padding: 10px 8px;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    font-size: 1.2em;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #ffeb3b;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover {
+    color: #ffeb3b;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* תוכן העמוד */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* כפתורים */
+.button {
+    display: flex;
+    padding: 40px 20px 40px 20px;
+    margin: 5px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007aff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    min-width: 180px;
+    height: 60px; /* הגדרת גובה אחיד */
     display: flex;
     align-items: center;
-}
-
-.nav-menu li a i {
-    margin-left: 8px; /* Space between icon and text */
-    font-size: 1.1em; /* Slightly larger icons */
-}
-
-.nav-menu li a:hover,
-.nav-menu li a:focus {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-    display: none; /* Hidden by default */
-    background: none;
-    border: none;
-    color: var(--color-white);
-    font-size: 1.5em;
-    cursor: pointer;
-    padding: 10px;
-}
-
-
-/* 5. Content Sections
---------------------------------------------- */
-.section {
-    margin-top: 40px;
-    padding: 30px 40px;
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-}
-
-.section h2, .section h3 {
-    margin-top: 0; /* Reset top margin for section titles */
-}
-
-.section h2 {
-    border-bottom: 3px solid var(--color-primary);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    font-size: 2em;
-}
-.section h3 {
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 8px;
-    margin-bottom: 25px;
-    font-size: 1.5em;
-}
-
-/* Hero Section (First section on homepage) */
-.hero-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-white);
-    border-radius: var(--border-radius);
-    margin-top: 30px;
-}
-
-.hero-section h1 {
-    color: var(--color-white);
-    font-size: 3em;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
-}
-
-.hero-section p {
-    font-size: 1.3em;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 700px;
-    margin: 0 auto 30px auto;
-}
-
-.hero-section .button {
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-/* YouTube Section Styling */
-.youtube-section {
-    background-color: var(--color-danger-light);
-    border: 1px solid var(--color-danger);
-    padding: 40px;
-}
-
-.youtube-section h2 {
-    color: var(--color-danger);
-    border-color: var(--color-danger);
-    text-align: center;
-}
-
-.youtube-section p {
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.youtube-section .button {
-    background: var(--color-danger);
-}
-
-.youtube-section .button:hover {
-    background: #cc0000; /* Darker red */
-}
-
-/* 6. Buttons
---------------------------------------------- */
-.button {
-    display: inline-flex; /* Use flex for alignment */
-    align-items: center;
     justify-content: center;
-    padding: 12px 25px;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: var(--font-primary);
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-    line-height: 1.4; /* Ensure text vertical align */
 }
 
+/* עיצוב כפתורים עם אייקונים מימין לטקסט */
 .button i {
-    margin-left: 8px; /* Space icon from text (RTL) */
+    margin-left: 10px; /* מרווח בין האייקון לטקסט */
 }
 
 .button:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-hover);
+    background-color: #005bb5;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.button:active {
-    transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-/* Accent Button */
-.button.accent-button {
-    background-color: var(--color-accent);
-}
-.button.accent-button:hover {
-    background-color: var(--color-accent-dark);
-}
-
-/* Large Button */
+/* כפתורים גדולים */
 .button.large-button {
-    font-size: 1.15em;
-    padding: 15px 35px;
+    font-size: 1.3em;
+    padding: 20px 40px;
+    min-width: 270px;
 }
 
-/* GitHub/Projects Buttons */
-.home-buttons {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+/* עיצוב לאייקונים ליד הכותרות */
+h2 i, h3 i {
+    margin-left: 10px;
 }
 
-.home-buttons .button {
-    min-width: 160px;
+/* עיצוב לאייקונים בתוך תוויות */
+form label i {
+    margin-left: 5px;
 }
 
-.github-button {
-    background-color: #333;
-}
-.github-button:hover {
-    background-color: #1a1a1a;
-}
-
-.projects-button {
-    background-color: var(--color-secondary-light);
-}
-.projects-button:hover {
-    background-color: var(--color-secondary);
-}
-
-/* Download Buttons (YouTube Page) */
-.download-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-}
-
-.button.download-button {
-    background-color: var(--color-primary);
-    padding: 8px 15px;
-    font-size: 0.9em;
-    min-width: 100px; /* Ensure minimum width */
-    flex: 1; /* Allow buttons to grow */
-}
-.button.download-button:hover {
-    background-color: var(--color-primary-dark);
-}
-
-.button.download-button:disabled {
-    background-color: #ccc;
-    cursor: default;
-    opacity: 0.6;
-    transform: none;
-    box-shadow: none;
-}
-
-/* 7. Topics Grid / Cards
---------------------------------------------- */
+/* כפתורים בתוך הגריד */
 .topics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
 }
 
-.topic-card {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 25px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Use flex for vertical alignment */
-    flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    min-height: 150px; /* Minimum height for consistency */
+.topics-grid .button {
+    height: 60px; /* אחידות בגובה */
 }
 
-.topic-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-hover);
-}
-
-.topic-card i {
-    font-size: 2.5em;
-    color: var(--color-primary);
-    margin-bottom: 15px;
-}
-
-.topic-card h4 { /* Use h4 for topic titles in cards */
-    margin: 0;
-    font-size: 1.2em;
-    color: var(--color-secondary);
-}
-
-.topic-card a {
-    color: inherit; /* Make the whole card clickable */
-    text-decoration: none;
-}
-.topic-card a:hover h4 {
-    color: var(--color-accent); /* Change title color on hover */
-}
-
-
-/* 8. Tables
---------------------------------------------- */
-.table-container {
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scroll on small screens */
-    -webkit-overflow-scrolling: touch;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    margin-bottom: 30px;
-    box-shadow: var(--box-shadow);
-}
-
+/* עיצוב כללי לטבלה */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--color-white);
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-table th, table td {
-    border: 1px solid var(--color-border);
-    padding: 12px 15px;
-    text-align: right; /* Default RTL text align */
-    vertical-align: middle;
+table, th, td {
+    border: 1px solid #007aff;
+    padding: 12px;
 }
 
-table th {
-    background-color: var(--color-table-header);
-    color: var(--color-white);
-    font-weight: 500;
-    white-space: nowrap; /* Prevent headers from wrapping */
+td, th {
+    text-align: center;
 }
 
-table tr:nth-child(even) {
-    background-color: var(--color-table-row-even);
+td:nth-child(2), th:nth-child(2) {
+    direction: ltr;   
+    font-weight: bold;
 }
 
-table tr:hover {
-    background-color: var(--color-background-medium);
-    transition: background-color 0.2s ease;
+th {
+    background-color: #005bb5;
+    color: #ffffff;
 }
 
-/* Specific column styling */
-td:nth-child(2), th:nth-child(2) { /* English Term column */
-    direction: ltr;
-    text-align: left;
-    font-weight: 500;
-    white-space: nowrap; /* Keep English term + button together */
+tr:nth-child(even) {
+    background-color: #d6eaff;
 }
 
-/* Speak Button in Table */
+tr:hover {
+    background-color: #f0f8ff;
+    transition: background-color 0.3s ease;
+}
+
+/* עיצוב כותרות הקבוצות */
+h2 {
+    color: #005bb5;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 4px solid #007aff;
+    padding-bottom: 0px;
+    font-size: 2.5em;
+}
+
+/* עיצוב כותרות תת-קטגוריות */
+h2#common-words, h2#programming-and-computers {
+    color: #005bb5;
+    margin-bottom: 15px; /* הקטנת המרווח התחתון */
+    margin-top: 30px; /* הקטנת המרווח העליון */
+    border-bottom: 2px solid #007aff; /* קו תחתון דק יותר */
+    padding-bottom: 5px; /* ריפוד תחתון קטן יותר */
+    font-size: 2.0em; /* גודל גופן קטן יותר */
+    font-weight: 600; /* גופן פחות עבה */
+}
+
+h3 {
+    color: #3399ff;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 3px solid #007aff;
+    padding-bottom: 7px;
+}
+
+/* קטעים מיוחדים */
+.section {
+    margin-top: 30px;
+    padding: 50px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* טופס המשוב */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+form input, form textarea {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 2px solid #007aff;
+    border-radius: 6px;
+    font-size: 1.1em;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #005bb5;
+    outline: none;
+}
+
+form button {
+    align-self: flex-start;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* רגל האתר */
+footer {
+    background: linear-gradient(135deg, #4a90e2, #007aff);
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
+    margin-top: 40px;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer p {
+    color: #ffffff;
+    font-size: 1.1em;
+}
+
+/* אפקטים עדינים */
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffeb3b;
+}
+
+/* רספונסיביות */
+
+/* מסכים בינוניים */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    header h1 {
+        font-size: 3em;
+    }
+    .topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+/* מסכים קטנים */
+@media (max-width: 768px) {
+	
+	/* עטיפת טבלאות בגלילה אופקית במסכים קטנים */
+	.table-container {
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch; /* מאפשר גלילה חלקה במסכי מגע */
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 40px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		overflow: hidden;
+	}
+
+	table, th, td {
+		border: 1px solid #007aff;
+		padding: 12px;
+		text-align: center;
+	}
+
+	body {
+    padding: 20px;
+	}
+
+    .container {
+        padding: 0 20px;
+    }	
+
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        flex: 0 1 45%; /* כל פריט יתפוס 45% מהרוחב של השורה */
+        margin-bottom: 10px; /* מרווח קטן מתחת לכל פריט */
+    }
+
+    header h1 {
+        font-size: 2.8em;
+    }
+
+    .button {
+        width: 90%;
+        text-align: center;
+        min-width: unset;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 30px;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+}
+
+/* מסכים קטנים מאוד */
+@media (max-width: 480px) {
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .button.large-button {
+        font-size: 1.1em;
+        padding: 15px 25px;
+        min-width: 90%;
+    }
+
+    table, th, td {
+        padding: 10px;
+    }
+}
+
+/* יישור תוכן הקטע הראשון למרכז */
+.first-section {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.first-section h1 {
+    font-size: 2.8em;
+    color: #2c2c2c;
+}
+
+.first-section p {
+    font-size: 1.4em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* יישור הכפתור למרכז */
+.first-section .button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+
+/* עיצוב ייחודי עבור כפתור ההשמעה */
 .speak-button {
-    background-color: var(--color-accent);
+    background-color: #56C0EB;
     border: none;
-    color: var(--color-white);
-    font-size: 12px; /* Smaller icon */
-    width: 24px;
-    height: 24px;
+    color: #ffffff;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 50%; /* עגול לחלוטין */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10px; /* RTL margin */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    vertical-align: middle; /* Align with text */
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל קל */
 }
+
+/* אפקט ריחוף עבור כפתור ההשמעה */
 .speak-button:hover {
-    background-color: var(--color-accent-dark);
-    transform: scale(1.1);
+    background-color: #00bfff; /* כחול בהיר יותר */
+    transform: scale(1.1); /* הגדלה קטנה בריחוף */
 }
+
+/* כאשר הכפתור נלחץ */
 .speak-button:active {
-    transform: scale(1);
+    background-color: #4682b4; /* כחול כהה יותר בעת לחיצה */
+    transform: scale(1); /* חזרה לגודל הרגיל בעת לחיצה */
 }
+
+/* סמל הרמקול בתוך הכפתור */
 .speak-button i {
-    font-size: 12px;
-    color: var(--color-white);
-    margin: 0; /* Reset margin from general button */
+    font-size: 14px;
+    color: #ffffff;
 }
 
-/* 9. Forms (Feedback)
---------------------------------------------- */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between form elements */
-}
-
-form label {
-    font-weight: 500;
-    color: var(--color-secondary);
-    display: flex; /* Align icon and text */
+/* עיצוב כפתור חזרה לראש העמוד */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: rgb(0, 91, 181);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none;
     align-items: center;
-}
-
-form label i {
-    margin-left: 8px; /* RTL spacing */
-    color: var(--color-primary);
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea {
-    padding: 12px 15px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    font-size: 1em;
-    font-family: var(--font-primary);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-form input[type="text"]:focus,
-form input[type="email"]:focus,
-form textarea:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1); /* Teal focus ring */
-    outline: none;
-}
-
-form textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-form button[type="submit"] {
-    align-self: flex-start; /* Button aligns to the start (right in RTL) */
-    margin-top: 10px;
-    background-color: var(--color-accent); /* Use accent for submit */
-}
-form button[type="submit"]:hover {
-     background-color: var(--color-accent-dark);
-}
-
-/* 10. YouTube Page Specifics
---------------------------------------------- */
-.playlist-links {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
 }
 
-.playlist-links .button {
-    background-color: var(--color-secondary-light);
-    padding: 8px 15px;
-    font-size: 0.9em;
+/* עיצוב כפתורים נוספים */
+.home-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
-.playlist-links .button:hover {
-    background-color: var(--color-secondary);
+
+.home-buttons .button {
+    min-width: 180px;
+    font-size: 1.1em;
 }
+
+/* כפתור גיטהאב */
+.github-button {
+    background-color: #2E2E2E; /* אפור כהה */
+}
+
+.github-button:hover {
+    background-color: #1b1b1b; /* אפור כהה יותר */
+}
+
+/* כפתור לעוד פרוייקטים */
+.projects-button {
+    background-color: #03C3DE; /* כחול בהיר */
+}
+
+.projects-button:hover {
+    background-color: #028fa1; /* כחול כהה יותר */
+}
+
+/* התאמה למסכים קטנים */
+@media (max-width: 600px) {
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-buttons .button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* כפתורים אדומים */
+.red-button {
+    background: linear-gradient(135deg, #ff4d4d, #e60000);
+}
+
+.red-button:hover {
+    background-color: #e60000;
+}
+
+/* סקשן עם רקע אדום */
+.red-section {
+    background-color: #ffe6e6;
+    border: 2px solid #ff4d4d;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.red-section h1 {
+    font-size: 2.5em; /* גודל גופן גדול */
+    color: #005bb5;  /* צבע כחול כהה */
+    margin-bottom: 10px; /* מרווח תחתון */
+    text-align: center; /* יישור למרכז */
+    border-bottom: 3px solid #007aff; /* קו תחתון */
+    padding-bottom: 5px; /* ריפוד תחתון */
+    font-weight: bold;
+}
+
+.red-section .header-section p {  /* תיאור מתחת לכותרת */
+    font-size: 1.2em;
+    color: #333;     /* צבע אפור כהה */
+    text-align: center; /* יישור למרכז */
+    margin-bottom: 20px; /* מרווח תחתון */
+    line-height: 1.6;  /* מרווח בין שורות */
+
+}
+
+/* עיצוב לתמיכה בסרטוני וידאו רספונסיביים */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* יחס גובה-רוחב של 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 
 .video-categories {
     margin-top: 40px;
 }
 
 .video-category {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd; /* גבול דק סביב כל קטגוריה */
+    padding: 20px;      /* ריפוד פנימי */
+    border-radius: 8px;   /* פינות מעוגלות */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* צל קל */
+    overflow: hidden; /* מונע גלישה של תוכן מחוץ לגבולות */
+
 }
 
 .video-category h3 {
-    color: var(--color-primary-dark);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 10px;
+    color: #005bb5;
+    margin-bottom: 15px;
+    border-bottom: 3px solid #007aff;
+    padding-bottom: 7px;
     font-size: 1.8em;
 }
 
 .video-category h3 a {
-    color: inherit;
-    display: flex;
-    align-items: center;
+    text-decoration: none; /* מסיר את הקו התחתון מהקישור */
+    color: inherit;       /* יורש את הצבע מהכותרת */
 }
-.video-category h3 a i {
-    margin-left: 10px;
-    color: var(--color-primary);
+
+.video-category p {
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* רספונסיבי - מתאים את מספר העמודות לפי גודל המסך */
+    gap: 20px;
 }
 
-/* Video Card Style */
 .video-item {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden; /* Clip image */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* מאפשר לפרטי הסרטון להופיע מתחת לתמונה */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-item:hover {
     transform: translateY(-5px);
-    box-shadow: var(--box-shadow-hover);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .video-preview {
     position: relative;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%; /* שומר על יחס גובה-רוחב של 16:9 */
+    overflow: hidden;
     background-size: cover;
     background-position: center;
     cursor: pointer;
+
 }
 
+/* Play icon on thumbnail */
 .play-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3em;
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 15px;
+    font-size: 40px;
+    color: white;
+    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
     border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.video-item:hover .play-icon {
-    transform: translate(-50%, -50%) scale(1.1);
-    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .video-details {
-    padding: 20px;
-    flex-grow: 1; /* Make details fill space */
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
+    padding: 15px;
+    flex-grow: 1; /* מאפשר לפרטי הסרטון למלא את המיכל */
 }
 
 .video-details h4 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 1.2em;
-    color: var(--color-secondary);
-    line-height: 1.4;
+    color: #2c3e50;
 }
 
 .video-details p {
-    margin-bottom: 15px;
-    color: var(--color-text-light);
-    font-size: 0.95em;
-    flex-grow: 1; /* Push download buttons to bottom */
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 0.9em;
 }
 
-/* 11. Footer
---------------------------------------------- */
-.site-footer {
-    background: var(--color-secondary);
-    padding: 30px 0;
-    text-align: center;
-    margin-top: 50px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.site-footer p {
-    margin: 0;
-    font-size: 0.95em;
-    color: inherit; /* Inherit footer text color */
-}
-
-/* 12. Back to Top Button
---------------------------------------------- */
-#back-to-top {
-    position: fixed;
-    bottom: 30px;
-    left: 30px; /* Changed to left for RTL consistency */
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    display: none; /* Hidden initially */
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-    z-index: 1001;
-    opacity: 0; /* Start hidden */
-}
-
-#back-to-top.visible {
+.download-buttons {
     display: flex;
-    opacity: 1;
+    flex-wrap: wrap; /* מאפשר לכפתורים לעבור לשורה חדשה אם אין מספיק מקום */
+    justify-content: flex-start; /* מיישר את הכפתורים לשמאל */
+    margin-top: auto; /* דוחף את הכפתורים לתחתית */
+    gap: 10px; /* מוסיף מרווח בין הכפתורים */
+
 }
 
-#back-to-top:hover {
-    background-color: var(--color-accent-dark);
-    transform: scale(1.1);
+.button.download-button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    min-width: 120px; /* קובע רוחב מינימלי לכפתורים */
+    flex: 1 0 auto;   /* מאפשר לכפתורים לגדול ולמלא את הרוחב הזמין */
 }
 
-#back-to-top i {
-    font-size: 1.2em;
+
+.button.download-button:hover {
+    background-color: #0056b3;
 }
 
-
-/* 13. Responsiveness
---------------------------------------------- */
-
-/* Medium Screens (Tablets) */
-@media (max-width: 1024px) {
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2em; }
-    h3 { font-size: 1.4em; }
-
-    .hero-section h1 { font-size: 2.6em; }
-    .hero-section p { font-size: 1.2em; }
-
-    .topics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-    .video-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
+.button.download-button i {
+    margin-right: 5px;
 }
 
-/* Small Screens (Mobiles) */
+/* Disabled button style */
+.button.download-button:disabled {
+    background-color: #ccc;
+    cursor: default;
+    opacity: 0.5; /* or use filter: grayscale(100%); for a grayscale effect */
+}
+
+.playlist-links {
+    display: flex;
+    flex-wrap: wrap; /* מאפשר מעבר שורה */
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.playlist-links .button {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* ריפוד מעט גדול יותר לטקסט ארוך */
+    border-radius: 20px; /* פינות מעוגלות יותר */
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap; /* מונע מעבר שורה של הטקסט */
+    overflow: hidden;     /* חותך טקסט ארוך מדי */
+    text-overflow: ellipsis; /* מוסיף שלוש נקודות לטקסט ארוך מדי */
+    min-width: 0;
+    flex: 1 0 auto;
+}
+
+.playlist-links .button:hover {
+    background-color: #0056b3;
+}
+
 @media (max-width: 768px) {
-    :root {
-        --header-height: 70px;
-        --nav-height: 55px;
-    }
-
-    body {
-        padding-top: var(--header-height); /* Adjust for smaller fixed header */
-        font-size: 15px;
-    }
-
-    h1 { font-size: 2.2em; }
-    h2 { font-size: 1.8em; }
-    h3 { font-size: 1.3em; }
-
-    .container { padding: 0 15px; }
-    .main-container { padding-top: 25px; padding-bottom: 25px; }
-    .section { padding: 25px; }
-    .hero-section { padding: 40px 15px; }
-    .hero-section h1 { font-size: 2.2em; }
-    .hero-section p { font-size: 1.1em; }
-
-    /* Mobile Navigation */
-    .menu-toggle {
-        display: block; /* Show toggle */
-        margin-right: auto; /* Push toggle to the right */
-        z-index: 1001;
-    }
-    .site-nav .container {
-        justify-content: space-between; /* Align logo/title left, toggle right */
-    }
-     .nav-menu {
-        display: none; /* Hide menu by default */
-        position: absolute;
-        top: var(--nav-height); /* Position below nav bar */
-        left: 0;
-        width: 100%;
-        background-color: var(--color-secondary);
-        flex-direction: column;
-        padding: 15px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        max-height: calc(100vh - var(--nav-height) - var(--header-height)*0.8); /* Limit height */
-        overflow-y: auto;
-    }
-    .nav-menu.active {
-        display: flex; /* Show when active */
-    }
-    .nav-menu li {
-        margin: 0;
-        width: 100%;
-        text-align: center;
-    }
-    .nav-menu li a {
-        padding: 15px 20px;
-        border-bottom: 1px solid var(--color-secondary-light);
-        justify-content: center;
-    }
-    .nav-menu li:last-child a {
-        border-bottom: none;
-    }
-    .site-header.scrolled + .site-nav .nav-menu {
-        top: calc(var(--nav-height) * 0.9);
-    }
-
-
-    .topics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-    }
-    .topic-card { min-height: 130px; padding: 20px; }
-    .topic-card i { font-size: 2em; margin-bottom: 10px; }
-    .topic-card h4 { font-size: 1.1em; }
-
     .video-grid {
-        grid-template-columns: 1fr; /* Single column */
-        gap: 20px;
+        grid-template-columns: 1fr; /*  פריטים בשורה אחת */
     }
 
-    .home-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    .home-buttons .button {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    /* Ensure download buttons stack nicely */
-     .download-buttons {
-         flex-direction: row;
-         justify-content: space-between;
+    .download-buttons {
+        flex-direction: row; /* שינוי לכיוון אופקי */
+        justify-content: space-between; /* מרווח בין הכפתורים */
+        width: 100%; /* תופס את כל רוחב הקונטיינר */
+        align-items: center; /* מיישר את הכפתורים אנכית */
      }
-    .button.download-button {
-        flex-basis: 48%; /* Approx 2 buttons per row */
-        min-width: 0; /* Remove min-width */
-        font-size: 0.85em;
-        padding: 8px 10px;
-    }
-
-    #back-to-top {
-        width: 40px;
-        height: 40px;
-        bottom: 20px;
-        left: 20px;
-    }
-    #back-to-top i { font-size: 1em; }
-
-    /* Ensure table scroll works */
-    .table-container { margin-bottom: 20px; }
-    table th, table td { padding: 10px 12px; font-size: 0.95em; }
-    .speak-button { width: 22px; height: 22px; font-size: 11px; margin-right: 8px; }
-    .speak-button i { font-size: 11px; }
-
-}
-
-/* Very Small Screens */
-@media (max-width: 480px) {
-    :root {
-        --header-height: 60px;
-        --nav-height: 50px;
-    }
-    body { font-size: 14px; }
-    h1 { font-size: 1.9em; }
-    h2 { font-size: 1.6em; }
-
-    .hero-section h1 { font-size: 2em; }
-    .hero-section p { font-size: 1em; }
-    .hero-section .button { font-size: 1em; padding: 12px 25px; }
-
-    .topics-grid {
-        grid-template-columns: 1fr; /* Single column */
-    }
-    .button.large-button { font-size: 1em; padding: 12px 25px; }
 
     .button.download-button {
-       flex-basis: 100%; /* Stack download buttons */
+         /* מאפס את רוחב הכפתורים במסכים קטנים */
+        min-width: 0;
+        flex: 1 1 auto;
+        width: auto;
+        max-width: 48%;
+		flex-direction: column;
+     }
+	 
+    .playlist-links .button {
+        flex-basis: 100%;
+        margin-bottom: 5px;
+        justify-content: center;
+        text-align: center;
+        white-space: normal; /* מאפשר מעבר שורה לטקסט */
+        word-break: break-word; /* מאפשר שבירת מילים ארוכות */
+        overflow: visible; /* מאפשר לטקסט לעבור לשורה חדשה */
     }
 }

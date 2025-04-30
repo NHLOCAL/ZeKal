@@ -1,23 +1,18 @@
-<nav class="site-nav" id="site-nav">
-    <div class="container">
-        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-             <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-menu">
-            {% for item in site.navbar %}
-            <li><a href="{{ item.url | relative_url }}">
-                {% if item.title == "בית" %}<i class="fas fa-home fa-fw"></i>
-                {% elsif item.title == "כל הנושאים" %}<i class="fas fa-list fa-fw"></i>
-                {% elsif item.title == "מילים נפוצות" %}<i class="fas fa-language fa-fw"></i>
-                {% elsif item.title == "תכנות ומחשבים" %}<i class="fas fa-laptop-code fa-fw"></i>
-                {% elsif item.title == "ערוץ יוטיוב" %}<i class="fab fa-youtube fa-fw"></i>
-                {% elsif item.title == "אודות" %}<i class="fas fa-info-circle fa-fw"></i>
-                {% elsif item.title == "משוב" %}<i class="fas fa-comment fa-fw"></i>
-                {% else %}<i class="fas fa-folder fa-fw"></i> <!-- Default icon -->
-                {% endif %}
-                {{ item.title }}</a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
+<nav>
+    <ul>
+        <!-- כפתור בית -->
+        <li><a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> בית</a></li>
+
+        <!-- כפתור נושאים -->
+        <li><a href="{{ '/' | relative_url }}#topics"><i class="fas fa-list"></i> נושאים</a></li>
+
+        <!-- כפתור ערוץ יוטיוב -->
+        <li><a href="{{ '/youtube-channel.html' | relative_url }}"><i class="fab fa-youtube"></i> ערוץ יוטיוב</a></li>
+
+        <!-- כפתור אודות -->
+        <li><a href="{{ '/' | relative_url }}#about"><i class="fas fa-info-circle"></i> אודות</a></li>
+
+        <!-- כפתור משוב -->
+        <li><a href="{{ '/' | relative_url }}#feedback"><i class="fas fa-comment"></i> משוב</a></li>
+    </ul>
 </nav>
