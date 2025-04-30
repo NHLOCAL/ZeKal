@@ -1,631 +1,473 @@
-/* Reset בסיסי */
+:root {
+    --font-primary: 'Rubik', sans-serif;
+
+    /* Color Palette (Final) */
+    --color-primary: #2a6f97;          /* Slate Blue */
+    --color-primary-dark: #1e5b80;       /* Darker Slate Blue */
+    --color-secondary: #343a40;         /* Dark Gray */
+    --color-secondary-light: #6c757d;    /* Medium Gray */
+    --color-accent: #fca311;           /* Golden Orange */
+    --color-accent-dark: #e79307;        /* Darker Golden Orange */
+    --color-background-body: #f8f9fa;   /* Very Light Gray */
+    --color-background-content: #ffffff; /* White */
+    --color-text: #212529;             /* Near Black */
+    --color-text-light: #495057;         /* Darker Medium Gray */
+    --color-white: #ffffff;
+    --color-border: #dee2e6;           /* Light Gray */
+    --color-border-light: #f1f3f5;     /* Even Lighter Gray for subtle borders */
+    --color-table-header: var(--color-primary);
+    --color-table-row-even: #f8f9fa;
+    --color-danger: #dc3545;
+    --color-danger-light: #f8d7da;
+    --color-mp4-button: #007bff;         /* Blue for MP4 */
+    --color-mp4-button-dark: #0056b3;
+    --color-mp3-button: #6f42c1;         /* Purple for MP3 */
+    --color-mp3-button-dark: #5a32a3;
+    --color-project-button: #17a2b8;   /* Updated Turquoise */
+    --color-project-button-dark: #117a8b;
+
+
+    --header-height: 75px;
+    --nav-height: 55px;
+    --header-scrolled-height: calc(var(--header-height) * 0.85);
+    --nav-scrolled-height: calc(var(--nav-height) * 0.95);
+    --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 20px);
+
+    --border-radius: 8px; /* Softer corners */
+    --border-radius-small: 4px; /* For smaller elements like buttons inside cards */
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --box-shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+    --transition-speed: 0.2s;
+    --transition-speed-fast: 0.15s;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* כיוון טקסט מימין לשמאל ושימוש בגופן Rubik */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
 body {
     direction: rtl;
-    font-family: 'Rubik', sans-serif;
-    background-color: #e6f0ff; /* תכלת פסטל כהה יותר */
-    color: #2c3e50; /* כחול כהה */
-    line-height: 1.8;
-    padding: 40px;
-    padding-top: 50px; /* התאמה בהתאם לגובה התפריט */
+    font-family: var(--font-primary);
+    background-color: var(--color-background-body);
+    color: var(--color-text);
+    line-height: 1.7;
+    padding-top: var(--header-height);
+    font-weight: 400;
 }
 
-/* עיצוב ה-HEADER */
-header {
-    background: linear-gradient(135deg, #4a90e2, #007aff);
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    margin-bottom: 10px;
-    transition: all 0.3s ease; /* נוסיף אנימציה */
+.main-container [id] {
+    scroll-margin-top: var(--scroll-offset);
+}
+.section[id] {
+     scroll-margin-top: var(--scroll-offset);
 }
 
-header:hover {
-    transform: translateY(-5px);
-}
 
-header h1 {
-    font-size: 3.5em;
-    color: #ffffff;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-    margin-bottom: 20px;
-}
-
-header p {
-    font-size: 1.4em;
-    color: #d0e4ff;
-    max-width: 700px;
+.container {
+    max-width: 1140px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* תפריט ניווט */
-nav {
-    background-color: #007aff;
-    padding: 15px 0;
-    margin-bottom: 60px;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s ease; /* אנימציה להחלפה */
-    position: relative; /* ה-NAV במצב רגיל */
+.main-container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 1em;
+    line-height: 1.3;
+}
+
+h1 { font-size: 2.6em; }
+h2 { font-size: 2.1em; margin-top: 2em; }
+h3 { font-size: 1.6em; margin-top: 1.8em; color: var(--color-primary); }
+h4 { font-size: 1.2em; color: var(--color-secondary); font-weight: 600; margin-bottom: 0.8em;}
+
+p {
+    margin-bottom: 1.3em;
+    color: var(--color-text-light);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease-in-out;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+ul, ol {
+    margin-bottom: 1.3em;
+    padding-right: 25px;
+}
+
+li {
+    margin-bottom: 0.6em;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -45px;
+    left: 0;
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: 10px 15px;
+    z-index: 10000;
+    transition: top 0.3s ease-in-out;
+    border-radius: 0 0 var(--border-radius) 0;
+}
+.skip-link:focus {
     top: 0;
-    width: 100%;
-    z-index: 1000;
 }
 
-/* תפריט נייח לאחר גלילה */
-nav.fixed {
-    position: fixed; /* התפריט נשאר קבוע בראש המסך */
+/* Header */
+.site-header {
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    height: var(--header-height);
+    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
-/* כאשר ה-HEADER נעלם */
-header.hidden {
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-    padding: 0;
+.site-header.scrolled {
+    height: var(--header-scrolled-height);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.site-logo-link {
+    display: inline-block;
+    margin-left: 15px;
+    flex-shrink: 0;
+}
+
+.site-logo {
+    max-height: calc(var(--header-height) * 0.65);
+    width: auto;
+    transition: max-height 0.3s ease;
+}
+
+.site-header.scrolled .site-logo {
+    max-height: calc(var(--header-scrolled-height) * 0.6);
+}
+
+.site-branding {
+    flex-grow: 1;
+    line-height: 1.3;
+}
+
+.site-title {
+    font-size: 1.7em;
     margin: 0;
-    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
-
-
-nav:hover {
-    background-color: #005bb5;
+.site-title a {
+    color: var(--color-secondary);
+    transition: color var(--transition-speed) ease;
+}
+.site-title a:hover {
+    color: var(--color-primary);
 }
 
-nav ul {
+.site-description {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    margin: 2px 0 0 0;
+    display: block;
+    transition: opacity 0.3s ease, max-height 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    max-height: 50px;
+    visibility: visible;
+}
+
+.site-header.scrolled .site-description {
+    opacity: 0;
+    max-height: 0;
+    visibility: hidden;
+    margin-top: -5px;
+}
+
+/* Navigation */
+.site-nav {
+    background-color: var(--color-primary);
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: var(--nav-height);
+    transition: top 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.site-header.scrolled + .site-nav {
+    top: var(--header-scrolled-height);
+    height: var(--nav-scrolled-height);
+}
+
+.site-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
     flex-wrap: wrap;
 }
 
-nav ul li {
-    margin: 0 20px;
+.nav-menu li {
+    margin: 0 8px;
 }
 
-nav ul li a {
-    color: #ffffff;
+.nav-menu li a {
+    color: var(--color-white);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2em;
+    font-weight: 500;
+    font-size: 0.95em;
+    padding: 10px 12px;
+    border-radius: var(--border-radius-small); /* Smaller radius for nav links */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
     position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
+    overflow: hidden;
 }
 
-nav ul li a::after {
+.nav-menu li a::after {
     content: '';
-    display: block;
-    width: 0;
-    height: 3px;
-    background: #ffeb3b;
-    transition: width 0.3s;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #ffeb3b;
+.nav-menu li a:hover::after,
+.nav-menu li a:focus::after {
+    width: 100%;
 }
-
-nav ul li a:hover::after {
+.nav-menu li a:hover,
+.nav-menu li a:focus,
+.nav-menu li a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+}
+.nav-menu li a.active::after { /* Show underline for active link too */
     width: 100%;
 }
 
-/* תוכן העמוד */
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
 
-/* כפתורים */
-.button {
-    display: flex;
-    padding: 40px 20px 40px 20px;
-    margin: 5px;
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #007aff;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    min-width: 180px;
-    height: 60px; /* הגדרת גובה אחיד */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* עיצוב כפתורים עם אייקונים מימין לטקסט */
-.button i {
-    margin-left: 10px; /* מרווח בין האייקון לטקסט */
-}
-
-.button:hover {
-    background-color: #005bb5;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* כפתורים גדולים */
-.button.large-button {
-    font-size: 1.3em;
-    padding: 20px 40px;
-    min-width: 270px;
-}
-
-/* עיצוב לאייקונים ליד הכותרות */
-h2 i, h3 i {
-    margin-left: 10px;
-}
-
-/* עיצוב לאייקונים בתוך תוויות */
-form label i {
-    margin-left: 5px;
-}
-
-/* כפתורים בתוך הגריד */
-.topics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.topics-grid .button {
-    height: 60px; /* אחידות בגובה */
-}
-
-/* עיצוב כללי לטבלה */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-table, th, td {
-    border: 1px solid #007aff;
-    padding: 12px;
-}
-
-td, th {
-    text-align: center;
-}
-
-td:nth-child(2), th:nth-child(2) {
-    direction: ltr;   
-    font-weight: bold;
-}
-
-th {
-    background-color: #005bb5;
-    color: #ffffff;
-}
-
-tr:nth-child(even) {
-    background-color: #d6eaff;
-}
-
-tr:hover {
-    background-color: #f0f8ff;
-    transition: background-color 0.3s ease;
-}
-
-/* עיצוב כותרות הקבוצות */
-h2 {
-    color: #005bb5;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-bottom: 4px solid #007aff;
-    padding-bottom: 0px;
-    font-size: 2.5em;
-}
-
-/* עיצוב כותרות תת-קטגוריות */
-h2#common-words, h2#programming-and-computers {
-    color: #005bb5;
-    margin-bottom: 15px; /* הקטנת המרווח התחתון */
-    margin-top: 30px; /* הקטנת המרווח העליון */
-    border-bottom: 2px solid #007aff; /* קו תחתון דק יותר */
-    padding-bottom: 5px; /* ריפוד תחתון קטן יותר */
-    font-size: 2.0em; /* גודל גופן קטן יותר */
-    font-weight: 600; /* גופן פחות עבה */
-}
-
-h3 {
-    color: #3399ff;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-    border-bottom: 3px solid #007aff;
-    padding-bottom: 7px;
-}
-
-/* קטעים מיוחדים */
-.section {
-    margin-top: 30px;
-    padding: 50px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* טופס המשוב */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #2c3e50;
-}
-
-form input, form textarea {
-    margin-bottom: 25px;
-    padding: 15px;
-    border: 2px solid #007aff;
-    border-radius: 6px;
+.nav-menu li a i {
+    margin-left: 8px;
     font-size: 1.1em;
-    resize: vertical;
-    transition: border-color 0.3s ease;
-}
-
-form input:focus, form textarea:focus {
-    border-color: #005bb5;
-    outline: none;
-}
-
-form button {
-    align-self: flex-start;
-    font-family: 'Rubik', sans-serif;
-}
-
-/* רגל האתר */
-footer {
-    background: linear-gradient(135deg, #4a90e2, #007aff);
-    padding: 20px 20px;
+    opacity: 0.9;
+    width: 1.2em;
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 -6px 12px rgba(0,0,0,0.1);
-    margin-top: 40px;
-    transition: transform 0.3s ease;
-}
-
-footer:hover {
-    transform: translateY(-5px);
-}
-
-footer p {
-    color: #ffffff;
-    font-size: 1.1em;
-}
-
-/* אפקטים עדינים */
-a {
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #ffeb3b;
-}
-
-/* רספונסיביות */
-
-/* מסכים בינוניים */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 30px;
-    }
-    header h1 {
-        font-size: 3em;
-    }
-    .topics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    }
-}
-
-/* מסכים קטנים */
-@media (max-width: 768px) {
-	
-	/* עטיפת טבלאות בגלילה אופקית במסכים קטנים */
-	.table-container {
-		width: 100%;
-		overflow-x: auto;
-		-webkit-overflow-scrolling: touch; /* מאפשר גלילה חלקה במסכי מגע */
-	}
-
-	table {
-		width: 100%;
-		border-collapse: collapse;
-		margin-bottom: 40px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		border-radius: 8px;
-		overflow: hidden;
-	}
-
-	table, th, td {
-		border: 1px solid #007aff;
-		padding: 12px;
-		text-align: center;
-	}
-
-	body {
-    padding: 20px;
-	}
-
-    .container {
-        padding: 0 20px;
-    }	
-
-    nav ul {
-        text-align: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        flex: 0 1 45%; /* כל פריט יתפוס 45% מהרוחב של השורה */
-        margin-bottom: 10px; /* מרווח קטן מתחת לכל פריט */
-    }
-
-    header h1 {
-        font-size: 2.8em;
-    }
-
-    .button {
-        width: 90%;
-        text-align: center;
-        min-width: unset;
-    }
-
-    .topics-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 30px;
-    }
-
-    table {
-        font-size: 0.9em;
-    }
-}
-
-/* מסכים קטנים מאוד */
-@media (max-width: 480px) {
-    .topics-grid {
-        grid-template-columns: 1fr;
-    }
-
-    header {
-        padding: 40px 20px;
-    }
-
-    header h1 {
-        font-size: 2.2em;
-    }
-
-    .section {
-        padding: 20px;
-    }
-
-    .button.large-button {
-        font-size: 1.1em;
-        padding: 15px 25px;
-        min-width: 90%;
-    }
-
-    table, th, td {
-        padding: 10px;
-    }
-}
-
-/* יישור תוכן הקטע הראשון למרכז */
-.first-section {
-    text-align: center;
-    padding: 60px 0;
-}
-
-.first-section h1 {
-    font-size: 2.8em;
-    color: #2c2c2c;
-}
-
-.first-section p {
-    font-size: 1.4em;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* יישור הכפתור למרכז */
-.first-section .button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2em;
 }
 
 
-/* עיצוב ייחודי עבור כפתור ההשמעה */
-.speak-button {
-    background-color: #56C0EB;
-    border: none;
-    color: #ffffff;
-    font-size: 14px;
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    border-radius: 50%; /* עגול לחלוטין */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* צל קל */
-}
-
-/* אפקט ריחוף עבור כפתור ההשמעה */
-.speak-button:hover {
-    background-color: #00bfff; /* כחול בהיר יותר */
-    transform: scale(1.1); /* הגדלה קטנה בריחוף */
-}
-
-/* כאשר הכפתור נלחץ */
-.speak-button:active {
-    background-color: #4682b4; /* כחול כהה יותר בעת לחיצה */
-    transform: scale(1); /* חזרה לגודל הרגיל בעת לחיצה */
-}
-
-/* סמל הרמקול בתוך הכפתור */
-.speak-button i {
-    font-size: 14px;
-    color: #ffffff;
-}
-
-/* עיצוב כפתור חזרה לראש העמוד */
-#back-to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    background-color: rgb(0, 91, 181);
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.menu-toggle {
     display: none;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 1001;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.7em;
+    cursor: pointer;
+    padding: 10px;
 }
 
-/* עיצוב כפתורים נוספים */
-.home-buttons {
-    margin-top: 20px;
+/* Sections */
+.section {
+    margin-top: 50px;
+    padding: 45px 40px;
+    background-color: var(--color-background-content);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--color-border-light); /* Lighter border */
+}
+.section:first-of-type {
+    margin-top: 40px;
+}
+
+.section h2, .section h3 {
+    margin-top: 0;
+}
+
+.section h2 {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-size: 2em;
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    align-items: center;
 }
-
-.home-buttons .button {
-    min-width: 180px;
+.section h2 i {
+    margin-left: 15px;
+    color: var(--color-primary);
     font-size: 1.1em;
 }
 
-/* כפתור גיטהאב */
-.github-button {
-    background-color: #2E2E2E; /* אפור כהה */
+.section h3 {
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 12px;
+    margin-bottom: 35px;
+    font-size: 1.5em;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+.section h3 i {
+    margin-left: 12px;
+    color: var(--color-accent);
+    font-size: 1.05em;
+}
+.section h3 a {
+    color: inherit;
+    transition: color var(--transition-speed) ease;
+}
+.section h3 a:hover {
+     color: var(--color-accent);
+}
+.section h3 a:hover i {
+    color: var(--color-accent);
 }
 
-.github-button:hover {
-    background-color: #1b1b1b; /* אפור כהה יותר */
+.section h3 + p {
+    margin-top: -15px;
+    margin-bottom: 25px;
 }
 
-/* כפתור לעוד פרוייקטים */
-.projects-button {
-    background-color: #03C3DE; /* כחול בהיר */
-}
 
-.projects-button:hover {
-    background-color: #028fa1; /* כחול כהה יותר */
-}
-
-/* התאמה למסכים קטנים */
-@media (max-width: 600px) {
-    .home-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .home-buttons .button {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-/* כפתורים אדומים */
-.red-button {
-    background: linear-gradient(135deg, #ff4d4d, #e60000);
-}
-
-.red-button:hover {
-    background-color: #e60000;
-}
-
-/* סקשן עם רקע אדום */
-.red-section {
-    background-color: #ffe6e6;
-    border: 2px solid #ff4d4d;
-    border-radius: 12px;
-    padding: 30px;
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 75px 20px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); /* Gradient background */
+    color: var(--color-white);
+    border-radius: var(--border-radius);
     margin-top: 30px;
+    margin-bottom: 50px;
+    box-shadow: var(--box-shadow-hover);
 }
 
-.red-section h1 {
-    font-size: 2.5em; /* גודל גופן גדול */
-    color: #005bb5;  /* צבע כחול כהה */
-    margin-bottom: 10px; /* מרווח תחתון */
-    text-align: center; /* יישור למרכז */
-    border-bottom: 3px solid #007aff; /* קו תחתון */
-    padding-bottom: 5px; /* ריפוד תחתון */
-    font-weight: bold;
+.hero-section h1 {
+    color: var(--color-white);
+    font-size: 3.2em;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2); /* Softer text shadow */
+    margin-bottom: 25px;
 }
 
-.red-section .header-section p {  /* תיאור מתחת לכותרת */
+.hero-section p {
+    font-size: 1.25em;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 750px;
+    margin: 0 auto 35px auto;
+}
+
+.hero-section .button {
+    margin-top: 20px;
     font-size: 1.2em;
-    color: #333;     /* צבע אפור כהה */
-    text-align: center; /* יישור למרכז */
-    margin-bottom: 20px; /* מרווח תחתון */
-    line-height: 1.6;  /* מרווח בין שורות */
-
 }
 
-/* עיצוב לתמיכה בסרטוני וידאו רספונסיביים */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* יחס גובה-רוחב של 16:9 */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    margin-bottom: 20px;
+/* YouTube Page Specifics - Enhanced */
+
+/* Intro section for YouTube page */
+.youtube-intro-section {
+    background-color: #e9f5fc; /* Light blue background */
+    padding: 35px 30px;
+    border-radius: var(--border-radius);
+    margin-bottom: 40px;
+    border: 1px solid #cce7f5;
+    text-align: center;
+}
+.youtube-intro-section h1 {
+    color: var(--color-primary);
+    font-size: 2.5em; /* Adjusted size */
+    margin-bottom: 15px;
+}
+.youtube-intro-section p {
+    color: var(--color-text-light);
+    font-size: 1.15em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Playlist links styling */
+.playlist-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Slightly smaller gap */
+    margin-bottom: 45px; /* More space after links */
+}
+.playlist-links h3 { /* Style for the heading before links */
+     width: 100%;
+     text-align: center;
+     font-size: 1.1em;
+     color: var(--color-secondary-light);
+     margin-bottom: 15px;
+     font-weight: 500;
+     border: none; /* Remove border from this H3 */
+     padding-bottom: 0;
+}
+.playlist-links .button {
+    background-color: var(--color-background-content);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    padding: 6px 18px; /* Padding for pill shape */
+    font-size: 0.85em; /* Smaller font */
+    font-weight: 500;
+    border-radius: 30px; /* Pill shape */
+    box-shadow: none; /* No shadow */
+    min-width: auto; /* Allow natural width */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+.playlist-links .button:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    border-color: var(--color-primary-dark);
+    transform: none; /* No hover transform */
+    box-shadow: none;
 }
 
 
@@ -634,194 +476,792 @@ a:hover {
 }
 
 .video-category {
-    margin-bottom: 30px;
-    border: 1px solid #ddd; /* גבול דק סביב כל קטגוריה */
-    padding: 20px;      /* ריפוד פנימי */
-    border-radius: 8px;   /* פינות מעוגלות */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* צל קל */
-    overflow: hidden; /* מונע גלישה של תוכן מחוץ לגבולות */
-
+    margin-bottom: 50px;
+    padding-top: 50px; /* Add padding top for separation */
+    border-top: 1px solid var(--color-border); /* Separator line */
+}
+.video-category:first-of-type {
+    padding-top: 0; /* No top padding/border for the first category */
+    border-top: none;
 }
 
+
 .video-category h3 {
-    color: #005bb5;
-    margin-bottom: 15px;
-    border-bottom: 3px solid #007aff;
-    padding-bottom: 7px;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 12px;
     font-size: 1.8em;
 }
 
 .video-category h3 a {
-    text-decoration: none; /* מסיר את הקו התחתון מהקישור */
-    color: inherit;       /* יורש את הצבע מהכותרת */
+    color: inherit;
+    display: flex;
+    align-items: center;
+     transition: color var(--transition-speed) ease;
 }
-
-.video-category p {
-    margin-bottom: 20px;
-    color: #333;
+.video-category h3 a i {
+    margin-left: 12px;
+    color: var(--color-primary);
+     transition: color var(--transition-speed) ease;
+     font-size: 1em;
+}
+.video-category h3 a:hover {
+    color: var(--color-accent);
+}
+.video-category h3 a:hover i {
+    color: var(--color-accent);
+}
+.video-category > p {
+    font-size: 1.05em;
+    color: var(--color-text-light);
+    margin-bottom: 35px;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* רספונסיבי - מתאים את מספר העמודות לפי גודל המסך */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .video-item {
-    display: flex;
-    flex-direction: column; /* מאפשר לפרטי הסרטון להופיע מתחת לתמונה */
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background-color: var(--color-background-content);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed) ease;
+    border: 1px solid var(--color-border-light); /* Lighter border */
 }
 
 .video-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--color-primary); /* Highlight border on hover */
 }
 
 .video-preview {
     position: relative;
-    padding-top: 56.25%; /* שומר על יחס גובה-רוחב של 16:9 */
-    overflow: hidden;
+    padding-top: 56.25%;
     background-size: cover;
     background-position: center;
     cursor: pointer;
-
+    background-color: #eee;
+}
+/* Added overlay effect */
+.video-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+    transition: background-color var(--transition-speed) ease;
+    z-index: 1; /* Above background image, below icon */
+}
+.video-item:hover .video-preview::before {
+    background-color: rgba(0, 0, 0, 0.2); /* Darken slightly on hover */
 }
 
-/* Play icon on thumbnail */
+
 .play-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40px;
-    color: white;
-    opacity: 0.8;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    font-size: 3.5em;
+    color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 18px;
     border-radius: 50%;
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    pointer-events: none;
+    z-index: 2; /* Ensure icon is above overlay */
+}
+
+.video-item:hover .play-icon {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .video-details {
-    padding: 15px;
-    flex-grow: 1; /* מאפשר לפרטי הסרטון למלא את המיכל */
+    padding: 20px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .video-details h4 {
-    margin-bottom: 5px;
-    font-size: 1.2em;
-    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 1.15em;
+    color: var(--color-secondary);
+    line-height: 1.4;
+    font-weight: 600;
 }
 
 .video-details p {
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: var(--color-text-light);
+    font-size: 0.95em;
+    flex-grow: 1;
+    line-height: 1.6;
+    /* ADDED: Line clamping for description */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: calc(1.6 * 0.95em * 3); /* Approximate height for 3 lines */
 }
 
+/* Download Buttons (YouTube Page) - Redesigned */
 .download-buttons {
     display: flex;
-    flex-wrap: wrap; /* מאפשר לכפתורים לעבור לשורה חדשה אם אין מספיק מקום */
-    justify-content: flex-start; /* מיישר את הכפתורים לשמאל */
-    margin-top: auto; /* דוחף את הכפתורים לתחתית */
-    gap: 10px; /* מוסיף מרווח בין הכפתורים */
-
+    gap: 8px; /* Smaller gap */
+    margin-top: auto; /* Push to bottom */
+    padding-top: 15px;
+    flex-wrap: wrap; /* Allow wrapping */
+    border-top: 1px solid var(--color-border-light); /* Separator line */
 }
 
 .button.download-button {
-    background-color: #007aff;
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 0.8em; /* Smaller font */
+    min-width: 0; /* Allow shrinking */
+    flex: 1 1 auto; /* Allow flexible sizing */
+    font-weight: 500;
+    border-radius: var(--border-radius-small); /* Smaller radius */
+    text-align: center;
+    box-shadow: none; /* Remove shadow */
+}
+.button.download-button:hover {
+    transform: none; /* No transform on hover */
+    box-shadow: none;
+}
+.button.download-button i {
+    margin-left: 5px; /* Adjust icon spacing */
+    font-size: 1em;
+}
+
+/* Specific colors for download buttons */
+.button.download-button[href*=".mp4"] {
+    background-color: var(--color-mp4-button);
     color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    white-space: nowrap;
+}
+.button.download-button[href*=".mp4"]:hover {
+    background-color: var(--color-mp4-button-dark);
+}
+.button.download-button[href*=".mp3"] {
+    background-color: var(--color-mp3-button);
+     color: white;
+}
+.button.download-button[href*=".mp3"]:hover {
+    background-color: var(--color-mp3-button-dark);
+}
+
+
+.button.download-button[disabled] {
+    background-color: #adb5bd;
+    cursor: default;
+    opacity: 0.7; /* Slightly less opaque */
+    transform: none;
+    box-shadow: none;
+    color: #495057;
+}
+.button.download-button[disabled]:hover {
+     background-color: #adb5bd;
+}
+.button.download-button[disabled] i {
+    color: #495057;
+}
+
+/* Final Call to Action Buttons on YouTube Page */
+.youtube-final-cta { /* Use this class for the container */
+    margin-top: 50px;
+    text-align: center; /* Center buttons */
+    padding-top: 30px;
+    border-top: 1px solid var(--color-border);
+}
+.youtube-final-cta .button {
+    margin: 0 10px; /* Spacing between buttons */
+}
+
+
+/* Buttons - General */
+.button {
     display: inline-flex;
     align-items: center;
-    min-width: 120px; /* קובע רוחב מינימלי לכפתורים */
-    flex: 1 0 auto;   /* מאפשר לכפתורים לגדול ולמלא את הרוחב הזמין */
-}
-
-
-.button.download-button:hover {
-    background-color: #0056b3;
-}
-
-.button.download-button i {
-    margin-right: 5px;
-}
-
-/* Disabled button style */
-.button.download-button:disabled {
-    background-color: #ccc;
-    cursor: default;
-    opacity: 0.5; /* or use filter: grayscale(100%); for a grayscale effect */
-}
-
-.playlist-links {
-    display: flex;
-    flex-wrap: wrap; /* מאפשר מעבר שורה */
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.playlist-links .button {
-    background-color: #007aff;
-    color: white;
+    padding: 12px 28px;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    color: var(--color-white);
+    background-color: var(--color-primary);
     border: none;
-    padding: 8px 16px; /* ריפוד מעט גדול יותר לטקסט ארוך */
-    border-radius: 20px; /* פינות מעוגלות יותר */
+    border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
     text-decoration: none;
-    white-space: nowrap; /* מונע מעבר שורה של הטקסט */
-    overflow: hidden;     /* חותך טקסט ארוך מדי */
-    text-overflow: ellipsis; /* מוסיף שלוש נקודות לטקסט ארוך מדי */
-    min-width: 0;
-    flex: 1 0 auto;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed) ease; /* Faster transform */
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    line-height: 1.4;
 }
 
-.playlist-links .button:hover {
-    background-color: #0056b3;
+.button i {
+    margin-left: 10px;
+    font-size: 1.1em;
+}
+
+.button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+    color: var(--color-white);
+}
+
+.button:active {
+    background-color: #1a5070;
+    transform: translateY(0);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
+}
+
+/* Accent Button */
+.button.accent-button {
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+}
+.button.accent-button:hover {
+    background-color: var(--color-accent-dark);
+    color: var(--color-secondary);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-2px);
+}
+.button.accent-button:active {
+    background-color: #d98607;
+    transform: translateY(0);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
+}
+.button.accent-button i {
+     color: var(--color-secondary);
+}
+
+/* Large Button */
+.button.large-button {
+    font-size: 1.1em;
+    padding: 14px 35px;
+}
+
+/* Home Buttons Section */
+.home-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.home-buttons .button {
+    min-width: 170px;
+}
+
+/* GitHub Button */
+.github-button {
+    background-color: #333;
+    color: var(--color-white);
+}
+.github-button:hover {
+    background-color: #1a1a1a;
+    color: var(--color-white);
+}
+.github-button:active {
+    background-color: #000;
+}
+
+/* Projects Button */
+.projects-button {
+    background-color: var(--color-project-button);
+    color: var(--color-white);
+}
+.projects-button:hover {
+    background-color: var(--color-project-button-dark);
+    color: var(--color-white);
+}
+.projects-button:active {
+    background-color: #117a8b;
+}
+
+
+/* Topics Grid */
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.topic-card {
+    background-color: var(--color-background-content);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 30px 25px;
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+    border: 1px solid var(--color-border-light);
+}
+
+.topic-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.topic-card i {
+    font-size: 2.8em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    transition: color var(--transition-speed) ease;
+}
+
+.topic-card h4 {
+    margin: 0;
+    font-size: 1.15em;
+    color: var(--color-secondary);
+    font-weight: 600;
+     transition: color var(--transition-speed) ease;
+}
+
+.topic-card a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+.topic-card a:hover h4 {
+    color: var(--color-accent);
+}
+.topic-card a:hover i {
+    color: var(--color-accent);
+}
+.topic-card a:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+
+/* Tables */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    margin-bottom: 35px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-white);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+table th, table td {
+    border: 1px solid var(--color-border);
+    padding: 12px 15px;
+    text-align: right;
+    vertical-align: middle;
+    transition: background-color var(--transition-speed) ease;
+}
+
+table th {
+    background-color: var(--color-table-header);
+    color: var(--color-white);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--color-table-row-even);
+}
+
+table tr:hover td {
+    background-color: #e9ecef;
+}
+
+td:nth-child(2), th:nth-child(2) {
+    direction: ltr;
+    text-align: left;
+    font-weight: 500;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+
+/* Speak Button */
+.speak-button {
+    background-color: var(--color-accent);
+    border: none;
+    color: var(--color-secondary);
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+.speak-button:hover {
+    background-color: var(--color-accent-dark);
+    transform: scale(1.1);
+    color: var(--color-secondary);
+}
+.speak-button:active {
+    transform: scale(1);
+}
+.speak-button i {
+    font-size: 11px;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label {
+    font-weight: 600;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+form label i {
+    margin-left: 10px;
+    color: var(--color-primary);
+    width: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    background-color: #fff;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(42, 111, 151, 0.2);
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+form button[type="submit"] {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--color-secondary);
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.95em;
+    color: inherit;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, opacity 0.3s ease;
+    z-index: 1001;
+    opacity: 0;
+}
+
+#back-to-top.visible {
+    display: flex;
+    opacity: 1;
+}
+
+#back-to-top:hover {
+    background-color: var(--color-accent-dark);
+    transform: scale(1.1);
+     color: var(--color-secondary);
+}
+
+#back-to-top i {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* 404 Page Specific */
+.error-404 {
+    text-align: center;
+    padding: 60px 20px;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.error-404 h1 {
+    font-size: 7em;
+    margin: 0 0 20px 0;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+.error-404 p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: var(--color-text);
+}
+.error-404 .button {
+    margin-top: 25px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+    html { font-size: 15.5px; }
+    h1 { font-size: 2.4em; }
+    h2 { font-size: 1.9em; }
+    h3 { font-size: 1.5em; }
+
+    .hero-section h1 { font-size: 2.8em; }
+    .hero-section p { font-size: 1.2em; }
+
+    .topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 25px;
+    }
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .container { max-width: 960px; }
+    .section { padding: 40px 35px; }
 }
 
 @media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+        --nav-height: 50px;
+         --header-scrolled-height: calc(var(--header-height) * 0.85);
+         --nav-scrolled-height: calc(var(--nav-height) * 0.95);
+         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 15px);
+    }
+    html { font-size: 15px; }
+    body { padding-top: var(--header-height); }
+
+    h1 { font-size: 2.1em; }
+    h2 { font-size: 1.7em; margin-top: 1.8em; }
+    h3 { font-size: 1.4em; margin-top: 1.6em; }
+
+    .container { padding: 0 15px; }
+    .main-container { padding-top: 30px; padding-bottom: 30px; }
+    .section { padding: 35px 25px; margin-top: 40px; }
+    .section:first-of-type { margin-top: 30px; }
+    .hero-section { padding: 50px 15px; margin-bottom: 40px; }
+    .hero-section h1 { font-size: 2.4em; }
+    .hero-section p { font-size: 1.1em; }
+
+    /* Mobile Menu */
+    .menu-toggle {
+        display: block;
+        margin-right: auto;
+        z-index: 1001;
+        font-size: 1.8em;
+    }
+    .site-nav .container {
+        justify-content: flex-start;
+    }
+     .nav-menu {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary-dark);
+        flex-direction: column;
+        padding: 10px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        max-height: calc(100vh - var(--nav-height) - var(--header-scrolled-height));
+        overflow-y: auto;
+        border-top: 1px solid var(--color-primary);
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-menu li {
+        margin: 0;
+        width: 100%;
+        text-align: right;
+    }
+    .nav-menu li a {
+        padding: 14px 25px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        justify-content: flex-start;
+        font-size: 1em;
+        border-radius: 0;
+    }
+     .nav-menu li a:hover, .nav-menu li a:focus {
+         background-color: rgba(255, 255, 255, 0.2);
+     }
+     .nav-menu li a::after { display: none; }
+    .nav-menu li:last-child a { border-bottom: none; }
+    .site-header.scrolled + .site-nav .nav-menu { top: var(--nav-scrolled-height); }
+
+    .topics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .topic-card { min-height: 140px; padding: 25px 20px; }
+    .topic-card i { font-size: 2.4em; margin-bottom: 15px; }
+    .topic-card h4 { font-size: 1.1em; }
+
     .video-grid {
-        grid-template-columns: 1fr; /*  פריטים בשורה אחת */
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
-
+    /* Ensure download buttons stack nicely on mobile */
     .download-buttons {
-        flex-direction: row; /* שינוי לכיוון אופקי */
-        justify-content: space-between; /* מרווח בין הכפתורים */
-        width: 100%; /* תופס את כל רוחב הקונטיינר */
-        align-items: center; /* מיישר את הכפתורים אנכית */
-     }
-
-    .button.download-button {
-         /* מאפס את רוחב הכפתורים במסכים קטנים */
-        min-width: 0;
-        flex: 1 1 auto;
-        width: auto;
-        max-width: 48%;
-		flex-direction: column;
-     }
-	 
-    .playlist-links .button {
-        flex-basis: 100%;
-        margin-bottom: 5px;
-        justify-content: center;
-        text-align: center;
-        white-space: normal; /* מאפשר מעבר שורה לטקסט */
-        word-break: break-word; /* מאפשר שבירת מילים ארוכות */
-        overflow: visible; /* מאפשר לטקסט לעבור לשורה חדשה */
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 8px;
     }
+    .button.download-button {
+        flex-basis: auto; /* Reset basis */
+        width: 100%; /* Full width */
+    }
+
+
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .home-buttons .button {
+        width: 90%;
+        max-width: 320px;
+    }
+
+
+    #back-to-top {
+        width: 42px;
+        height: 42px;
+        bottom: 20px;
+        right: 20px;
+    }
+    #back-to-top i { font-size: 1.1em; }
+
+    .table-container { margin-bottom: 25px; }
+    table th, table td { padding: 10px 12px; font-size: 0.9em; }
+    .speak-button { width: 20px; height: 20px; font-size: 10px; margin-left: 8px; }
+    .speak-button i { font-size: 10px; }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --header-height: 65px;
+        --nav-height: 48px;
+         --header-scrolled-height: calc(var(--header-height) * 0.85);
+         --nav-scrolled-height: calc(var(--nav-height) * 0.95);
+         --scroll-offset: calc(var(--header-scrolled-height) + var(--nav-scrolled-height) + 10px);
+    }
+    html { font-size: 14.5px; }
+    body { line-height: 1.65; }
+
+    h1 { font-size: 1.9em; }
+    h2 { font-size: 1.6em; }
+    h3 { font-size: 1.3em; }
+
+    .hero-section h1 { font-size: 2.1em; }
+    .hero-section p { font-size: 1em; }
+    .hero-section .button { font-size: 1em; padding: 12px 25px; }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .button.large-button { font-size: 1em; padding: 12px 25px; }
+
+     /* Form adjustments */
+     form { gap: 15px; }
+     form input[type="text"], form input[type="email"], form textarea { padding: 10px 12px; }
+     form label { font-size: 0.9em; }
+     form label i { margin-left: 8px; }
+
+     /* Table adjustments */
+     table th, table td {
+         padding: 8px 10px;
+         font-size: 0.85em;
+     }
+     .speak-button {
+         width: 18px;
+         height: 18px;
+         font-size: 9px;
+         margin-left: 6px;
+     }
+     .speak-button i { font-size: 9px; }
+
+     /* YouTube Page Specifics */
+     .youtube-intro-section h1 { font-size: 2em; }
+     .youtube-intro-section p { font-size: 1em; }
+     .playlist-links .button { font-size: 0.8em; padding: 5px 15px; }
+     .video-details h4 { font-size: 1.1em;}
+     .video-details p { font-size: 0.9em; min-height: calc(1.6 * 0.9em * 3); } /* Adjust min-height */
+     .button.download-button { font-size: 0.75em; padding: 5px 10px;}
+
 }
