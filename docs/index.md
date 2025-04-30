@@ -11,7 +11,7 @@ title: "בית" # Title for the home page specifically
     <!-- GitHub/Projects Buttons -->
     <div class="home-buttons">
         <a href="https://github.com/nhlocal/ZeKal/" class="button github-button" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i> כוכב ב-GitHub
+            <i class="fab fa-github"></i> ככב ב-GitHub
         </a>
         <a href="https://nhlocal.github.io/?utm_source=ZeKalHome&utm_medium=site" class="button projects-button" target="_blank" rel="noopener noreferrer">
             <i class="fas fa-project-diagram"></i> עוד פרויקטים שלנו
