@@ -1,55 +1,47 @@
 title: "זה קל!"
 description: "קבל את כל המידע על מונחי טכנולוגיה ומחשבים בפשטות ובקלות"
-baseurl: ""  # או "/" - מציין את שורש האתר
-url: "https://ze-kal.top" # URL 
+baseurl: ""
+url: "https://ze-kal.top"
 language: "he"
-logo: "/assets/images/logo.png" # (Optional) Add a path to your logo image
+logo: "/assets/images/logo.png" # Important for SEO Tag
 
-# תבנית Jekyll שתשמש (נשתמש בעיצוב מותאם אישית)
 theme: null
 
-# תוספים
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
-# הגדרות ניווט (נשאר דומה, העיצוב ישפיע על המראה)
 navbar:
   - title: "בית"
     url: /
   - title: "כל הנושאים"
-    url: /index.html#topics
+    url: /#topics # Consider linking to specific topic pages if available
   - title: "מילים נפוצות"
-    url: /index.html#common-words
+    url: /#common-words # Consider linking to specific word list pages
   - title: "תכנות ומחשבים"
-    url: /index.html#programming-and-computers
+    url: /#programming-and-computers # Consider linking to specific tech pages
   - title: "ערוץ יוטיוב"
     url: /youtube-channel.html
   - title: "אודות"
-    url: /index.html#about
+    url: /#about # Link to section on home page
   - title: "משוב"
-    url: /index.html#feedback
+    url: /#feedback # Link to section on home page
 
-# הגדרות שפה וכיוון טקסט
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
 
-# פלט אתר
 permalink: /:categories/:title.html
 
-# Google Fonts (נשאר Rubik, אפשר לגוון אם רוצים)
 google_fonts:
   - family: "Rubik"
-    variants: "300,400,500,700" # הוספת משקלים נוספים
+    variants: "300,400,500,700"
 
-# הגדרות נוספות (אם נדרש)
-# مثلا, הגדרות ברירת מחדל לפוסטים
-# defaults:
-#   -
-#     scope:
-#       path: ""
-#       type: "posts"
-#     values:
-#       layout: "post"
+# Optional: SEO Tag specific configurations
+social:
+   name: Ze Kal!
+   links:
+     - https://github.com/nhlocal/ZeKal
+     - https://www.youtube.com/@Ze-Kal
