@@ -1,21 +1,23 @@
-/* book_style.css */
-
-/* 1. טעינת הפונטים מ‑Google Fonts (ללא שינוי) */
+/* 1. טעינת הפונטים מ‑Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
 /* --- הגדרות עמוד בסיסיות --- */
+/* הסרנו את ההגדרות המותאמות לכותרות עליונות/תחתונות מותאמות אישית */
 @page {
-  margin: 2cm;
+  margin: 2cm; /* חזרה לשוליים סטנדרטיים, Calibre יוסיף שוליים משלו עבור תבניותיו */
   size: A4;
 }
 
-@page :first {
-  margin: 0;
-  padding: 0;
-}
+/* הסרת הגדרות מיוחדות לעמוד ראשון (Calibre מטפל בזה בהגדרה נפרדת) */
+/* @page :first { ... } */
 
+/* הסרת הגדרות מיוחדות לדפים ריקים/פרקים (לא נתמך ישירות בתבניות Calibre) */
+/* @page blank { ... } */
+/* @page chapter_start { ... } */
+
+/* --- הגדרות כלליות לגוף הטקסט --- */
 body {
   direction: rtl;
   font-family: 'Frank Ruhl Libre', serif;
@@ -30,47 +32,39 @@ body {
 
 .page {
   box-sizing: border-box;
-  padding: 0;
 }
 
-/* --- הגדרות דפים סטטיים --- */
-.page {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-/* ===== סגנונות מעודכנים לכריכה מבוססת תמונה ===== */
+/* ===== סגנונות כריכה מבוססת תמונה ===== */
 .cover-image-page {
   page-break-after: always;
-  position: absolute;   /* <--- שינוי מרכזי: מיקום אבסולוטי */
-  top: 0;               /* <--- הצמד לקצה העליון של העמוד */
-  left: 0;              /* <--- הצמד לקצה השמאלי של העמוד */
-                        /*      (עבור RTL, זה עדיין יעבוד נכון לרוחב 100%) */
-  width: 100%;          /* <--- תפוס 100% מרוחב העמוד */
-  height: 100%;         /* <--- תפוס 100% מגובה העמוד */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;     /* <--- חשוב למנוע כל גלישה תיאורטית */
+  overflow: hidden;
 }
 
 .cover-image {
   display: block;
-  width: 100%;      /* תפוס 100% מה-div המכיל */
-  height: 100%;     /* תפוס 100% מה-div המכיל */
-  object-fit: cover; /* כסה את כל השטח, שמור על יחס, חתוך אם צריך */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* דף ריק (ללא שינוי) */
+/* דף ריק (נוסף על ידי פייתון לפני H1) */
 .blank-page {
-  page-break-after: always;
+  /* page: blank; <-- הוסר */
+  page-break-after: always; /* עדיין נשאר כדי שה-H1 יתחיל עמוד חדש */
 }
 
-/* ===== דף מידע על המחבר (ללא שינוי) ===== */
+/* ===== דף מידע על המחבר ===== */
 .author-page {
   page-break-after: always;
-  padding: 3cm 2cm; /* ריווח פנימי רגיל לדפים עם תוכן */
 }
-/* ... שאר סגנונות עמוד המחבר ללא שינוי ... */
+/* שאר סגנונות עמוד המחבר ללא שינוי */
 .author-content { max-width: 700px; margin: 0 auto; font-family: 'Frank Ruhl Libre', serif; font-size: 12pt; line-height: 1.7; text-align: right; }
 .author-content .book-info-section { margin-bottom: 1.5em; }
 .author-content .book-title-on-author-page { font-family: 'Assistant', sans-serif; font-size: 26pt; font-weight: 700; margin-bottom: 0.4em; color: #111; text-align: right; }
@@ -85,15 +79,41 @@ body {
 .author-content .legal-section { margin-top: 1.5em; }
 .author-content .rights-notice, .author-content .disclaimer { font-size: 11pt; color: #666; margin: 0.6em 0; line-height: 1.6; text-align: right; }
 
-/* --- עיצוב תוכן הספר הראשי (ללא שינוי) --- */
+/* --- עיצוב תוכן הספר הראשי --- */
 .main-content {
-  /* תוכן הספר יתחיל בעמוד השני ויכבד את השוליים של 2 ס"מ שהוגדרו ב-@page הדיפולטיבי */
+  /* אין צורך בהגדרות מיוחדות כאן */
 }
-/* ... שאר סגנונות הספר ללא שינוי ... */
-h1 { page-break-before: always; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; margin: 0; padding: 2em 0; font-family: 'Assistant', sans-serif; text-align: center; }
+
+/* שאר סגנונות הספר */
+
+/* כותרת פרק (H1) */
+h1.chapter-start-heading {
+  /* page: chapter_start; <-- הוסר */
+
+  /* החזרת flexbox וגובה ליישור אנכי למרכז */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh; /* נשאיר את המירכוז */
+  margin: 0;
+  padding: 1em 0;
+
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+
+  /* מניעת שבירה */
+  page-break-after: avoid; /* נסיון למנוע שבירה מיד אחרי */
+  /* page-break-before: always; <-- הסרנו את זה, נסתמך על הדף הריק */
+}
+
+
+/* חלקי כותרת פרק */
 h1 .main-title { display: block; font-size: 28pt; font-weight: 800; }
 h1 .sub-title { display: block; font-size: 36pt; font-weight: 600; margin-top: 0.5em; color: #333; }
 h1 .full-title { font-size: 32pt; font-weight: 800; }
+
+/* כותרות משנה */
 h2 { font-family: 'Assistant', sans-serif; font-size: 18pt; font-weight: 600; margin: 2.5em 0 1em 0; border-right: 4px solid #888; padding-right: 0.6em; page-break-after: avoid; }
 h3 { font-family: 'Assistant', sans-serif; font-size: 16pt; font-weight: 400; margin: 1.8em 0 0.6em 0; border-right: 2px solid #ccc; padding-right: 1em; page-break-after: avoid; color: #444; }
 p { margin: 0.8em 0; text-align: justify; hyphens: auto; }
