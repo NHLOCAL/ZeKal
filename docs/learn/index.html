@@ -6,6 +6,10 @@ permalink: /learn/
 ---
 <nav class="breadcrumbs" aria-label="מיקום באתר"><a href="{{ '/' | relative_url }}">זה קל!</a><span aria-hidden="true">/</span><span aria-current="page">לומדים בקלות</span></nav>
 <header class="category-hero"><h1>לומדים משהו חדש,<br>בקלי קלות.</h1><p>אנגלית, מחשבים וטכנולוגיה, עם הסברים בעברית.</p></header>
+<section class="learning-video" aria-labelledby="learning-video-title">
+  <div class="learning-video-copy"><h2 id="learning-video-title">לצפות. ללמוד. זה קל!</h2></div>
+  <div class="learning-video-actions"><a class="button primary-button" href="https://www.youtube.com/@Ze-Kal">{% include icon.html name='play' %}לערוץ זה קל ביוטיוב</a><a class="text-link" href="{{ '/youtube-channel.html' | relative_url }}">לסרטונים באתר {% include icon.html name='arrow' %}</a></div>
+</section>
 <section class="section-space" id="common-words"><div class="section-heading"><div><h2>אוצר מילים באנגלית</h2></div></div><div class="learning-grid">
 <a href="{{ '/topics/basic-words-1.html' | relative_url }}"><span>01</span><h3>מילים בסיסיות, חלק 1</h3>{% include icon.html name='arrow' %}</a>
 <a href="{{ '/topics/basic-words-2.html' | relative_url }}"><span>02</span><h3>מילים בסיסיות, חלק 2</h3>{% include icon.html name='arrow' %}</a>
@@ -15,4 +19,4 @@ permalink: /learn/
 <section class="section-space" id="programming-and-computers"><div class="section-heading"><div><h2>מחשבים וטכנולוגיה</h2></div></div><div class="learning-grid topics-grid">
 {% assign topic_pages = site.pages | where: 'section', 'learning' | sort: 'title' %}{% for topic in topic_pages %}{% if topic.url contains '/topics/' %}{% unless topic.url contains 'words' %}<a href="{{ topic.url | relative_url }}"><span>{% include icon.html name='terminal' %}</span><h3>{{ topic.title }}</h3>{% include icon.html name='arrow' %}</a>{% endunless %}{% endif %}{% endfor %}
 </div></section>
-<aside class="reading-next"><strong>מעדיפים ללמוד בצפייה?</strong><a href="{{ '/youtube-channel.html' | relative_url }}">סרטוני האנגלית של זה קל! {% include icon.html name='play' %}</a><a href="{{ '/projects/learning/' | relative_url }}">עוד כלים ללמידה {% include icon.html name='arrow' %}</a></aside>
+<a class="text-link" href="{{ '/projects/learning/' | relative_url }}">עוד כלים ללמידה {% include icon.html name='arrow' %}</a>
