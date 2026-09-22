@@ -1,1 +1,7 @@
 repomix-output.*
+vendor/
+.bundle/
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+/ai-book/output

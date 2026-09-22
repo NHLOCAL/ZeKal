@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "מערכות הפעלה"
+description: "מושגי מערכות הפעלה באתר זה קל! קרנל, תהליכים, ניהול זיכרון, מערכות קבצים וממשקי משתמש, עם תרגום מאנגלית והסברים בעברית לפי רמות"
+permalink: /topics/operating-systems.html
+icon: panels
 ---
 
 

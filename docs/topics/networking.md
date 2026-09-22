@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "רשתות"
+description: "מילון רשתות תקשורת באתר זה קל! רשת מקומית, כתובות IP, נתבים ופרוטוקולים, עם מונחים באנגלית, תרגום והסברים קצרים בעברית"
+permalink: /topics/networking.html
+icon: network
 ---
 
 # רשתות

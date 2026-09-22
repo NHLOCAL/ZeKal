@@ -1,0 +1,14 @@
+<article class="featured-card accent-{{ include.project.accent }}">
+  <a href="{{ include.project.url }}" class="featured-link">
+    <div class="project-visual visual-{{ include.project.id }}" aria-hidden="true">
+      <div class="visual-symbol"><img src="{{ '/assets/images/projects/' | append: include.project.id | append: '.png' | relative_url }}" alt="" width="62" height="62" loading="lazy"></div>
+      {% case include.project.id %}
+      {% when 'alef-bot' %}<div class="visual-wave">{% for i in (1..19) %}<i></i>{% endfor %}</div>
+      {% when 'tools' %}<span class="tool-doodle doodle-one">{% include icon.html name='code' %}</span><span class="tool-doodle doodle-two">{% include icon.html name='spark' %}</span>
+      {% when 'shir-bot' %}<div class="record-rings"></div><span class="music-note note-one">♪</span><span class="music-note note-two">♫</span>
+      {% else %}<div class="folder-shape folder-one"></div><div class="folder-shape folder-two"></div>
+      {% endcase %}
+    </div>
+    <div class="featured-body"><div class="project-heading"><h3><bdi>{{ include.project.name }}</bdi></h3></div><p>{{ include.project.summary }}</p><span class="card-action">{{ include.project.action }} {% include icon.html name='arrow' %}</span></div>
+  </a>
+</article>

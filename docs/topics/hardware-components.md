@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "רכיבי חומרה"
+description: "מכירים את רכיבי המחשב עם זה קל! מעבד, זיכרון, כוננים, לוח אם וכרטיס מסך, עם שמות באנגלית, תרגום והסברים בעברית על תפקיד הרכיבים"
+permalink: /topics/hardware-components.html
+icon: cpu
 ---
 
 

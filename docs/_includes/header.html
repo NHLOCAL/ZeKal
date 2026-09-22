@@ -1,14 +1,11 @@
-<header class="site-header" id="site-header">
-    <div class="container header-content">
-        <!-- Optional Logo -->
-        {% if site.logo %}
-        <a href="{{ '/' | relative_url }}" class="site-logo-link">
-            <img src="{{ site.logo | relative_url }}" alt="{{ site.title | split: '|' | first | strip }} Logo" class="site-logo">
-        </a>
-        {% endif %}
-        <div class="site-branding">
-            <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title | split: '|' | first | strip }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-        </div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="זה קל! מבית NH LOCAL, עמוד הבית"><span class="brand-mark" aria-hidden="true"><img src="{{ '/assets/images/brand-mark.svg' | relative_url }}" width="38" height="38" alt=""></span><span class="brand-name">זה קל<span class="brand-punctuation">!</span></span><span class="brand-byline"><bdi>NH LOCAL</bdi></span></a>
+    {% include nav.html %}
+    <div class="header-actions">
+      <a class="icon-button github-link" href="https://github.com/NHLOCAL" aria-label="הפרויקטים של NH Local ב-GitHub">{% include icon.html name='github' %}</a>
+      <button class="icon-button theme-toggle" type="button" aria-label="מעבר למצב כהה" aria-pressed="false" hidden><span class="theme-sun">{% include icon.html name='sun' %}</span><span class="theme-moon">{% include icon.html name='moon' %}</span></button>
+      <button class="icon-button menu-toggle" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="main-nav" hidden>{% include icon.html name='menu' %}</button>
     </div>
+  </div>
 </header>

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "מסדי נתונים"
+description: "מושגי מסדי נתונים באתר זה קל! טבלאות, רשומות, מפתחות, שאילתות SQL ועסקאות, עם השם באנגלית, תרגום והסברים בעברית לפי רמות"
+permalink: /topics/databases.html
+icon: database
 ---
 
 # מסדי נתונים

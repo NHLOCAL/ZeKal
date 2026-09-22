@@ -1,34 +1,9 @@
 ---
-permalink: /404.html
 layout: default
-title: "404 - עמוד לא נמצא"
+title: "העמוד לא נמצא"
+description: "העמוד שחיפשתם לא נמצא. אפשר לחזור לשער הפרויקטים או למדריכי הלמידה של זה קל!"
+permalink: /404.html
+noindex: true
+sitemap: false
 ---
-
-<style type="text/css" media="screen">
-  /* Simple styling for 404 page, can be integrated into main CSS */
-  .error-404 {
-    text-align: center;
-    padding: 50px 20px;
-  }
-  .error-404 h1 {
-    font-size: 6em;
-    margin: 0 0 20px 0;
-    color: var(--color-primary-dark);
-    font-weight: 700;
-  }
-  .error-404 p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: var(--color-text);
-  }
-  .error-404 .button { /* Use the main button style */
-      margin-top: 20px;
-  }
-</style>
-
-<div class="error-404">
-  <h1>404</h1>
-  <p><strong>אופס! העמוד שחיפשת אינו קיים.</strong></p>
-  <p>יתכן שהקישור שגוי או שהעמוד הוסר.</p>
-  <a href="{{ '/' | relative_url }}" class="button primary-button"><i class="fas fa-home"></i> חזרה לדף הבית</a>
-</div>
+<div class="error-page"><p class="eyebrow">404 · לפעמים הדרך משתנה</p><h1>העמוד הזה לא נמצא.<br>נמצא לכם כיוון אחר.</h1><p>אולי הכתובת השתנתה, או שנפלה טעות בקישור.</p><div class="hero-actions"><a class="button primary-button" href="{{ '/' | relative_url }}#projects">לכל הפרויקטים {% include icon.html name='arrow' %}</a><a class="text-link" href="{{ '/learn/' | relative_url }}">למדריכי הלמידה</a></div></div>

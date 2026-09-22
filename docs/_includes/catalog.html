@@ -1,0 +1,12 @@
+<div class="catalog" data-catalog{% if page.category %} data-category="{{ page.category }}"{% endif %}>
+  <div class="catalog-controls" hidden>
+    <div class="search-box" role="search"><label class="sr-only" for="project-search">חיפוש פרויקט או משימה</label>{% include icon.html name='search' %}<input type="search" id="project-search" dir="rtl" placeholder="חיפוש לפי שם או משימה" autocomplete="off" enterkeyhint="search" aria-controls="project-results" maxlength="120"><button class="icon-button clear-search" type="button" aria-label="ניקוי החיפוש" hidden>{% include icon.html name='close' %}</button><kbd aria-hidden="true">/</kbd></div>
+    {% unless page.category %}<div class="category-filters" role="group" aria-label="סינון לפי תחום"><button type="button" data-filter="all" aria-pressed="true">הכול <span>{{ site.data.projects.size }}</span></button>{% for category in site.data.categories %}<button type="button" data-filter="{{ category.id }}" aria-pressed="false">{% include icon.html name=category.icon %}{{ category.short_name }}</button>{% endfor %}</div>{% endunless %}
+  </div>
+  <div class="results-header"><p class="results-count" role="status" aria-live="polite" aria-atomic="true">{% if page.category %}{% assign category_projects = site.data.projects | where_exp: 'item', 'item.categories contains page.category' %}{{ category_projects.size }}{% else %}{{ site.data.projects.size }}{% endif %} פרויקטים לגלות</p><a class="category-guide-link text-link" hidden>איך בוחרים? למדריך בתחום {% include icon.html name='arrow' %}</a></div>
+  <div class="project-grid" id="project-results">
+  {% for project in site.data.projects %}{% if page.category == nil or project.categories contains page.category %}{% include project-card.html project=project %}{% endif %}{% endfor %}
+  </div>
+  <div class="empty-state" hidden><span aria-hidden="true">{% include icon.html name='search' %}</span><h3>עוד לא מצאנו התאמה</h3><p>אפשר לנסות מילה אחרת, כמו תמלול, מוזיקה או אנגלית.</p><button type="button" class="button secondary-button reset-filters">ניקוי החיפוש והסינון</button></div>
+  <div class="catalog-more" hidden><button type="button" class="button secondary-button show-more">לכל הפרויקטים <span aria-hidden="true">↓</span></button><span class="shown-count"></span></div>
+</div>

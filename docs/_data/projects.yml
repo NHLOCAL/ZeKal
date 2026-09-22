@@ -1,0 +1,509 @@
+# Public destinations verified against their websites and source repositories
+- id: alef-bot
+  name: "אלף בוט"
+  summary: "תמלול הקלטות עם AI, התאמה לתוכן תורני ועריכת הטקסט מול השמע"
+  url: "https://alef-bot.top/"
+  categories: [ai, learning]
+  kind: "אתר"
+  platform: "בדפדפן"
+  action: "לתמלול הקלטה"
+  icon: waveform
+  logo: "/assets/images/projects/alef-bot.png"
+  logo_source: "https://alef-bot.top/"
+  accent: teal
+  keywords: ["תמלול", "תמליל", "הקלטה", "הקלטות", "שיעורי תורה", "הרצאות", "כתוביות", "אודיו", "וידאו", "AI", "AlefBot", "אלף", "אלפבוט"]
+  featured: true
+  source: "https://alef-bot.top/"
+
+- id: tools
+  name: "ארגז הכלים"
+  summary: "עריכת תוכן וקבצים, יצירה עם AI ותוספים למפתחים"
+  url: "https://tools.ze-kal.top/"
+  categories: [computer, ai]
+  kind: "אוסף כלים"
+  platform: "דפדפן וכלים להורדה"
+  action: "לפתיחת ארגז הכלים"
+  icon: toolbox
+  logo: "/assets/images/projects/tools.png"
+  logo_source: "https://tools.ze-kal.top/"
+  accent: lime
+  keywords: ["כלים", "ארגז", "כלי עזר", "סקריפטים", "תוספים", "סקילים", "HTML", "פודקאסט", "כתוביות", "tools"]
+  featured: true
+  source: "https://github.com/NHLOCAL/tools"
+
+- id: shir-bot
+  name: "שיר בוט"
+  summary: "מוזיקה יהודית וחסידית לפי שיר, אמן או אלבום, וסינגלים חדשים"
+  url: "https://shir-bot.ze-kal.top/"
+  categories: [music]
+  kind: "אתר"
+  platform: "בדפדפן"
+  action: "לחיפוש שיר"
+  icon: music
+  logo: "/assets/images/projects/shir-bot.png"
+  logo_source: "https://shir-bot.ze-kal.top/"
+  accent: coral
+  keywords: ["שירים", "שיר", "מוזיקה", "מוסיקה", "סינגלים", "זמרים", "אמנים", "אלבומים", "חסידי", "יהודי", "הורדה", "שירבוט", "shir bot"]
+  featured: true
+  source: "https://shir-bot.ze-kal.top/"
+
+- id: singles-sorter
+  name: "מסדר הסינגלים"
+  summary: "סידור אוסף המוזיקה בתיקיות לפי אמנים וניקוי שמות הקבצים"
+  url: "https://singles-sorter.ze-kal.top/"
+  categories: [music, computer]
+  kind: "תוכנה"
+  platform: "Windows ואנדרואיד"
+  action: "לפרטים ולהורדה"
+  icon: folders
+  logo: "/assets/images/projects/singles-sorter.png"
+  logo_source: "https://singles-sorter.ze-kal.top/"
+  accent: blue
+  keywords: ["סידור מוזיקה", "סידור מוסיקה", "מיון שירים", "סינגלים", "תיקיות", "אמנים", "זמרים", "MP3", "Windows", "Android", "Singles Sorter"]
+  featured: true
+  source: "https://singles-sorter.ze-kal.top/"
+
+- id: shamor-zachor
+  name: "שמור וזכור"
+  summary: "עוקבים אחרי ההספק בספרי קודש, מסמנים חזרות ורואים את ההתקדמות בלימוד. המידע נשמר במכשיר ואפשר לגבות אותו לקובץ"
+  url: "https://shamor-zachor.ze-kal.top/"
+  categories: [learning]
+  kind: "תוכנה"
+  platform: "Windows ואנדרואיד"
+  action: "לסידור הלימוד"
+  icon: book
+  logo: "/assets/images/projects/shamor-zachor.png"
+  logo_source: "https://github.com/NHLOCAL/Shamor-Zachor/blob/main/src/web/icons/Icon-192.png"
+  accent: sand
+  keywords: ["תורה", "לימוד", "מעקב", "הספק", "חזרות", "מסכת", "גמרא", "ספרים", "שמור", "זכור", "Shamor Zachor"]
+  featured: false
+  source: "https://shamor-zachor.ze-kal.top/"
+
+- id: learn
+  name: "לומדים עם זה קל"
+  summary: "מילון מושגים במחשבים ובטכנולוגיה, לצד אוצר מילים באנגלית, עם תרגום והסברים בעברית לפי נושאים"
+  url: "/learn/"
+  categories: [learning, computer]
+  kind: "מדריכים"
+  platform: "כאן באתר"
+  action: "לבחירת נושא ללימוד"
+  icon: book
+  logo: "/assets/images/brand-mark.svg"
+  logo_source: "https://github.com/NHLOCAL/ZeKal/blob/main/docs/assets/images/brand-mark.svg"
+  accent: blue
+  keywords: ["לימוד", "אנגלית", "מילים", "מילון", "מונחים", "מושגים", "מחשבים", "תכנות", "טכנולוגיה", "עברית", "תרגום", "מתחילים"]
+  featured: false
+  source: "https://github.com/NHLOCAL/ZeKal"
+
+- id: blog
+  name: "הבלוג של NHLOCAL"
+  summary: "מדריכים, ניסויים ומחשבות מתוך העבודה עם בינה מלאכותית, תוכנות ופרויקטים חדשים"
+  url: "https://blog.ze-kal.top/"
+  categories: [ai, computer, learning]
+  kind: "בלוג"
+  platform: "בדפדפן"
+  action: "לקריאה בבלוג"
+  icon: file
+  accent: sand
+  keywords: ["בלוג", "מדריכים", "מאמרים", "בינה מלאכותית", "AI", "Gemini", "GPT", "וייב קודינג", "Vibe Coding", "NHLOCAL"]
+  featured: false
+  source: "https://blog.ze-kal.top/"
+
+- id: watch-zekal
+  name: "לצפות זה קל"
+  summary: "לומדים אנגלית דרך שיעורים, סיפורים וסרטונים קצרים בערוץ היוטיוב זה קל, עם תוכן שנוצר בעזרת בינה מלאכותית"
+  url: "https://www.youtube.com/@Ze-Kal"
+  categories: [learning, ai]
+  kind: "ערוץ וידאו"
+  platform: "YouTube"
+  action: "לצפייה בערוץ"
+  icon: play
+  logo: "/assets/images/projects/watch-zekal.png"
+  logo_source: "https://github.com/NHLOCAL/WatchZekal/blob/main/assets/logos/logo-not-name.png"
+  accent: coral
+  keywords: ["אנגלית", "שפות", "לימוד", "סרטונים", "סיפורים", "יוטיוב", "YouTube", "Shorts", "כתוביות", "WatchZekal"]
+  featured: false
+  source: "https://github.com/NHLOCAL/WatchZekal"
+
+- id: kol-hashiurim
+  name: "קול השיעורים"
+  summary: "ניהול והעברה מסודרת של הקלטות לעמדות קול הלשון בישיבות, עם הרשאות, שמות קבצים והמרת שמע. להפעלה נדרש רישיון"
+  url: "https://github.com/NHLOCAL/KolHaShiurim"
+  categories: [learning, computer]
+  kind: "תוכנה למוסדות"
+  platform: "Windows"
+  action: "לפרטי התוכנה"
+  icon: waveform
+  logo: "/assets/images/projects/kol-hashiurim.png"
+  logo_source: "https://github.com/NHLOCAL/KolHaShiurim/blob/main/src/windows/runner/resources/app_icon.ico"
+  accent: teal
+  keywords: ["קול השיעורים", "קול הלשון", "ישיבה", "מוסדות", "שיעורים", "הקלטות", "עמדה", "ניהול", "הרשאות", "KolHaShiurim"]
+  featured: false
+  source: "https://github.com/NHLOCAL/KolHaShiurim"
+
+- id: net-flow
+  name: "Net Flow"
+  summary: "דפדפן קומפקטי בעברית לאנדרואיד, עם ניווט תחתון, סימניות וחיפוש, שנבנה גם לסביבות גלישה מסוננות כמו נטפרי"
+  url: "https://github.com/NHLOCAL/net_flow"
+  categories: [computer]
+  kind: "אפליקציה"
+  platform: "אנדרואיד"
+  action: "לפרטים ולהורדה"
+  icon: globe
+  logo: "/assets/images/projects/net-flow.png"
+  logo_source: "https://github.com/NHLOCAL/net_flow/blob/main/web/icons/Icon-192.png"
+  accent: blue
+  keywords: ["דפדפן", "נטפרי", "Netfree", "אנדרואיד", "Android", "APK", "גלישה", "סימניות", "Net Flow", "נט פלו"]
+  featured: false
+  source: "https://github.com/NHLOCAL/net_flow"
+  status: "בפיתוח"
+
+- id: subtitle-editor
+  name: "עורך כתוביות"
+  summary: "עורכים טקסט ותזמונים מול קובץ שמע או וידאו, ומייצאים כתוביות או תמלול. מתאים גם לתיקון תמלול שכבר קיים"
+  url: "https://tools.ze-kal.top/tools/subtitle_editor.html"
+  categories: [computer, ai]
+  kind: "כלי דפדפן"
+  platform: "בדפדפן"
+  action: "לעריכת כתוביות"
+  icon: waveform
+  accent: teal
+  keywords: ["כתוביות", "תמלול", "עריכה", "סנכרון", "תזמון", "SRT", "VTT", "JSON", "וידאו", "אודיו", "subtitle"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/subtitle_editor.html"
+
+- id: html-editor
+  name: "עורך HTML חי"
+  summary: "כותבים או מדביקים קוד HTML ורואים את התוצאה בתצוגה מקדימה חיה, כדי לבדוק רעיון או לשפר עמוד"
+  url: "https://tools.ze-kal.top/tools/html_editor.html"
+  categories: [computer, ai]
+  kind: "כלי פיתוח"
+  platform: "בדפדפן"
+  action: "לפתיחת העורך"
+  icon: code
+  accent: blue
+  keywords: ["HTML", "קוד", "פיתוח אתרים", "תצוגה מקדימה", "עורך", "Vibe Coding", "וייב קודינג", "preview"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/html_editor.html"
+
+- id: podcast-generator
+  name: "מחולל פודקאסטים"
+  summary: "יוצרים תסריט ותוכן לפודקאסט בעזרת Gemini, מתוך כלי דפדפן שמרכז את תהליך היצירה"
+  url: "https://tools.ze-kal.top/tools/podcast_generator.html"
+  categories: [ai]
+  kind: "כלי דפדפן"
+  platform: "בדפדפן, עם Gemini"
+  action: "ליצירת פודקאסט"
+  icon: waveform
+  accent: coral
+  keywords: ["פודקאסט", "פודקסט", "הסכת", "תסריט", "תוכן", "Gemini", "גמיני", "AI", "podcast"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/podcast_generator.html"
+
+- id: sixteen-types
+  name: "מבחן 16 הטיפוסים"
+  summary: "שאלון עצמאי בעברית בהשראת MBTI, עם שמירת התקדמות ותיאור מפורט של התוצאה, להיכרות אישית וסקרנות"
+  url: "https://tools.ze-kal.top/tools/the_16_types.html"
+  categories: [learning]
+  kind: "שאלון"
+  platform: "בדפדפן"
+  action: "לפתיחת השאלון"
+  icon: spark
+  accent: coral
+  keywords: ["אישיות", "טיפוסים", "שאלון", "מבחן", "MBTI", "16", "היכרות עצמית", "מופנמות", "מוחצנות"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/the_16_types.html"
+
+- id: enneagram
+  name: "מבחן אישיות אניאגרמה"
+  summary: "בוחנים נטיות ודפוסים אישיים דרך שאלון בעברית המבוסס על תשעת טיפוסי האניאגרמה"
+  url: "https://tools.ze-kal.top/tools/the_enneagram.html"
+  categories: [learning]
+  kind: "שאלון"
+  platform: "בדפדפן"
+  action: "לפתיחת השאלון"
+  icon: spark
+  accent: sand
+  keywords: ["אניאגרמה", "אנגרמה", "אישיות", "טיפוסים", "שאלון", "מבחן", "תשעה", "enneagram"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/the_enneagram.html"
+
+- id: hurban-clock
+  name: "שעון החורבן"
+  summary: "תצוגת זמן המוקדשת לחורבן בית שני ולמניין שנות העולם, עם המחשה של הזמן שחלף ושל ציר הזמן היהודי"
+  url: "https://tools.ze-kal.top/tools/hurban_clock.html"
+  categories: [learning]
+  kind: "כלי דפדפן"
+  platform: "בדפדפן"
+  action: "לצפייה בשעון"
+  icon: book
+  accent: sand
+  keywords: ["חורבן", "בית המקדש", "בית שני", "שעון", "זמן", "שנות העולם", "תשעה באב"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/blob/main/tools/hurban_clock.html"
+
+- id: file-sorter
+  name: "מסדר ההורדות"
+  summary: "ממיינים קבצים מפוזרים בתיקיית ההורדות או בתיקייה אחרת לפי סוג הקובץ, באמצעות סקריפט ל-Windows"
+  url: "https://github.com/NHLOCAL/File-Sorter"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לפרטים ולהורדה"
+  icon: folders
+  accent: blue
+  keywords: ["הורדות", "קבצים", "סידור", "מיון", "תיקיות", "סוגי קבצים", "באט", "Windows", "File Sorter"]
+  featured: false
+  source: "https://github.com/NHLOCAL/File-Sorter"
+  status: "פרויקט ותיק"
+
+- id: pulls-pictures
+  name: "מושך התמונות"
+  summary: "שומרים בתיקייה נוחה את התמונות שכבר נמצאות במחשב ממסך הנעילה, Windows Spotlight ורקעי Bing"
+  url: "https://github.com/NHLOCAL/Pulls-pictures"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לפרטים ולהורדה"
+  icon: file
+  accent: coral
+  keywords: ["תמונות", "רקעים", "מסך נעילה", "שולחן עבודה", "Bing", "Spotlight", "Windows", "wallpaper", "Pulls pictures"]
+  featured: false
+  source: "https://github.com/NHLOCAL/Pulls-pictures"
+
+- id: doubles-finder
+  name: "מוצא הכפולים"
+  summary: "מחפשים קבצי מוזיקה כפולים לפי תוכן הקובץ או דמיון בשמות, כהכנה לסידור האוסף ולפינוי מקום"
+  url: "https://github.com/NHLOCAL/Doubles-Finder"
+  categories: [music, computer]
+  kind: "סקריפטים"
+  platform: "Python או Windows"
+  action: "לקוד ולתיעוד"
+  icon: folders
+  accent: blue
+  keywords: ["כפולים", "כפילויות", "מוזיקה", "מוסיקה", "שירים", "קבצים", "פינוי מקום", "Python", "Doubles Finder"]
+  featured: false
+  source: "https://github.com/NHLOCAL/Doubles-Finder"
+
+- id: backup-assistant
+  name: "מסייע הגיבוי"
+  summary: "סקריפט לגיבוי מראה בין תיקיות. הסנכרון מעתיק קבצים וגם מסיר מהגיבוי קבצים שנמחקו מהמקור"
+  url: "https://github.com/NHLOCAL/backup-assistant"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לפרטי הגיבוי"
+  icon: shield
+  accent: teal
+  keywords: ["גיבוי", "סנכרון", "מראה", "כונן חיצוני", "קבצים", "תיקיות", "backup", "mirror"]
+  featured: false
+  source: "https://github.com/NHLOCAL/backup-assistant"
+  status: "פרויקט ותיק"
+
+- id: ai-timeline
+  name: "AiTimeline"
+  summary: "ציר זמן חזותי של הכרזות ואירועים בבינה מלאכותית גנרטיבית, שמאפשר לעבור בין השנים ולראות איך התחום התפתח"
+  url: "https://nhlocal.github.io/AiTimeline/"
+  categories: [ai, learning]
+  kind: "אתר"
+  platform: "בדפדפן, באנגלית"
+  action: "לחקירת ציר הזמן"
+  icon: spark
+  logo: "/assets/images/projects/ai-timeline.png"
+  logo_source: "https://github.com/NHLOCAL/AiTimeline/blob/main/assets/favicon.png"
+  accent: blue
+  keywords: ["AI", "בינה מלאכותית", "היסטוריה", "ציר זמן", "מודלים", "GPT", "Gemini", "timeline", "אירועים"]
+  featured: false
+  source: "https://nhlocal.github.io/AiTimeline/"
+
+- id: little-galaxy
+  name: "הגלקסיה הקטנה"
+  summary: "הרפתקת דפדפן בהשראת הנסיך הקטן, עם מסע בין כוכבים ושיחות עם דמויות. המשחק מופעל באמצעות המקלדת"
+  url: "https://nhlocal.github.io/TheLittleGalaxy/"
+  categories: [learning, ai]
+  kind: "משחק"
+  platform: "דפדפן במחשב"
+  action: "למסע בגלקסיה"
+  icon: spark
+  logo: "/assets/images/projects/little-galaxy.png"
+  logo_source: "https://github.com/NHLOCAL/TheLittleGalaxy/blob/main/assets/favicon.ico"
+  accent: sand
+  keywords: ["משחק", "גלקסיה", "הנסיך הקטן", "כוכבים", "הרפתקה", "מקלדת", "The Little Galaxy"]
+  featured: false
+  source: "https://github.com/NHLOCAL/TheLittleGalaxy"
+
+- id: digital-genizah
+  name: "הגניזה הדיגיטלית"
+  summary: "כלים לעיבוד טקסטים בעברית ובתוכן תורני למאגרי נתונים מובנים, עבור פיתוח ומחקר בבינה מלאכותית"
+  url: "https://github.com/NHLOCAL/The-Digital-Genizah"
+  categories: [ai, learning]
+  kind: "כלי פיתוח"
+  platform: "קוד ומאגרי נתונים"
+  action: "לקוד ולמאגרי הנתונים"
+  icon: book
+  accent: sand
+  keywords: ["גניזה", "תורה", "עברית", "נתונים", "טקסטים", "datasets", "Hugging Face", "LLM", "AI", "אוצר התורה"]
+  featured: false
+  source: "https://github.com/NHLOCAL/The-Digital-Genizah"
+
+- id: singner
+  name: "SingNER"
+  summary: "מודלים ומאגר נתונים לזיהוי שמות זמרים וישויות מוזיקליות בטקסט עברי, שפותחו עבור מסדר הסינגלים"
+  url: "https://github.com/NHLOCAL/SingNER"
+  categories: [ai, music]
+  kind: "כלי פיתוח"
+  platform: "מודלים ומאגר נתונים"
+  action: "למודלים ולתיעוד"
+  icon: code
+  accent: blue
+  keywords: ["זיהוי זמרים", "שמות", "מוזיקה", "עברית", "NER", "NLP", "AI", "dataset", "SingNER"]
+  featured: false
+  source: "https://github.com/NHLOCAL/SingNER"
+
+- id: jibrish-to-hebrew
+  name: "ג'יבריש לעברית"
+  summary: "פונקציה לתיקון טקסט עברי שהשתבש בגלל קידוד, שימושית למשל בעבודה עם שמות ותגיות של קובצי מוזיקה ישנים"
+  url: "https://github.com/NHLOCAL/jibrish-to-hebrew"
+  categories: [computer, music]
+  kind: "כלי פיתוח"
+  platform: "Python"
+  action: "לקוד ולתיעוד"
+  icon: code
+  accent: blue
+  keywords: ["גיבריש", "ג'יבריש", "עברית", "קידוד", "טקסט משובש", "MP3", "תגיות", "Python", "encoding"]
+  featured: false
+  source: "https://github.com/NHLOCAL/jibrish-to-hebrew"
+
+- id: is-this-bible
+  name: "Is This Bible?"
+  summary: "מודל שמנסה לזהות אם טקסט עברי הוא פסוק מהתנ\"ך, עם קוד, נתוני אימון ודוגמאות להרצה מקומית"
+  url: "https://github.com/NHLOCAL/is-this-bible"
+  categories: [ai, learning]
+  kind: "מודל AI"
+  platform: "Python"
+  action: "לקוד ולדוגמאות"
+  icon: code
+  accent: sand
+  keywords: ["תנך", "תנ\"ך", "פסוק", "פסוקים", "זיהוי", "עברית", "סיווג", "AI", "Python", "bible"]
+  featured: false
+  source: "https://github.com/NHLOCAL/is-this-bible"
+  status: "פרויקט ותיק"
+
+- id: music-automatic
+  name: "Music Automatic"
+  summary: "פרויקט לאוטומציה של סידור תיקיות מוזיקה, למי שרוצה לעיין בקוד ולהתנסות בתהליכי ארגון נוספים"
+  url: "https://github.com/NHLOCAL/Music-Automatic"
+  categories: [music, computer]
+  kind: "כלי פיתוח"
+  platform: "קוד מקור"
+  action: "לקוד ולתיעוד"
+  icon: folders
+  logo: "/assets/images/projects/music-automatic.png"
+  logo_source: "https://github.com/NHLOCAL/Music-Automatic/blob/main/album_deduplicator/frontend/public/app-icon.png"
+  accent: coral
+  keywords: ["מוזיקה", "מוסיקה", "אוטומציה", "סידור", "תיקיות", "מיון", "Music Automatic"]
+  featured: false
+  source: "https://github.com/NHLOCAL/Music-Automatic"
+  status: "בפיתוח"
+
+- id: nodebb-exporter
+  name: "מייצא שרשורים"
+  summary: "מייצאים שרשור שלם מפורום מבוסס NodeBB לקובץ JSON או ללוח, כדי לשמור אותו או להעביר את התוכן לכלי AI"
+  url: "https://github.com/NHLOCAL/tools/tree/main/extensions/nodebb-thread-exporter/"
+  categories: [computer, ai]
+  kind: "תוסף דפדפן"
+  platform: "Chrome"
+  action: "לפרטי התוסף"
+  icon: file
+  logo: "/assets/images/projects/nodebb-exporter.png"
+  logo_source: "https://github.com/NHLOCAL/tools/blob/main/extensions/nodebb-thread-exporter/icon64.png"
+  accent: teal
+  keywords: ["פורום", "שרשור", "ייצוא", "העתקה", "JSON", "NodeBB", "Chrome", "כרום", "תוסף", "מתמחים טופ"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools/tree/main/extensions/nodebb-thread-exporter/"
+
+- id: yemot-telephony
+  name: "ימות המשיח - מערכות טלפוניות"
+  summary: "סקיל למערכות AI המסייע בפיתוח מערכות טלפוניות של ימות המשיח, עם תיעוד, חיפוש מקומי והנחיות לחיבורי API ו-SIP"
+  url: "https://github.com/NHLOCAL/tools/tree/main/skills/yemot-telephony/"
+  categories: [computer, ai]
+  kind: "סקיל למפתחים"
+  platform: "כלי AI לפיתוח"
+  action: "לסקיל ולתיעוד"
+  icon: terminal
+  accent: lime
+  keywords: ["ימות המשיח", "טלפון", "טלפוניה", "מרכזיה", "IVR", "API", "SIP", "סקיל", "skill", "yemot"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools"
+
+- id: link-upgrader
+  name: "משדרג הקישורים"
+  summary: "ממירים קישורי Google Drive לפורמט של הורדה ישירה או צפייה, בלי לשנות את הרשאות הקובץ המקורי"
+  url: "https://github.com/NHLOCAL/tools/blob/main/scripts/משדרג-הקישורים-1.0.bat"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לסקריפט ולהורדה"
+  icon: globe
+  accent: blue
+  keywords: ["קישורים", "קישור", "דרייב", "Google Drive", "הורדה ישירה", "שיתוף", "צפייה"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools"
+
+- id: player-system-files
+  name: "מעלים קבצי מערכת בנגן"
+  summary: "מסתירים קבצי מערכת בכונן של נגן מוזיקה, כדי לצמצם הופעה של קבצים לא רצויים ברשימות הנגן"
+  url: "https://github.com/NHLOCAL/tools/blob/main/scripts/מעלים-קבצי-מערכת-בנגן-2.0.bat"
+  categories: [computer, music]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לסקריפט ולהורדה"
+  icon: music
+  accent: coral
+  keywords: ["נגן", "נגנים", "מוזיקה", "קבצי מערכת", "הסתרה", "USB", "כרטיס זיכרון"]
+  featured: false
+  source: "https://github.com/NHLOCAL/tools"
+
+- id: batch-designer
+  name: "מעצב האצווה"
+  summary: "כלי עזר לכתיבת קובצי אצווה בעברית, עם היפוך טקסט ומרכוזו בחלון שורת הפקודה"
+  url: "https://github.com/NHLOCAL/batch-designer"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Windows"
+  action: "לקוד ולתיעוד"
+  icon: terminal
+  accent: lime
+  keywords: ["אצווה", "באט", "BAT", "batch", "CMD", "עברית", "היפוך טקסט", "שורת פקודה"]
+  featured: false
+  source: "https://github.com/NHLOCAL/batch-designer"
+  status: "פרויקט בארכיון"
+
+- id: check-if-exists
+  name: "בודק קיום קבצים"
+  summary: "בודקים אם קבצים מתוך רשימה כבר קיימים בתיקיית יעד, ככלי עזר לפני העתקה או ארגון של אוסף קבצים"
+  url: "https://github.com/NHLOCAL/check-if-exists"
+  categories: [computer]
+  kind: "סקריפט"
+  platform: "Python"
+  action: "לקוד ולתיעוד"
+  icon: file
+  accent: blue
+  keywords: ["קבצים", "בדיקה", "קיים", "קיום", "העתקה", "כפילויות", "Python", "check if exists"]
+  featured: false
+  source: "https://github.com/NHLOCAL/check-if-exists"
+  status: "פרויקט בארכיון"
+
+- id: community
+  name: "הפרויקטים במתמחים טופ"
+  summary: "אינדקס הפרסומים בפורום, עם דיונים, מדריכים וסקריפטים נוספים שפורסמו לאורך הדרך, ומקום למשוב ולשאלות"
+  url: "https://mitmachim.top/post/547285"
+  categories: [computer, ai, learning]
+  kind: "קהילה"
+  platform: "פורום מתמחים טופ"
+  action: "לפרויקטים ולדיונים"
+  icon: globe
+  accent: sand
+  keywords: ["קהילה", "פורום", "מתמחים", "דיונים", "משוב", "שאלות", "מדריכים", "סקריפטים", "NH.LOCAL"]
+  featured: false
+  source: "https://nhlocal.github.io/"
