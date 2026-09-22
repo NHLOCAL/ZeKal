@@ -3,6 +3,7 @@ layout: default
 title: "מחשבים"
 description: "מכירים את עולם המחשבים עם זה קל! מילון מושגים מחומרה ותוכנה ועד קבצים ומערכות, עם מונחים באנגלית, תרגום והסברים בעברית לפי רמות"
 permalink: /topics/computers.html
+icon: monitor
 ---
 
 # מחשבים

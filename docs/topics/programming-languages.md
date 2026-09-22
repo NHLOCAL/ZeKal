@@ -3,6 +3,7 @@ layout: default
 title: "תכנות"
 description: "מבינים מושגי תכנות עם זה קל! משתנים, פונקציות, לולאות, אלגוריתמים ותכנות מונחה עצמים, עם השם באנגלית, תרגום והסבר בעברית"
 permalink: /topics/programming-languages.html
+icon: code
 ---
 
 # תכנות
