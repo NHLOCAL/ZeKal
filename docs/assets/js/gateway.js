@@ -33,6 +33,7 @@
       const open = navigation.classList.toggle('is-open');
       menuButton.setAttribute('aria-expanded', String(open));
       menuButton.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+      if (open) navigation.querySelector('a')?.focus({ preventScroll: true });
     });
     navigation.addEventListener('click', event => {
       if (event.target.closest('a')) closeMenu();

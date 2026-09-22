@@ -26,7 +26,7 @@
     ['מוסיקה', 'מוזיקה'], ['לתמלל', 'תמלול'], ['לתמלול', 'תמלול'],
     ['ללמוד', 'לימוד'], ['להוריד', 'הורדה'], ['לגבות', 'גיבוי'],
     ['לסדר', 'סידור'], ['מבולגנת', 'סידור'], ['המוזיקה', 'מוזיקה'],
-    ['אלפבוט', 'אלף']
+    ['אלפבוט', 'אלף'], ['לחפש', 'חיפוש'], ['לתכנת', 'תכנות']
   ]);
   const tokensFor = value => normalize(value).split(' ').filter(Boolean)
     .map(token => synonyms.get(token) || token);
@@ -46,7 +46,10 @@
     search.value = (parameters.get('q') || '').slice(0, 120);
     const requested = parameters.get('category') || 'all';
     category = fixedCategory || (allowedCategories.has(requested) ? requested : 'all');
-    visibleLimit = pageSize;
+    const saved = window.history.state?.zeKalCatalog;
+    visibleLimit = saved?.path === window.location.pathname && saved?.q === search.value.trim() &&
+      saved?.category === category && Number.isInteger(saved?.limit)
+      ? Math.max(pageSize, Math.min(saved.limit, projects.length)) : pageSize;
   }
 
   function writeLocation(push = false) {
@@ -56,10 +59,13 @@
     if (!fixedCategory && category !== 'all') url.searchParams.set('category', category);
     else url.searchParams.delete('category');
     url.hash = 'projects';
-    if (url.href !== window.location.href) {
-      // Filtering still works if history changes are disabled by the host.
-      try { window.history[push ? 'pushState' : 'replaceState']({}, '', url); } catch (_) { /* Optional shareable state. */ }
-    }
+    const state = { ...window.history.state, zeKalCatalog: {
+      path: window.location.pathname, q: query, category, limit: visibleLimit
+    } };
+    // Filtering still works if history changes are disabled by the host.
+    try {
+      window.history[push && url.href !== window.location.href ? 'pushState' : 'replaceState'](state, '', url);
+    } catch (_) { /* Optional shareable state. */ }
   }
 
   function render() {
@@ -119,6 +125,7 @@
     const next = projects.find(project => project.element.hidden);
     visibleLimit = projects.length;
     render();
+    writeLocation();
     next?.element.querySelector('a')?.focus({ preventScroll: true });
   });
   catalog.querySelector('.reset-filters').addEventListener('click', () => {
