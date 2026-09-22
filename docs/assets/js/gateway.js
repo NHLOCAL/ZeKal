@@ -47,6 +47,8 @@
         menuButton.focus();
       }
     });
+    // Collapse the mobile links only after the control is fully initialized.
+    document.documentElement.classList.add('nav-ready');
   }
 
   // Preserve horizontal table scrolling and English pronunciation on learning pages.

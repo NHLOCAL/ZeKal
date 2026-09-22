@@ -52,13 +52,13 @@
       ? Math.max(pageSize, Math.min(saved.limit, projects.length)) : pageSize;
   }
 
-  function writeLocation(push = false) {
+  function writeLocation(push = false, fragment = 'projects') {
     const url = new URL(window.location.href);
     const query = search.value.trim();
     query ? url.searchParams.set('q', query) : url.searchParams.delete('q');
     if (!fixedCategory && category !== 'all') url.searchParams.set('category', category);
     else url.searchParams.delete('category');
-    url.hash = 'projects';
+    url.hash = fragment;
     const state = { ...window.history.state, zeKalCatalog: {
       path: window.location.pathname, q: query, category, limit: visibleLimit
     } };
@@ -90,6 +90,21 @@
     if (!guide.hidden) guide.href = categories.get(category);
   }
 
+  function revealLinkedProject() {
+    const index = projects.findIndex(project => '#' + project.element.id === window.location.hash);
+    if (index < 0) return false;
+    const project = projects[index];
+    window.clearTimeout(timer);
+    // A direct card link must remain reachable, including when its saved filters conflict.
+    if (!tokensFor(search.value).every(token => project.search.includes(token))) search.value = '';
+    if (category !== 'all' && !project.categories.includes(category)) category = fixedCategory || 'all';
+    visibleLimit = Math.max(visibleLimit, index + 1);
+    render();
+    writeLocation(false, project.element.id);
+    project.element.scrollIntoView({ block: 'start', behavior: 'instant' });
+    return true;
+  }
+
   function searchChanged() {
     visibleLimit = pageSize;
     render();
@@ -99,6 +114,7 @@
   search.addEventListener('input', searchChanged);
   search.addEventListener('search', searchChanged);
   search.addEventListener('keydown', event => {
+    if (event.isComposing) return;
     if (event.key === 'Escape') {
       search.value = '';
       searchChanged();
@@ -141,7 +157,9 @@
     window.clearTimeout(timer);
     readLocation();
     render();
+    revealLinkedProject();
   });
+  window.addEventListener('hashchange', revealLinkedProject);
   document.addEventListener('keydown', event => {
     if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey ||
         event.target.closest('input,textarea,select,[contenteditable]')) return;
@@ -153,7 +171,7 @@
   readLocation();
   render();
   controls.hidden = false;
-  if (window.location.search && (search.value || category !== 'all') && window.location.hash === '#projects') {
+  if (!revealLinkedProject() && window.location.search && (search.value || category !== 'all') && window.location.hash === '#projects') {
     catalog.scrollIntoView({ block: 'start', behavior: 'instant' });
   }
 })();

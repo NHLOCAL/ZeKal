@@ -1584,13 +1584,13 @@ input:focus-visible,textarea:focus-visible {
     gap:0;
     padding:5px 0
   }
-  .js .menu-toggle {
+  .nav-ready .menu-toggle {
     display:inline-flex
   }
-  .js .main-nav:not(.is-open) {
+  .nav-ready .main-nav:not(.is-open) {
     display:none
   }
-  .js .main-nav.is-open {
+  .nav-ready .main-nav.is-open {
     display:flex
   }
   .hero {
