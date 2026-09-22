@@ -8,35 +8,30 @@ description: "זה קל! שער הפרויקטים של NH Local: אלף בוט,
 ---
 <section class="hero container" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow"><span class="small-spark" aria-hidden="true">✳</span> עולם של כלים, מבית NH LOCAL</p>
     <h1 id="hero-title">לעשות יותר.<br><span>זה קל!</span></h1>
-    <p class="hero-description">האתרים, התוכנות והכלים של זה קל!<br>ליצור, ללמוד, לעשות סדר ופשוט להתקדם.</p>
-    <div class="hero-actions"><a class="button primary-button" href="#projects">מוצאים את הכלי שלי {% include icon.html name='arrow' %}</a><a class="text-link" href="#featured">אפשר להתחיל כאן ↓</a></div>
-    <p class="hero-caption"><span aria-hidden="true">✦</span> נוצר מתוך צורך. נבנה בשביל כולם.</p>
+    <p class="hero-description">כלים לתמלול, מוזיקה, סדר במחשב ולמידה.</p>
+    <div class="hero-actions"><a class="button primary-button" href="#projects">מוצאים את הכלי שלי {% include icon.html name='arrow' %}</a></div>
   </div>
   <div class="project-map" aria-label="ארבע נקודות התחלה">
-    <span class="map-label" dir="ltr">ZE KAL! / NH LOCAL</span>
     <svg class="map-lines" viewBox="0 0 480 370" fill="none" aria-hidden="true"><path d="M240 185C160 185 180 75 90 75M240 185C320 185 310 80 385 80M240 185C160 185 160 290 85 290M240 185C330 185 300 295 390 295" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 5"/><circle cx="240" cy="185" r="106" stroke="currentColor" stroke-opacity=".2"/></svg>
-    <div class="map-center" aria-hidden="true"><span>זה קל<span>!</span></span><small>מה תרצו לעשות?</small></div>
+    <div class="map-center" aria-hidden="true"><span>זה קל<span>!</span></span></div>
     {% assign featured = site.data.projects | where: "featured", true %}
     {% for project in featured %}
     <a class="map-node map-node-{{ forloop.index }} accent-{{ project.accent }}" href="{{ project.url }}">
       <img src="{{ '/assets/images/projects/' | append: project.id | append: '.png' | relative_url }}" width="48" height="48" alt="">
-      <span>{{ project.name }}</span><small>{% case project.id %}{% when 'alef-bot' %}לתמלל וליצור{% when 'tools' %}לפתור בקלות{% when 'shir-bot' %}לגלות מוזיקה{% else %}לעשות סדר{% endcase %}</small>
+      <span>{{ project.name }}</span>
     </a>
     {% endfor %}
-    <span class="map-note">רעיון קטן, הרבה אפשרויות <span aria-hidden="true">↗</span></span>
     <span class="map-plus" aria-hidden="true">+</span>
   </div>
 </section>
 
 <section class="intent-strip container" aria-label="בחירת תחום">
-  <span class="intent-intro">מה מתחשק לכם לעשות?</span>
   {% for category in site.data.categories %}<a href="{{ category.url | relative_url }}">{% include icon.html name=category.icon %}<span>{{ category.intent }}</span><span class="intent-arrow" aria-hidden="true">↖</span></a>{% endfor %}
 </section>
 
 <section class="featured-section container section-space" id="featured" aria-labelledby="featured-title">
-  <div class="section-heading"><div><p class="eyebrow">ארבע נקודות התחלה</p><h2 id="featured-title">מקום טוב להתחיל</h2></div><a class="text-link" href="#projects">לכל הפרויקטים {% include icon.html name='arrow' %}</a></div>
+  <div class="section-heading"><div><h2 id="featured-title">מקום טוב להתחיל</h2></div><a class="text-link" href="#projects">לכל הפרויקטים {% include icon.html name='arrow' %}</a></div>
   <div class="featured-grid">
     {% for project in featured %}{% include featured-card.html project=project %}{% endfor %}
   </div>
@@ -44,26 +39,25 @@ description: "זה קל! שער הפרויקטים של NH Local: אלף בוט,
 
 <section class="directory-section section-space" id="projects" aria-labelledby="projects-title">
   <div class="container">
-    <div class="section-heading"><div><p class="eyebrow">כל הרעיונות, מסודרים בשבילכם</p><h2 id="projects-title">מה אתם מחפשים?</h2></div><p class="section-aside">אתרים, תוכנות וכלים.<br>כל אחד נוצר כדי לעשות משהו טוב.</p></div>
+    <div class="section-heading"><div><h2 id="projects-title">מה אתם מחפשים?</h2></div></div>
     {% include catalog.html %}
   </div>
 </section>
 
 <section class="learning-teaser container section-space" id="topics" aria-labelledby="learning-title">
   <div class="learning-symbol" aria-hidden="true">{% include icon.html name='book' %}<span>Aa / א</span></div>
-  <div><p class="eyebrow">לסקרנות תמיד יש מקום</p><h2 id="learning-title">משהו חדש ללמוד, בקלי קלות</h2><p>המדריכים של זה קל! עדיין כאן. אנגלית שימושית ומושגים טכנולוגיים, עם הסברים בעברית ובקצב שלכם.</p></div>
+  <div><h2 id="learning-title">משהו חדש ללמוד, בקלי קלות</h2><p>אנגלית ומושגים טכנולוגיים, עם הסברים בעברית.</p></div>
   <div class="learning-actions"><a id="common-words" href="{{ '/learn/' | relative_url }}#common-words">להרחיב את האנגלית {% include icon.html name='arrow' %}</a><a id="programming-and-computers" href="{{ '/learn/' | relative_url }}#programming-and-computers">להבין את הטכנולוגיה {% include icon.html name='arrow' %}</a><a href="{{ '/youtube-channel.html' | relative_url }}">ללמוד דרך סרטונים {% include icon.html name='arrow' %}</a></div>
 </section>
 
 <section class="about-section container section-space" id="about" aria-labelledby="about-title">
-  <div class="about-heading"><p class="eyebrow" dir="ltr">A LITTLE ABOUT NH LOCAL</p><h2 id="about-title">יוצר. בונה.<br><span>משתף.</span></h2><span class="about-spark" aria-hidden="true">✳</span></div>
-  <div class="about-copy"><p class="about-lead">מאחורי כל פרויקט יש משהו שרציתי לעשות קצת יותר פשוט.</p><p>לפעמים זה אוסף מוזיקה שצריך סדר, לפעמים הקלטה שצריכה להפוך לטקסט, ולפעמים סתם רעיון שלא נותן מנוחה. זה קל! הוא המקום שמחבר את כל הדברים שאני בונה, כדי שגם אתם תוכלו למצוא בהם משהו שימושי.</p><div class="about-links"><a class="text-link" href="https://blog.ze-kal.top/">מחשבות ותהליכים בבלוג {% include icon.html name='arrow' %}</a><a class="text-link" href="https://github.com/NHLOCAL">הקוד מאחורי הרעיונות {% include icon.html name='code' %}</a></div></div>
+  <div class="about-heading"><h2 id="about-title">יוצר. בונה.<br><span>משתף.</span></h2><span class="about-spark" aria-hidden="true">✳</span></div>
+  <div class="about-copy"><p class="about-lead">זה קל! הוא הבית של כל הפרויקטים שלי, NH LOCAL.</p><p>אני בונה כלים מתוך צרכים שעולים ביום יום, ומשתף אותם כדי שגם אחרים יוכלו להיעזר בהם.</p><div class="about-links"><a class="text-link" href="https://blog.ze-kal.top/">מחשבות ותהליכים בבלוג {% include icon.html name='arrow' %}</a><a class="text-link" href="https://github.com/NHLOCAL">הקוד מאחורי הרעיונות {% include icon.html name='code' %}</a></div></div>
 </section>
 
 <section class="contact-section container" id="feedback">
   <details class="contact-details"><summary><span>יש לכם רעיון, שאלה או משוב?</span><span class="contact-summary-link">בואו נדבר <span aria-hidden="true">+</span></span></summary>
     <form class="contact-form" action="https://formspree.io/f/mrbggkge" method="POST">
-      <p>אשמח לשמוע מה עזר לכם ומה אפשר לעשות פשוט יותר.</p>
       <div class="contact-fields"><div><label for="name">שם</label><input id="name" name="name" autocomplete="name" required></div><div><label for="email">כתובת אימייל</label><input id="email" name="_replyto" type="email" dir="ltr" autocomplete="email" required></div></div>
       <label for="message">ההודעה שלכם</label><textarea id="message" name="message" rows="4" required></textarea>
       <input type="hidden" name="_subject" value="משוב חדש מאתר זה קל!">
