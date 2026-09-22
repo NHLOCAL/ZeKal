@@ -1,11 +1,12 @@
 title: "זה קל!"
+tagline: "כל הפרויקטים והכלים מבית NH LOCAL"
 description: "כל הפרויקטים של NH Local במקום אחד: כלי AI ותמלול, מוזיקה, תוכנות למחשב ומדריכים בעברית. מוצאים את הכלי המתאים ומתחילים בקלות"
 baseurl: ""
 url: "https://ze-kal.top"
 language: "he"
 lang: "he_IL"
 logo: "/assets/images/brand-mark.svg"
-author: "NH Local"
+author: "NH LOCAL"
 theme: null
 plugins:
   - jekyll-feed
@@ -24,7 +25,7 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-permalink: /:categories/:title.html
+permalink: /:categories/:title:output_ext
 social:
   name: "זה קל!"
   links:
@@ -35,7 +36,11 @@ defaults:
   - scope:
       path: ""
     values:
-      image: /assets/images/social-card.png
+      image:
+        path: /assets/images/social-card.png
+        width: 1200
+        height: 630
+        alt: "זה קל! מבית NH LOCAL, כל הפרויקטים בבית אחד"
   - scope:
       path: "topics"
     values:

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "בינה מלאכותית"
+description: "מילון בינה מלאכותית באתר זה קל! למידת מכונה, רשתות נוירונים, מודלי שפה ועוד, עם מונחים באנגלית, תרגום והסברים בעברית לפי רמות"
+permalink: /topics/artificial-intelligence.html
 ---
 
 

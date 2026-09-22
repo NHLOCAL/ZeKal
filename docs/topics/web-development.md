@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "פיתוח אתרים"
+description: "מילון פיתוח אתרים באתר זה קל! HTML, CSS, JavaScript, דפדפנים, עיצוב ונגישות, עם מונחים באנגלית, תרגום והסברים בעברית"
+permalink: /topics/web-development.html
 ---
 
 # פיתוח אתרים

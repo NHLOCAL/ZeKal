@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "אבטחת מידע"
+description: "מילון אבטחת מידע באתר זה קל! הצפנה, הרשאות, אימות, נוזקות והגנה על מידע, עם תרגום מונחים מאנגלית והסברים קצרים בעברית"
+permalink: /topics/cybersecurity.html
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "מחשוב ענן"
+description: "מושגי מחשוב ענן באתר זה קל! שירותי ענן, מכונות וירטואליות, אחסון, גיבוי ואבטחה, עם השם באנגלית, תרגום והסבר קצר בעברית"
+permalink: /topics/cloud-computing.html
 ---
 
 
