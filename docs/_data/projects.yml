@@ -8,6 +8,8 @@
   platform: "בדפדפן"
   action: "לתמלול הקלטה"
   icon: waveform
+  logo: "/assets/images/projects/alef-bot.png"
+  logo_source: "https://alef-bot.top/"
   accent: teal
   keywords: ["תמלול", "תמליל", "הקלטה", "הקלטות", "שיעורי תורה", "הרצאות", "כתוביות", "אודיו", "וידאו", "AI", "AlefBot", "אלף", "אלפבוט"]
   featured: true
@@ -22,6 +24,8 @@
   platform: "דפדפן וכלים להורדה"
   action: "לפתיחת ארגז הכלים"
   icon: toolbox
+  logo: "/assets/images/projects/tools.png"
+  logo_source: "https://tools.ze-kal.top/"
   accent: lime
   keywords: ["כלים", "ארגז", "כלי עזר", "סקריפטים", "תוספים", "סקילים", "HTML", "פודקאסט", "כתוביות", "tools"]
   featured: true
@@ -36,6 +40,8 @@
   platform: "בדפדפן"
   action: "לחיפוש שיר"
   icon: music
+  logo: "/assets/images/projects/shir-bot.png"
+  logo_source: "https://shir-bot.ze-kal.top/"
   accent: coral
   keywords: ["שירים", "שיר", "מוזיקה", "מוסיקה", "סינגלים", "זמרים", "אמנים", "אלבומים", "חסידי", "יהודי", "הורדה", "שירבוט", "shir bot"]
   featured: true
@@ -50,6 +56,8 @@
   platform: "Windows ואנדרואיד"
   action: "לפרטים ולהורדה"
   icon: folders
+  logo: "/assets/images/projects/singles-sorter.png"
+  logo_source: "https://singles-sorter.ze-kal.top/"
   accent: blue
   keywords: ["סידור מוזיקה", "סידור מוסיקה", "מיון שירים", "סינגלים", "תיקיות", "אמנים", "זמרים", "MP3", "Windows", "Android", "Singles Sorter"]
   featured: true
@@ -64,6 +72,8 @@
   platform: "Windows ואנדרואיד"
   action: "לסידור הלימוד"
   icon: book
+  logo: "/assets/images/projects/shamor-zachor.png"
+  logo_source: "https://github.com/NHLOCAL/Shamor-Zachor/blob/main/src/web/icons/Icon-192.png"
   accent: sand
   keywords: ["תורה", "לימוד", "מעקב", "הספק", "חזרות", "מסכת", "גמרא", "ספרים", "שמור", "זכור", "Shamor Zachor"]
   featured: false
@@ -78,6 +88,8 @@
   platform: "כאן באתר"
   action: "לבחירת נושא ללימוד"
   icon: book
+  logo: "/assets/images/brand-mark.svg"
+  logo_source: "https://github.com/NHLOCAL/ZeKal/blob/main/docs/assets/images/brand-mark.svg"
   accent: blue
   keywords: ["לימוד", "אנגלית", "מילים", "מילון", "מונחים", "מושגים", "מחשבים", "תכנות", "טכנולוגיה", "עברית", "תרגום", "מתחילים"]
   featured: false
@@ -106,6 +118,8 @@
   platform: "YouTube"
   action: "לצפייה בערוץ"
   icon: play
+  logo: "/assets/images/projects/watch-zekal.png"
+  logo_source: "https://github.com/NHLOCAL/WatchZekal/blob/main/assets/logos/logo-not-name.png"
   accent: coral
   keywords: ["אנגלית", "שפות", "לימוד", "סרטונים", "סיפורים", "יוטיוב", "YouTube", "Shorts", "כתוביות", "WatchZekal"]
   featured: false
@@ -120,6 +134,8 @@
   platform: "Windows"
   action: "לפרטי התוכנה"
   icon: waveform
+  logo: "/assets/images/projects/kol-hashiurim.png"
+  logo_source: "https://github.com/NHLOCAL/KolHaShiurim/blob/main/src/windows/runner/resources/app_icon.ico"
   accent: teal
   keywords: ["קול השיעורים", "קול הלשון", "ישיבה", "מוסדות", "שיעורים", "הקלטות", "עמדה", "ניהול", "הרשאות", "KolHaShiurim"]
   featured: false
@@ -134,6 +150,8 @@
   platform: "אנדרואיד"
   action: "לפרטים ולהורדה"
   icon: globe
+  logo: "/assets/images/projects/net-flow.png"
+  logo_source: "https://github.com/NHLOCAL/net_flow/blob/main/web/icons/Icon-192.png"
   accent: blue
   keywords: ["דפדפן", "נטפרי", "Netfree", "אנדרואיד", "Android", "APK", "גלישה", "סימניות", "Net Flow", "נט פלו"]
   featured: false
@@ -291,6 +309,8 @@
   platform: "בדפדפן, באנגלית"
   action: "לחקירת ציר הזמן"
   icon: spark
+  logo: "/assets/images/projects/ai-timeline.png"
+  logo_source: "https://github.com/NHLOCAL/AiTimeline/blob/main/assets/favicon.png"
   accent: blue
   keywords: ["AI", "בינה מלאכותית", "היסטוריה", "ציר זמן", "מודלים", "GPT", "Gemini", "timeline", "אירועים"]
   featured: false
@@ -305,6 +325,8 @@
   platform: "דפדפן במחשב"
   action: "למסע בגלקסיה"
   icon: spark
+  logo: "/assets/images/projects/little-galaxy.png"
+  logo_source: "https://github.com/NHLOCAL/TheLittleGalaxy/blob/main/assets/favicon.ico"
   accent: sand
   keywords: ["משחק", "גלקסיה", "הנסיך הקטן", "כוכבים", "הרפתקה", "מקלדת", "The Little Galaxy"]
   featured: false
@@ -376,6 +398,8 @@
   platform: "קוד מקור"
   action: "לקוד ולתיעוד"
   icon: folders
+  logo: "/assets/images/projects/music-automatic.png"
+  logo_source: "https://github.com/NHLOCAL/Music-Automatic/blob/main/album_deduplicator/frontend/public/app-icon.png"
   accent: coral
   keywords: ["מוזיקה", "מוסיקה", "אוטומציה", "סידור", "תיקיות", "מיון", "Music Automatic"]
   featured: false
@@ -391,6 +415,8 @@
   platform: "Chrome"
   action: "לפרטי התוסף"
   icon: file
+  logo: "/assets/images/projects/nodebb-exporter.png"
+  logo_source: "https://github.com/NHLOCAL/tools/blob/main/extensions/nodebb-thread-exporter/icon64.png"
   accent: teal
   keywords: ["פורום", "שרשור", "ייצוא", "העתקה", "JSON", "NodeBB", "Chrome", "כרום", "תוסף", "מתמחים טופ"]
   featured: false
