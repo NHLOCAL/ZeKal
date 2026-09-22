@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="container footer-top">
-    <div><a class="brand footer-brand" href="{{ '/' | relative_url }}"><span class="brand-mark" aria-hidden="true">{% include icon.html name='spark' %}</span><span class="brand-name">זה קל!</span></a></div>
+    <div><a class="brand footer-brand" href="{{ '/' | relative_url }}"><span class="brand-mark" aria-hidden="true"><img src="{{ '/assets/images/brand-mark.svg' | relative_url }}" width="38" height="38" alt=""></span><span class="brand-name">זה קל!</span></a></div>
     <nav aria-label="תחומי הפרויקטים"><strong>מה תרצו לעשות?</strong>{% for category in site.data.categories %}<a href="{{ category.url | relative_url }}">{{ category.name }}</a>{% endfor %}</nav>
     <nav aria-label="עוד מבית NH Local"><strong>נעים להכיר</strong><a href="https://blog.ze-kal.top/">הבלוג של NH Local</a><a href="https://github.com/NHLOCAL">קוד ופרויקטים ב-GitHub</a><a href="https://mitmachim.top/post/547285">הפרויקטים במתמחים טופ</a><a href="{{ '/' | relative_url }}#feedback">יצירת קשר</a></nav>
   </div>

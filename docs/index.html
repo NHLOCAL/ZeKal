@@ -14,7 +14,7 @@ description: "זה קל! שער הפרויקטים של NH Local: אלף בוט,
   </div>
   <div class="project-map" aria-label="ארבע נקודות התחלה">
     <svg class="map-lines" viewBox="0 0 480 370" fill="none" aria-hidden="true"><path d="M240 185C160 185 180 75 90 75M240 185C320 185 310 80 385 80M240 185C160 185 160 290 85 290M240 185C330 185 300 295 390 295" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 5"/><circle cx="240" cy="185" r="106" stroke="currentColor" stroke-opacity=".2"/></svg>
-    <div class="map-center" aria-hidden="true"><span>זה קל<span>!</span></span></div>
+    <div class="map-center" aria-hidden="true"><img src="{{ '/assets/images/brand-mark.svg' | relative_url }}" width="128" height="128" alt=""></div>
     {% assign featured = site.data.projects | where: "featured", true %}
     {% for project in featured %}
     <a class="map-node map-node-{{ forloop.index }} accent-{{ project.accent }}" href="{{ project.url }}">

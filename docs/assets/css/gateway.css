@@ -284,9 +284,10 @@ input:focus-visible,textarea:focus-visible {
   background:var(--ink);
   color:var(--lime)
 }
-.brand-mark .icon {
-  width:26px;
-  height:26px
+.brand-mark img {
+  display:block;
+  width:100%;
+  height:100%
 }
 .brand-byline {
   border-inline-start:1px solid var(--line);
@@ -397,13 +398,11 @@ input:focus-visible,textarea:focus-visible {
   transform:rotate(-7deg);
   z-index:2
 }
-.map-center>span {
-  font-size:2.1rem;
-  font-weight:800;
-  letter-spacing:-.035em
-}
-.map-center>span>span {
-  color:var(--gold)
+.map-center img {
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:inherit
 }
 .map-node {
   position:absolute;
@@ -1583,9 +1582,6 @@ input:focus-visible,textarea:focus-visible {
   .map-center {
     border-radius:18px
   }
-  .map-center>span {
-    font-size:1.5rem
-  }
   .map-node {
     min-height:89px;
     width:29%;
@@ -1769,9 +1765,6 @@ input:focus-visible,textarea:focus-visible {
     width:24%;
     height:34%;
     left:38%
-  }
-  .map-center>span {
-    font-size:1.9rem
   }
   .map-node {
     width:29%;
