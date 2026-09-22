@@ -1,7 +1,7 @@
 # Public destinations verified against their websites and source repositories
 - id: alef-bot
   name: "אלף בוט"
-  summary: "הופכים שיעורים, הרצאות והקלטות לטקסט בעזרת AI, עם התאמה לתוכן תורני ועורך שמחבר בין הטקסט לשמע"
+  summary: "תמלול הקלטות עם AI, התאמה לתוכן תורני ועריכת הטקסט מול השמע"
   url: "https://alef-bot.top/"
   categories: [ai, learning]
   kind: "אתר"
@@ -15,7 +15,7 @@
 
 - id: tools
   name: "ארגז הכלים"
-  summary: "כלים קטנים לעריכת תוכן, עבודה עם קבצים ויצירה עם AI, לצד תוספי דפדפן וסקילים למפתחים"
+  summary: "עריכת תוכן וקבצים, יצירה עם AI ותוספים למפתחים"
   url: "https://tools.ze-kal.top/"
   categories: [computer, ai]
   kind: "אוסף כלים"
@@ -29,7 +29,7 @@
 
 - id: shir-bot
   name: "שיר בוט"
-  summary: "מוצאים מוזיקה יהודית וחסידית לפי שיר, אמן או אלבום, ועוקבים אחרי סינגלים חדשים וארכיון המוזיקה"
+  summary: "מוזיקה יהודית וחסידית לפי שיר, אמן או אלבום, וסינגלים חדשים"
   url: "https://shir-bot.ze-kal.top/"
   categories: [music]
   kind: "אתר"
@@ -43,7 +43,7 @@
 
 - id: singles-sorter
   name: "מסדר הסינגלים"
-  summary: "מסדרים את אוסף המוזיקה בתיקיות לפי אמנים, עם זיהוי שמות, ניקוי שמות קבצים ובחירה בין העתקה להעברה"
+  summary: "סידור אוסף המוזיקה בתיקיות לפי אמנים וניקוי שמות הקבצים"
   url: "https://singles-sorter.ze-kal.top/"
   categories: [music, computer]
   kind: "תוכנה"
