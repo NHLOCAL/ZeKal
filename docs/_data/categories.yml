@@ -1,0 +1,31 @@
+- id: ai
+  name: "AI ותוכן"
+  short_name: "AI ותוכן"
+  url: "/projects/ai/"
+  icon: spark
+  summary: "מהקלטה לטקסט, מעריכת כתוביות ליצירה עם בינה מלאכותית"
+  intent: "ליצור ולתמלל"
+
+- id: music
+  name: "מוזיקה ואודיו"
+  short_name: "מוזיקה"
+  url: "/projects/music/"
+  icon: music
+  summary: "למצוא שירים, לסדר את האוסף ולעבוד בנוחות עם קובצי מוזיקה"
+  intent: "לגלות ולסדר מוזיקה"
+
+- id: computer
+  name: "כלים למחשב"
+  short_name: "למחשב"
+  url: "/projects/computer/"
+  icon: terminal
+  summary: "תוכנות, סקריפטים וכלי דפדפן שחוסכים פעולות חוזרות"
+  intent: "לעשות סדר במחשב"
+
+- id: learning
+  name: "למידה וידע"
+  short_name: "למידה"
+  url: "/projects/learning/"
+  icon: book
+  summary: "לארגן את הלימוד, להרחיב את האנגלית ולהכיר את עולם הטכנולוגיה"
+  intent: "ללמוד משהו חדש"
