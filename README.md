@@ -34,15 +34,15 @@ bundle exec jekyll serve --host 127.0.0.1
 
 ```powershell
 cd docs
-bundle exec jekyll build
+bundle exec jekyll build --destination ../vendor/site-check
 cd ..
-node scripts/check-site.mjs
+node scripts/check-site.mjs vendor/site-check
 node --check docs/assets/js/catalog.js
 node --check docs/assets/js/gateway.js
 git diff --check
 ```
 
-בדיקת האתר אינה דורשת חבילות Node נוספות. היא מאמתת עמודים נדרשים, H1, כותרות ותיאורים, canonical, JSON-LD, קישורים פנימיים, תמונות שיתוף, מזהים, robots ו-sitemap.
+בדיקת האתר אינה דורשת חבילות Node נוספות. היא מאמתת עמודים נדרשים, H1, כותרות ותיאורים, canonical, JSON-LD, קישורים פנימיים, תמונות שיתוף, מזהים, robots ו-sitemap. תיקיית הבנייה הנפרדת מונעת משרת הפיתוח המקומי לדרוס את כתובות האתר בבדיקת ה-SEO.
 
 יש לבדוק גם בדפדפן: חיפוש בעברית ובאנגלית, סינון משולב, אפס תוצאות, הרחבה, חזרה, קישור עם פרמטרים, מצב כהה, תפריט במקלדת ותצוגה צרה. התוכן זמין גם כשה-JavaScript כבוי.
 
