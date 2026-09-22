@@ -1,11 +1,8 @@
 <footer class="site-footer">
-    <div class="container">
-        <p>© {{ "now" | date: "%Y" }} {{ site.title | split: "|" | first | strip }}. כל הזכויות שמורות.</p>
-        <!-- Optional: Add social links or other footer content here -->
-        <!-- Example:
-        <div class="social-links">
-            <a href="https://github.com/nhlocal/ZeKal" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
-        </div>
-        -->
-    </div>
+  <div class="container footer-top">
+    <div><a class="brand footer-brand" href="{{ '/' | relative_url }}"><span class="brand-mark" aria-hidden="true">{% include icon.html name='spark' %}</span><span class="brand-name">זה קל!</span></a><p>רעיונות שהופכים לכלים שימושיים</p></div>
+    <nav aria-label="תחומי הפרויקטים"><strong>מה תרצו לעשות?</strong>{% for category in site.data.categories %}<a href="{{ category.url | relative_url }}">{{ category.name }}</a>{% endfor %}</nav>
+    <nav aria-label="עוד מבית NH Local"><strong>נעים להכיר</strong><a href="https://blog.ze-kal.top/">הבלוג של NH Local</a><a href="https://github.com/NHLOCAL">קוד ופרויקטים ב-GitHub</a><a href="https://mitmachim.top/post/547285">הפרויקטים במתמחים טופ</a><a href="{{ '/' | relative_url }}#feedback">יצירת קשר</a></nav>
+  </div>
+  <div class="container footer-bottom"><span>© {{ 'now' | date: '%Y' }} זה קל! · נוצר על ידי <bdi>NH Local</bdi></span><span>יוצר. בונה. משתף.</span><a href="#content">בחזרה למעלה ↑</a></div>
 </footer>

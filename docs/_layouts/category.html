@@ -1,0 +1,10 @@
+---
+layout: default
+---
+{% assign category = site.data.categories | where: 'id', page.category | first %}
+<nav class="breadcrumbs" aria-label="מיקום באתר"><a href="{{ '/' | relative_url }}">זה קל!</a><span aria-hidden="true">/</span><a href="{{ '/' | relative_url }}#projects">הפרויקטים</a><span aria-hidden="true">/</span><span aria-current="page">{{ category.name }}</span></nav>
+<header class="category-hero"><span class="category-hero-icon">{% include icon.html name=category.icon %}</span><p class="eyebrow">{{ category.intent }}</p><h1>{{ page.title }}</h1><p>{{ category.summary }}</p><a class="button primary-button" href="#projects">לפרויקטים בתחום {% include icon.html name='arrow' %}</a></header>
+<nav class="category-navigation" aria-label="תחומים נוספים">{% for item in site.data.categories %}<a href="{{ item.url | relative_url }}"{% if item.id == page.category %} aria-current="page"{% endif %}>{% include icon.html name=item.icon %}{{ item.name }}</a>{% endfor %}</nav>
+<section id="projects" class="section-space" aria-labelledby="category-projects-title"><div class="section-heading"><h2 id="category-projects-title">הפרויקטים בתחום</h2><a class="text-link" href="{{ '/' | relative_url }}#projects">לכל הפרויקטים {% include icon.html name='arrow' %}</a></div>{% include catalog.html %}</section>
+<section class="category-guide section-space" aria-labelledby="guide-title"><div class="guide-heading"><p class="eyebrow">בוחרים את הכלי המתאים</p><h2 id="guide-title">מאיפה מתחילים?</h2></div><div class="guide-content">{{ content }}</div></section>
+{% include project-schema.html %}

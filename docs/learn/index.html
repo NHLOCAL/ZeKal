@@ -1,0 +1,18 @@
+---
+layout: default
+title: "לומדים בקלות: אנגלית, מחשבים וטכנולוגיה"
+description: "מדריכים בעברית למושגי מחשבים, תכנות וטכנולוגיה, ואוצר מילים באנגלית לפי רמות. בוחרים נושא, קוראים ומתרגלים בקצב שלכם"
+permalink: /learn/
+---
+<nav class="breadcrumbs" aria-label="מיקום באתר"><a href="{{ '/' | relative_url }}">זה קל!</a><span aria-hidden="true">/</span><span aria-current="page">לומדים בקלות</span></nav>
+<header class="category-hero"><p class="eyebrow">סקרנות היא התחלה מצוינת</p><h1>לומדים משהו חדש,<br>בקלי קלות.</h1><p>אנגלית שימושית, מחשבים וטכנולוגיה.<br>הסברים בעברית, מהצעד הראשון ובקצב שלכם.</p></header>
+<section class="section-space" id="common-words"><div class="section-heading"><div><p class="eyebrow">מילה ועוד מילה</p><h2>אוצר מילים באנגלית</h2></div></div><div class="learning-grid">
+<a href="{{ '/topics/basic-words-1.html' | relative_url }}"><span>01</span><h3>מילים בסיסיות, חלק 1</h3><p>המילים הראשונות שמתחילים איתן</p>{% include icon.html name='arrow' %}</a>
+<a href="{{ '/topics/basic-words-2.html' | relative_url }}"><span>02</span><h3>מילים בסיסיות, חלק 2</h3><p>מרחיבים את הבסיס וממשיכים לתרגל</p>{% include icon.html name='arrow' %}</a>
+<a href="{{ '/topics/advanced-words-1.html' | relative_url }}"><span>03</span><h3>מילים מתקדמות, חלק 1</h3><p>עוד מילים להבנה ולביטוי מדויק</p>{% include icon.html name='arrow' %}</a>
+<a href="{{ '/topics/advanced-words-2.html' | relative_url }}"><span>04</span><h3>מילים מתקדמות, חלק 2</h3><p>לוקחים את אוצר המילים צעד נוסף</p>{% include icon.html name='arrow' %}</a>
+</div></section>
+<section class="section-space" id="programming-and-computers"><div class="section-heading"><div><p class="eyebrow">מבינים מה עומד מאחורי המילים</p><h2>מחשבים וטכנולוגיה</h2></div></div><div class="learning-grid topics-grid">
+{% assign topic_pages = site.pages | where: 'section', 'learning' | sort: 'title' %}{% for topic in topic_pages %}{% if topic.url contains '/topics/' %}{% unless topic.url contains 'words' %}<a href="{{ topic.url | relative_url }}"><span>{% include icon.html name='terminal' %}</span><h3>{{ topic.title }}</h3><p>מושגים, תרגום והסברים בעברית</p>{% include icon.html name='arrow' %}</a>{% endunless %}{% endif %}{% endfor %}
+</div></section>
+<aside class="reading-next"><strong>מעדיפים ללמוד בצפייה?</strong><a href="{{ '/youtube-channel.html' | relative_url }}">סרטוני האנגלית של זה קל! {% include icon.html name='play' %}</a><a href="{{ '/projects/learning/' | relative_url }}">עוד כלים ללמידה {% include icon.html name='arrow' %}</a></aside>

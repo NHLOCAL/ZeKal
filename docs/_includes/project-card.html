@@ -1,0 +1,7 @@
+{% assign project = include.project %}
+<article class="project-card accent-{{ project.accent }}" id="project-{{ project.id }}" data-project data-categories="{{ project.categories | join: ' ' }}" data-search="{{ project.name | append: ' ' | append: project.summary | append: ' ' | append: project.platform | append: ' ' | escape }} {{ project.keywords | join: ' ' | escape }}">
+  <div class="project-card-top"><span class="project-icon">{% include icon.html name=project.icon %}</span><span class="project-kind">{{ project.kind }}</span>{% if project.status %}<span class="project-status">{{ project.status }}</span>{% endif %}</div>
+  <h3><a class="project-title-link" href="{{ project.url | relative_url }}">{{ project.name }}<span class="sr-only">, {{ project.action }}</span></a></h3>
+  <p>{{ project.summary }}</p>
+  <div class="project-card-bottom"><span>{{ project.platform }}</span><span class="project-go" aria-hidden="true">{% include icon.html name='arrow' %}</span></div>
+</article>

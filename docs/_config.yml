@@ -1,47 +1,49 @@
 title: "זה קל!"
-description: "הסברים פשוטים וברורים בעברית למונחי טכנולוגיה, מחשבים, תכנות ואנגלית. המדריך המלא למתחילים ומתקדמים כאן ב'זה קל!'"
+description: "כל הפרויקטים של NH Local במקום אחד: כלי AI ותמלול, מוזיקה, תוכנות למחשב ומדריכים בעברית. מוצאים את הכלי המתאים ומתחילים בקלות"
 baseurl: ""
 url: "https://ze-kal.top"
 language: "he"
-logo: "/assets/images/logo.png" # Important for SEO Tag
-
+lang: "he_IL"
+logo: "/assets/images/brand-mark.svg"
+author: "NH Local"
 theme: null
-
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-
 navbar:
-  - title: "בית"
-    url: /
-  - title: "כל הנושאים"
-    url: /#topics # Consider linking to specific topic pages if available
-  - title: "מילים נפוצות"
-    url: /#common-words # Consider linking to specific word list pages
-  - title: "תכנות ומחשבים"
-    url: /#programming-and-computers # Consider linking to specific tech pages
-  - title: "ערוץ יוטיוב"
-    url: /youtube-channel.html
+  - title: "כל הפרויקטים"
+    url: /#projects
+  - title: "לומדים בקלות"
+    url: /learn/
+  - title: "הבלוג"
+    url: https://blog.ze-kal.top/
   - title: "אודות"
-    url: /#about # Link to section on home page
-  - title: "משוב"
-    url: /#feedback # Link to section on home page
-
+    url: /#about
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-
 permalink: /:categories/:title.html
-
-google_fonts:
-  - family: "Rubik"
-    variants: "300,400,500,700"
-
-# Optional: SEO Tag specific configurations
 social:
-   name: Ze Kal!
-   links:
-     - https://github.com/nhlocal/ZeKal
-     - https://www.youtube.com/@Ze-Kal
+  name: "זה קל!"
+  links:
+    - https://github.com/NHLOCAL
+    - https://nhlocal.github.io/
+    - https://www.youtube.com/@Ze-Kal
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/social-card.png
+  - scope:
+      path: "topics"
+    values:
+      layout: default
+      section: learning
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - run.bat
+  - convert_to_table.py

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: "זה קל! - ערוץ היוטיוב"
+description: "לומדים אנגלית עם סרטונים, סיפורים ושירים של זה קל! בחרו רשימת צפייה ושיעור לתרגול בקצב שלכם"
+legacy: true
+section: learning
 ---
 
 <div class="youtube-intro-section">
